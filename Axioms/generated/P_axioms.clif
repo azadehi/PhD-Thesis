@@ -1,0 +1,8 @@
+(cl-text http://colore.oor.net/after/Axioms/P_axioms.clif
+(forall (x) (iff (not(= x null)) (P x x)))
+(forall (x y) (if (and (not(= x null)) (not(= y null))(P x y) (P y x) )  (= x y)))
+(forall (x y z) (if (and (not(= x null)) (not(= y null)) (not(= z null)) (P x y) (P y z)) (P x z)))
+
+(forall (x) (iff  (= x null)(not (P x x))))
+
+)

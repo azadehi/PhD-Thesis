@@ -1,0 +1,253 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 11240 was started by aidin12 on aidin12-HP-Pavilion-dv7-Notebook-PC,
+Sat Sep 19 03:21:49 2020
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/prover9 -t100 -f /home/aidin12/macleod/ontologies/after2/Axioms/conversions/B_axioms.all.p9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file /home/aidin12/macleod/ontologies/after2/Axioms/conversions/B_axioms.all.p9
+
+
+formulas(assumptions).
+(all x all y (-B(x,y) | PP(x,y))).
+(all x all y all z (-(B(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z (-(P(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z (-(B(x,y) & P(y,z)) | P(x,z))).
+(all x (x = null | P(x,x))).
+(all x all y (-(P(x,y) & P(y,x)) | x = y)).
+(all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))).
+(all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))).
+(all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))).
+end_of_list.
+
+============================== end of input ==========================
+
+% From the command line: assign(max_seconds, 100).
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all x all y (-B(x,y) | PP(x,y))) # label(non_clause).  [assumption].
+2 (all x all y all z (-(B(x,y) & B(y,z)) | B(x,z))) # label(non_clause).  [assumption].
+3 (all x all y all z (-(P(x,y) & B(y,z)) | B(x,z))) # label(non_clause).  [assumption].
+4 (all x all y all z (-(B(x,y) & P(y,z)) | P(x,z))) # label(non_clause).  [assumption].
+5 (all x (x = null | P(x,x))) # label(non_clause).  [assumption].
+6 (all x all y (-(P(x,y) & P(y,x)) | x = y)) # label(non_clause).  [assumption].
+7 (all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))) # label(non_clause).  [assumption].
+8 (all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))) # label(non_clause).  [assumption].
+9 (all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))) # label(non_clause).  [assumption].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-B(x,y) | PP(x,y).  [clausify(1)].
+-B(x,y) | -B(y,z) | B(x,z).  [clausify(2)].
+-P(x,y) | -B(y,z) | B(x,z).  [clausify(3)].
+-B(x,y) | -P(y,z) | P(x,z).  [clausify(4)].
+null = x | P(x,x).  [clausify(5)].
+-P(x,y) | -P(y,x) | y = x.  [clausify(6)].
+-P(x,y) | -P(y,z) | P(x,z).  [clausify(7)].
+null != x | -P(y,x).  [clausify(8)].
+null != x | -P(x,y).  [clausify(8)].
+P(f1(x),x) | P(x,f1(x)) | null = x.  [clausify(8)].
+-PP(x,y) | P(x,y).  [clausify(9)].
+-PP(x,y) | -P(y,x).  [clausify(9)].
+-P(x,y) | P(y,x) | PP(x,y).  [clausify(9)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating PP/2
+10 -PP(x,y) | P(x,y).  [clausify(9)].
+11 -B(x,y) | PP(x,y).  [clausify(1)].
+Derived: P(x,y) | -B(x,y).  [resolve(10,a,11,b)].
+12 -PP(x,y) | -P(y,x).  [clausify(9)].
+Derived: -P(x,y) | -B(y,x).  [resolve(12,a,11,b)].
+13 -P(x,y) | P(y,x) | PP(x,y).  [clausify(9)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, P, B ]).
+Function symbol precedence:  function_order([ null, f1 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+kept:      14 -B(x,y) | -B(y,z) | B(x,z).  [clausify(2)].
+kept:      15 -P(x,y) | -B(y,z) | B(x,z).  [clausify(3)].
+kept:      16 -B(x,y) | -P(y,z) | P(x,z).  [clausify(4)].
+kept:      17 null = x | P(x,x).  [clausify(5)].
+kept:      18 -P(x,y) | -P(y,x) | y = x.  [clausify(6)].
+kept:      19 -P(x,y) | -P(y,z) | P(x,z).  [clausify(7)].
+kept:      20 null != x | -P(y,x).  [clausify(8)].
+kept:      21 null != x | -P(x,y).  [clausify(8)].
+kept:      22 P(f1(x),x) | P(x,f1(x)) | null = x.  [clausify(8)].
+kept:      23 P(x,y) | -B(x,y).  [resolve(10,a,11,b)].
+kept:      24 -P(x,y) | -B(y,x).  [resolve(12,a,11,b)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+14 -B(x,y) | -B(y,z) | B(x,z).  [clausify(2)].
+15 -P(x,y) | -B(y,z) | B(x,z).  [clausify(3)].
+16 -B(x,y) | -P(y,z) | P(x,z).  [clausify(4)].
+17 null = x | P(x,x).  [clausify(5)].
+18 -P(x,y) | -P(y,x) | y = x.  [clausify(6)].
+19 -P(x,y) | -P(y,z) | P(x,z).  [clausify(7)].
+20 null != x | -P(y,x).  [clausify(8)].
+21 null != x | -P(x,y).  [clausify(8)].
+22 P(f1(x),x) | P(x,f1(x)) | null = x.  [clausify(8)].
+23 P(x,y) | -B(x,y).  [resolve(10,a,11,b)].
+24 -P(x,y) | -B(y,x).  [resolve(12,a,11,b)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+given #1 (I,wt=9): 14 -B(x,y) | -B(y,z) | B(x,z).  [clausify(2)].
+
+given #2 (I,wt=9): 15 -P(x,y) | -B(y,z) | B(x,z).  [clausify(3)].
+
+given #3 (I,wt=9): 16 -B(x,y) | -P(y,z) | P(x,z).  [clausify(4)].
+
+given #4 (I,wt=6): 17 null = x | P(x,x).  [clausify(5)].
+
+given #5 (I,wt=9): 18 -P(x,y) | -P(y,x) | y = x.  [clausify(6)].
+
+given #6 (I,wt=9): 19 -P(x,y) | -P(y,z) | P(x,z).  [clausify(7)].
+
+given #7 (I,wt=6): 20 null != x | -P(y,x).  [clausify(8)].
+
+given #8 (I,wt=6): 21 null != x | -P(x,y).  [clausify(8)].
+
+given #9 (I,wt=11): 22 P(f1(x),x) | P(x,f1(x)) | null = x.  [clausify(8)].
+
+given #10 (I,wt=6): 23 P(x,y) | -B(x,y).  [resolve(10,a,11,b)].
+
+given #11 (I,wt=6): 24 -P(x,y) | -B(y,x).  [resolve(12,a,11,b)].
+
+given #12 (A,wt=3): 25 -P(x,null).  [ur(20,a,xx)].
+
+given #13 (F,wt=3): 26 -P(null,x).  [ur(21,a,xx)].
+
+given #14 (F,wt=3): 30 -B(x,null).  [ur(23,a,25,a)].
+
+given #15 (F,wt=3): 31 -B(null,x).  [ur(23,a,26,a)].
+
+given #16 (T,wt=11): 27 P(x,f1(x)) | null = x | f1(x) != null.  [resolve(22,a,21,b),flip(c)].
+
+given #17 (T,wt=14): 28 P(x,f1(x)) | null = x | -P(y,f1(x)) | P(y,x).  [resolve(22,a,19,b)].
+
+given #18 (T,wt=14): 29 P(x,f1(x)) | null = x | -P(x,y) | P(f1(x),y).  [resolve(22,a,19,a)].
+
+given #19 (T,wt=22): 32 P(x,f1(x)) | null = x | P(f1(f1(x)),x) | P(f1(x),f1(f1(x))) | f1(x) = null.  [resolve(28,c,22,a),flip(e)].
+
+given #20 (A,wt=36): 33 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | P(f1(f1(f1(x))),x).  [resolve(32,c,29,c),flip(f)].
+
+given #21 (T,wt=22): 34 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | f1(f1(x)) != null.  [resolve(32,c,21,b),flip(e)].
+
+given #22 (T,wt=25): 35 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | -P(y,f1(f1(x))) | P(y,x).  [resolve(32,c,19,b)].
+
+given #23 (T,wt=25): 36 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | -P(x,y) | P(f1(f1(x)),y).  [resolve(32,c,19,a)].
+
+given #24 (T,wt=36): 38 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | f1(f1(f1(x))) != null.  [resolve(33,g,21,b),flip(g)].
+
+given #25 (A,wt=53): 37 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | P(f1(f1(f1(x))),f1(f1(f1(f1(x))))) | f1(f1(f1(x))) = null | P(f1(f1(f1(f1(x)))),x).  [resolve(33,g,29,c),flip(h)].
+
+given #26 (T,wt=39): 39 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | -P(y,f1(f1(f1(x)))) | P(y,x).  [resolve(33,g,19,b)].
+
+given #27 (T,wt=39): 40 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | -P(x,y) | P(f1(f1(f1(x))),y).  [resolve(33,g,19,a)].
+
+given #28 (T,wt=53): 43 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | P(f1(f1(f1(x))),f1(f1(f1(f1(x))))) | f1(f1(f1(x))) = null | f1(f1(f1(f1(x)))) != null.  [resolve(37,i,21,b),flip(i)].
+
+given #29 (T,wt=56): 44 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | P(f1(f1(f1(x))),f1(f1(f1(f1(x))))) | f1(f1(f1(x))) = null | -P(y,f1(f1(f1(f1(x))))) | P(y,x).  [resolve(37,i,19,b)].
+
+given #30 (A,wt=73): 41 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(f1(f1(f1(x))))),x) | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | P(f1(f1(f1(x))),f1(f1(f1(f1(x))))) | f1(f1(f1(x))) = null | P(f1(f1(f1(f1(x)))),f1(f1(f1(f1(f1(x)))))) | f1(f1(f1(f1(x)))) = null.  [resolve(35,e,33,g),flip(g)].
+
+given #31 (T,wt=56): 45 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | P(f1(f1(f1(x))),f1(f1(f1(f1(x))))) | f1(f1(f1(x))) = null | -P(x,y) | P(f1(f1(f1(f1(x)))),y).  [resolve(37,i,19,a)].
+
+given #32 (T,wt=73): 46 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | P(f1(f1(f1(x))),f1(f1(f1(f1(x))))) | f1(f1(f1(x))) = null | P(f1(f1(f1(f1(x)))),f1(f1(f1(f1(f1(x)))))) | f1(f1(f1(f1(x)))) = null | f1(f1(f1(f1(f1(x))))) != null.  [resolve(41,e,21,b),flip(k)].
+
+given #33 (T,wt=76): 47 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | P(f1(f1(f1(x))),f1(f1(f1(f1(x))))) | f1(f1(f1(x))) = null | P(f1(f1(f1(f1(x)))),f1(f1(f1(f1(f1(x)))))) | f1(f1(f1(f1(x)))) = null | -P(y,f1(f1(f1(f1(f1(x)))))) | P(y,x).  [resolve(41,e,19,b)].
+
+given #34 (T,wt=76): 48 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | P(f1(f1(f1(x))),f1(f1(f1(f1(x))))) | f1(f1(f1(x))) = null | P(f1(f1(f1(f1(x)))),f1(f1(f1(f1(f1(x)))))) | f1(f1(f1(f1(x)))) = null | -P(x,y) | P(f1(f1(f1(f1(f1(x))))),y).  [resolve(41,e,19,a)].
+
+given #35 (A,wt=96): 42 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | P(f1(f1(f1(x))),f1(f1(f1(f1(x))))) | f1(f1(f1(x))) = null | P(f1(f1(f1(f1(x)))),f1(f1(f1(f1(f1(x)))))) | f1(f1(f1(f1(x)))) = null | P(f1(f1(f1(f1(f1(x))))),f1(f1(f1(f1(f1(f1(x))))))) | f1(f1(f1(f1(f1(x))))) = null | P(f1(f1(f1(f1(f1(f1(x)))))),x).  [resolve(37,i,36,e),flip(j)].
+
+given #36 (T,wt=96): 49 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | P(f1(f1(f1(x))),f1(f1(f1(f1(x))))) | f1(f1(f1(x))) = null | P(f1(f1(f1(f1(x)))),f1(f1(f1(f1(f1(x)))))) | f1(f1(f1(f1(x)))) = null | P(f1(f1(f1(f1(f1(x))))),f1(f1(f1(f1(f1(f1(x))))))) | f1(f1(f1(f1(f1(x))))) = null | f1(f1(f1(f1(f1(f1(x)))))) != null.  [resolve(42,m,21,b),flip(m)].
+
+given #37 (T,wt=99): 50 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | P(f1(f1(f1(x))),f1(f1(f1(f1(x))))) | f1(f1(f1(x))) = null | P(f1(f1(f1(f1(x)))),f1(f1(f1(f1(f1(x)))))) | f1(f1(f1(f1(x)))) = null | P(f1(f1(f1(f1(f1(x))))),f1(f1(f1(f1(f1(f1(x))))))) | f1(f1(f1(f1(f1(x))))) = null | -P(y,f1(f1(f1(f1(f1(f1(x))))))) | P(y,x).  [resolve(42,m,19,b)].
+
+given #38 (T,wt=99): 51 P(x,f1(x)) | null = x | P(f1(x),f1(f1(x))) | f1(x) = null | P(f1(f1(x)),f1(f1(f1(x)))) | f1(f1(x)) = null | P(f1(f1(f1(x))),f1(f1(f1(f1(x))))) | f1(f1(f1(x))) = null | P(f1(f1(f1(f1(x)))),f1(f1(f1(f1(f1(x)))))) | f1(f1(f1(f1(x)))) = null | P(f1(f1(f1(f1(f1(x))))),f1(f1(f1(f1(f1(f1(x))))))) | f1(f1(f1(f1(f1(x))))) = null | -P(x,y) | P(f1(f1(f1(f1(f1(f1(x)))))),y).  [resolve(42,m,19,a)].
+
+============================== STATISTICS ============================
+
+Given=38. Generated=152. Kept=38. proofs=0.
+Usable=38. Sos=0. Demods=0. Limbo=0, Disabled=15. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=45.
+Forward_subsumed=69. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=411. Nonunit_bsub_feature_tests=44.
+Megabytes=0.18.
+User_CPU=0.02, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+SEARCH FAILED
+
+Exiting with failure.
+
+------ process 11240 exit (sos_empty) ------
+
+Process 11240 exit (sos_empty) Sat Sep 19 03:21:49 2020
+
+========================== MACLEOD SUMMARY ===========================
+reasoner: /home/aidin12/macleod/Reasoning/prover9_bin/prover9
+status: 
+execution finished: Sat Sep 19 03:21:51 2020
+total CPU time used: 0
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/prover9 -t100 -f /home/aidin12/macleod/ontologies/after2/Axioms/conversions/B_axioms.all.p9"
+============================ end of footer ===========================

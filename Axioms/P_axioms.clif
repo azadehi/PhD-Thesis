@@ -1,0 +1,10 @@
+(cl-text http://colore.oor.net/after2/Axioms/P_axioms.clif
+(forall (x) (P x x))
+(forall (x y) (if (and (P x y) (P y x) )  (= x y)))
+(forall (x y z) (if (and  (P x y) (P y z)) (P x z)))
+
+
+
+
+
+)

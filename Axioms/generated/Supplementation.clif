@@ -1,0 +1,8 @@
+(cl-text http://colore.oor.net/after/Axioms/Supplementation.clif
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Discrete.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Proper_part.clif)
+
+(forall (x y) (if (PP x y) (exists (z) (and (P z y) (D z x)))))
+
+)

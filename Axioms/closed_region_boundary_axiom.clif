@@ -1,0 +1,11 @@
+(cl-text http://colore.oor.net/after/Axioms/closed_region_boundary_axiom.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_Overlap.clif)
+(cl-imports http://colore.oor.net/after/Definitions/Point.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Universal.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Whole_boundary.clif)
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+
+(forall (x) (iff (= (bdy x) null) (forall (z) (if (P z x)(I z x)))) )
+
+
+)

@@ -1,0 +1,6 @@
+(cl-text http://colore.oor.net/after/Axioms/Pre_Null.clif
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+
+(forall (x) (if (not(= x Null)) (P x x)))
+
+)

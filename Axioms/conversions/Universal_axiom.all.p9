@@ -1,0 +1,26 @@
+formulas(assumptions).
+(all y  ((exists t  (B(t,y) & P(t,cuniversal))) | =(t,null))).
+(all y  ((exists t  (B(t,cuniversal) & P(t,cuniversal))) | I(y,cuniversal))).
+(all x all y  (-(B(x,y)) | PP(x,y))).
+(all x all y all z  (-(B(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z  (-(P(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z  (-(B(x,y) & P(y,z)) | P(x,z))).
+(all x all y  (-(B(x,y)) | -(=(x,y)))).
+(all x  (=(x,null) | P(x,x))).
+(all x all y  (-(-(=(x,null)) & -(=(y,null))) | -(P(x,y) & P(y,x)) | =(x,y))).
+(all x all y all z  (-(-(=(x,null)) & -(=(y,null)) & -(=(z,null))) | -(P(x,y) & P(y,z)) | P(x,z))).
+(all y  (-(P(null,y)) & -(P(y,null)))).
+(all x  ((=(x,null) | P(x,cuniversal)) & (-(P(x,cuniversal)) | -(=(x,null))))).
+-(P(null,null)).
+(all x  (-(-(=(x,null)) & P(x,cuniversal)) | D(null,x))).
+(all x all y  (-(=(x,null) & =(y,null)) | =(x,y))).
+(all x  ((-(P(x,cuniversal)) | -(=(x,null))) & (=(x,null) | P(x,cuniversal)))).
+(all x  ((-(=(x,null)) | -(P(x,cuniversal))) & (P(x,cuniversal) | =(x,null)))).
+(all x all y  ((-(I(x,y)) | (PP(x,y) & -(B(x,y)) & (all z  (-(B(z,y)) | D(z,x))))) & (-(PP(x,y) & -(B(x,y)) & (all z  (-(B(z,y)) | D(z,x)))) | I(x,y)))).
+(all x  (=(bdy(x),null) | (B(bdy(x),x) & (all z  (-(B(z,x)) | P(z,bdy(x))))))).
+(all x all y  ((-(D(x,y)) | -(O(x,y))) & (O(x,y) | D(x,y)))).
+(all x all y  ((-(PP(x,y)) | (P(x,y) & -(P(y,x)))) & (-(P(x,y) & -(P(y,x))) | PP(x,y)))).
+(all x all y  ((-(O(x,y)) | (exists z  (P(z,x) & P(z,y)))) & (-(exists z  (P(z,x) & P(z,y))) | O(x,y)))).
+(all x all y  ((-(=(x,y)) | (all z  ((-(P(z,x)) | P(z,y)) & (-(P(z,y)) | P(z,x))))) & (-(all z  ((-(P(z,x)) | P(z,y)) & (-(P(z,y)) | P(z,x)))) | =(x,y)))).
+end_of_list.
+

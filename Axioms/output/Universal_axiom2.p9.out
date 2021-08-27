@@ -1,0 +1,337 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 11292 was started by aidin12 on aidin12-HP-Pavilion-dv7-Notebook-PC,
+Sat Sep 19 03:25:32 2020
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/prover9 -t100 -f /home/aidin12/macleod/ontologies/after2/Axioms/conversions/Universal_axiom2.all.p9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file /home/aidin12/macleod/ontologies/after2/Axioms/conversions/Universal_axiom2.all.p9
+
+
+formulas(assumptions).
+-(exists x B(x,cuniversal)).
+(all x ((x != cuniversal | (all y (y = null | P(y,x)))) & (-(all y (y = null | P(y,x))) | x = cuniversal))).
+(all x all y (-B(x,y) | PP(x,y))).
+(all x all y all z (-(B(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z (-(P(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z (-(B(x,y) & P(y,z)) | P(x,z))).
+(exists y all x (x = null | P(x,y))).
+(all x (x = null | P(x,x))).
+(all x all y (-(P(x,y) & P(y,x)) | x = y)).
+(all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))).
+(all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))).
+(all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))).
+end_of_list.
+
+============================== end of input ==========================
+
+% From the command line: assign(max_seconds, 100).
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 -(exists x B(x,cuniversal)) # label(non_clause).  [assumption].
+2 (all x ((x != cuniversal | (all y (y = null | P(y,x)))) & (-(all y (y = null | P(y,x))) | x = cuniversal))) # label(non_clause).  [assumption].
+3 (all x all y (-B(x,y) | PP(x,y))) # label(non_clause).  [assumption].
+4 (all x all y all z (-(B(x,y) & B(y,z)) | B(x,z))) # label(non_clause).  [assumption].
+5 (all x all y all z (-(P(x,y) & B(y,z)) | B(x,z))) # label(non_clause).  [assumption].
+6 (all x all y all z (-(B(x,y) & P(y,z)) | P(x,z))) # label(non_clause).  [assumption].
+7 (exists y all x (x = null | P(x,y))) # label(non_clause).  [assumption].
+8 (all x (x = null | P(x,x))) # label(non_clause).  [assumption].
+9 (all x all y (-(P(x,y) & P(y,x)) | x = y)) # label(non_clause).  [assumption].
+10 (all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))) # label(non_clause).  [assumption].
+11 (all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))) # label(non_clause).  [assumption].
+12 (all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))) # label(non_clause).  [assumption].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-B(x,cuniversal).  [clausify(1)].
+cuniversal != x | null = y | P(y,x).  [clausify(2)].
+null != f1(x) | cuniversal = x.  [clausify(2)].
+-P(f1(x),x) | cuniversal = x.  [clausify(2)].
+-B(x,y) | PP(x,y).  [clausify(3)].
+-B(x,y) | -B(y,z) | B(x,z).  [clausify(4)].
+-P(x,y) | -B(y,z) | B(x,z).  [clausify(5)].
+-B(x,y) | -P(y,z) | P(x,z).  [clausify(6)].
+null = x | P(x,c1).  [clausify(7)].
+null = x | P(x,x).  [clausify(8)].
+-P(x,y) | -P(y,x) | y = x.  [clausify(9)].
+-P(x,y) | -P(y,z) | P(x,z).  [clausify(10)].
+null != x | -P(y,x).  [clausify(11)].
+null != x | -P(x,y).  [clausify(11)].
+P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(11)].
+-PP(x,y) | P(x,y).  [clausify(12)].
+-PP(x,y) | -P(y,x).  [clausify(12)].
+-P(x,y) | P(y,x) | PP(x,y).  [clausify(12)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating PP/2
+13 -PP(x,y) | P(x,y).  [clausify(12)].
+14 -B(x,y) | PP(x,y).  [clausify(3)].
+Derived: P(x,y) | -B(x,y).  [resolve(13,a,14,b)].
+15 -PP(x,y) | -P(y,x).  [clausify(12)].
+Derived: -P(x,y) | -B(y,x).  [resolve(15,a,14,b)].
+16 -P(x,y) | P(y,x) | PP(x,y).  [clausify(12)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, P, B ]).
+Function symbol precedence:  function_order([ null, cuniversal, c1, f1, f2 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+kept:      17 -B(x,cuniversal).  [clausify(1)].
+kept:      18 cuniversal != x | null = y | P(y,x).  [clausify(2)].
+           19 null != f1(x) | cuniversal = x.  [clausify(2)].
+kept:      20 f1(x) != null | cuniversal = x.  [copy(19),flip(a)].
+kept:      21 -P(f1(x),x) | cuniversal = x.  [clausify(2)].
+kept:      22 -B(x,y) | -B(y,z) | B(x,z).  [clausify(4)].
+kept:      23 -P(x,y) | -B(y,z) | B(x,z).  [clausify(5)].
+kept:      24 -B(x,y) | -P(y,z) | P(x,z).  [clausify(6)].
+kept:      25 null = x | P(x,c1).  [clausify(7)].
+kept:      26 null = x | P(x,x).  [clausify(8)].
+kept:      27 -P(x,y) | -P(y,x) | y = x.  [clausify(9)].
+kept:      28 -P(x,y) | -P(y,z) | P(x,z).  [clausify(10)].
+kept:      29 null != x | -P(y,x).  [clausify(11)].
+kept:      30 null != x | -P(x,y).  [clausify(11)].
+kept:      31 P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(11)].
+kept:      32 P(x,y) | -B(x,y).  [resolve(13,a,14,b)].
+kept:      33 -P(x,y) | -B(y,x).  [resolve(15,a,14,b)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+17 -B(x,cuniversal).  [clausify(1)].
+18 cuniversal != x | null = y | P(y,x).  [clausify(2)].
+20 f1(x) != null | cuniversal = x.  [copy(19),flip(a)].
+21 -P(f1(x),x) | cuniversal = x.  [clausify(2)].
+22 -B(x,y) | -B(y,z) | B(x,z).  [clausify(4)].
+23 -P(x,y) | -B(y,z) | B(x,z).  [clausify(5)].
+24 -B(x,y) | -P(y,z) | P(x,z).  [clausify(6)].
+25 null = x | P(x,c1).  [clausify(7)].
+26 null = x | P(x,x).  [clausify(8)].
+27 -P(x,y) | -P(y,x) | y = x.  [clausify(9)].
+28 -P(x,y) | -P(y,z) | P(x,z).  [clausify(10)].
+29 null != x | -P(y,x).  [clausify(11)].
+30 null != x | -P(x,y).  [clausify(11)].
+31 P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(11)].
+32 P(x,y) | -B(x,y).  [resolve(13,a,14,b)].
+33 -P(x,y) | -B(y,x).  [resolve(15,a,14,b)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+given #1 (I,wt=3): 17 -B(x,cuniversal).  [clausify(1)].
+
+given #2 (I,wt=9): 18 cuniversal != x | null = y | P(y,x).  [clausify(2)].
+
+given #3 (I,wt=7): 20 f1(x) != null | cuniversal = x.  [copy(19),flip(a)].
+
+given #4 (I,wt=7): 21 -P(f1(x),x) | cuniversal = x.  [clausify(2)].
+
+given #5 (I,wt=9): 22 -B(x,y) | -B(y,z) | B(x,z).  [clausify(4)].
+
+given #6 (I,wt=9): 23 -P(x,y) | -B(y,z) | B(x,z).  [clausify(5)].
+
+given #7 (I,wt=9): 24 -B(x,y) | -P(y,z) | P(x,z).  [clausify(6)].
+
+given #8 (I,wt=6): 25 null = x | P(x,c1).  [clausify(7)].
+
+given #9 (I,wt=6): 26 null = x | P(x,x).  [clausify(8)].
+
+given #10 (I,wt=9): 27 -P(x,y) | -P(y,x) | y = x.  [clausify(9)].
+
+given #11 (I,wt=9): 28 -P(x,y) | -P(y,z) | P(x,z).  [clausify(10)].
+
+given #12 (I,wt=6): 29 null != x | -P(y,x).  [clausify(11)].
+
+given #13 (I,wt=6): 30 null != x | -P(x,y).  [clausify(11)].
+
+given #14 (I,wt=11): 31 P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(11)].
+
+given #15 (I,wt=6): 32 P(x,y) | -B(x,y).  [resolve(13,a,14,b)].
+
+given #16 (I,wt=6): 33 -P(x,y) | -B(y,x).  [resolve(15,a,14,b)].
+
+given #17 (A,wt=6): 34 null = x | P(x,cuniversal).  [xx_res(18,a)].
+
+given #18 (F,wt=3): 40 -P(x,null).  [ur(29,a,xx)].
+
+given #19 (F,wt=3): 41 -P(null,x).  [ur(30,a,xx)].
+
+given #20 (F,wt=3): 49 -B(x,null).  [ur(32,a,40,a)].
+
+given #21 (F,wt=3): 50 -B(null,x).  [ur(32,a,41,a)].
+
+given #22 (T,wt=6): 39 c1 != null | null = x.  [resolve(29,b,25,b),flip(a)].
+
+given #23 (T,wt=6): 45 null = x | cuniversal != null.  [resolve(34,b,29,b),flip(b)].
+
+given #24 (T,wt=7): 35 f1(c1) = null | c1 = cuniversal.  [resolve(25,b,21,a),flip(a),flip(b)].
+
+given #25 (T,wt=3): 51 c1 = cuniversal.  [resolve(35,a,20,a),flip(b),merge(b)].
+
+given #26 (A,wt=11): 42 P(x,f2(x)) | null = x | f2(x) != null.  [resolve(31,a,30,b),flip(c)].
+
+given #27 (T,wt=9): 46 null = x | -P(y,x) | P(y,cuniversal).  [resolve(34,b,28,b)].
+
+given #28 (T,wt=9): 47 null = x | -P(cuniversal,y) | P(x,y).  [resolve(34,b,28,a)].
+
+given #29 (T,wt=9): 48 null = x | -P(cuniversal,x) | cuniversal = x.  [resolve(34,b,27,b),flip(c)].
+
+given #30 (T,wt=11): 52 null = x | P(f2(x),cuniversal) | P(x,f2(x)).  [resolve(46,b,31,a),merge(d)].
+
+given #31 (A,wt=14): 43 P(x,f2(x)) | null = x | -P(y,f2(x)) | P(y,x).  [resolve(31,a,28,b)].
+
+given #32 (T,wt=14): 44 P(x,f2(x)) | null = x | -P(x,y) | P(f2(x),y).  [resolve(31,a,28,a)].
+
+given #33 (T,wt=14): 53 null = x | P(x,f2(x)) | -P(y,f2(x)) | P(y,cuniversal).  [resolve(52,b,28,b)].
+
+given #34 (T,wt=14): 54 null = x | P(x,f2(x)) | -P(cuniversal,y) | P(f2(x),y).  [resolve(52,b,28,a)].
+
+given #35 (T,wt=22): 55 P(x,f2(x)) | null = x | P(f2(f2(x)),x) | P(f2(x),f2(f2(x))) | f2(x) = null.  [resolve(43,c,31,a),flip(e)].
+
+given #36 (A,wt=22): 56 P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),cuniversal) | null = x | P(x,f2(x)).  [resolve(44,c,52,b),flip(b)].
+
+given #37 (T,wt=22): 59 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | f2(f2(x)) != null.  [resolve(55,c,30,b),flip(e)].
+
+given #38 (T,wt=25): 60 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | -P(y,f2(f2(x))) | P(y,x).  [resolve(55,c,28,b)].
+
+given #39 (T,wt=25): 61 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | -P(x,y) | P(f2(f2(x)),y).  [resolve(55,c,28,a)].
+
+given #40 (T,wt=25): 62 P(f2(x),f2(f2(x))) | f2(x) = null | null = x | P(x,f2(x)) | -P(y,f2(f2(x))) | P(y,cuniversal).  [resolve(56,c,28,b)].
+
+given #41 (A,wt=36): 57 P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | null = x | P(x,f2(x)) | P(f2(f2(f2(x))),cuniversal).  [resolve(55,c,53,c),flip(b)].
+
+given #42 (T,wt=25): 63 P(f2(x),f2(f2(x))) | f2(x) = null | null = x | P(x,f2(x)) | -P(cuniversal,y) | P(f2(f2(x)),y).  [resolve(56,c,28,a)].
+
+given #43 (T,wt=36): 58 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | P(f2(f2(f2(x))),x).  [resolve(55,c,44,c),flip(f)].
+
+given #44 (T,wt=36): 67 P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | null = x | P(x,f2(x)) | f2(f2(f2(x))) != null.  [resolve(57,g,30,b),flip(g)].
+
+given #45 (T,wt=39): 68 P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | null = x | P(x,f2(x)) | -P(y,f2(f2(f2(x)))) | P(y,cuniversal).  [resolve(57,g,28,b)].
+
+given #46 (A,wt=53): 64 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(f2(f2(x)))),x) | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null.  [resolve(60,e,55,c),flip(g)].
+
+given #47 (T,wt=39): 69 P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | null = x | P(x,f2(x)) | -P(cuniversal,y) | P(f2(f2(f2(x))),y).  [resolve(57,g,28,a)].
+
+given #48 (T,wt=39): 71 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | -P(y,f2(f2(f2(x)))) | P(y,x).  [resolve(58,g,28,b)].
+
+given #49 (T,wt=39): 72 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | -P(x,y) | P(f2(f2(f2(x))),y).  [resolve(58,g,28,a)].
+
+given #50 (T,wt=53): 65 P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),cuniversal) | P(f2(x),f2(f2(x))) | f2(x) = null | null = x | P(x,f2(x)).  [resolve(61,e,56,c),flip(b)].
+
+given #51 (A,wt=73): 66 P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | null = x | P(x,f2(x)) | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),f2(f2(f2(f2(f2(x)))))) | f2(f2(f2(f2(x)))) = null | P(f2(f2(f2(f2(f2(x))))),cuniversal).  [resolve(57,g,61,e),flip(h)].
+
+given #52 (T,wt=53): 75 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | f2(f2(f2(f2(x)))) != null.  [resolve(64,e,30,b),flip(i)].
+
+given #53 (T,wt=56): 76 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | -P(y,f2(f2(f2(f2(x))))) | P(y,x).  [resolve(64,e,28,b)].
+
+given #54 (T,wt=56): 77 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | -P(x,y) | P(f2(f2(f2(f2(x)))),y).  [resolve(64,e,28,a)].
+
+given #55 (T,wt=56): 78 P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(x),f2(f2(x))) | f2(x) = null | null = x | P(x,f2(x)) | -P(y,f2(f2(f2(f2(x))))) | P(y,cuniversal).  [resolve(65,e,28,b)].
+
+given #56 (A,wt=73): 70 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),f2(f2(f2(f2(f2(x)))))) | f2(f2(f2(f2(x)))) = null | P(f2(f2(f2(f2(f2(x))))),x).  [resolve(58,g,61,e),flip(h)].
+
+given #57 (T,wt=56): 79 P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(x),f2(f2(x))) | f2(x) = null | null = x | P(x,f2(x)) | -P(cuniversal,y) | P(f2(f2(f2(f2(x)))),y).  [resolve(65,e,28,a)].
+
+given #58 (T,wt=73): 80 P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | null = x | P(x,f2(x)) | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),f2(f2(f2(f2(f2(x)))))) | f2(f2(f2(f2(x)))) = null | f2(f2(f2(f2(f2(x))))) != null.  [resolve(66,k,30,b),flip(k)].
+
+given #59 (T,wt=76): 81 P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | null = x | P(x,f2(x)) | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),f2(f2(f2(f2(f2(x)))))) | f2(f2(f2(f2(x)))) = null | -P(y,f2(f2(f2(f2(f2(x)))))) | P(y,cuniversal).  [resolve(66,k,28,b)].
+
+given #60 (T,wt=76): 82 P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | null = x | P(x,f2(x)) | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),f2(f2(f2(f2(f2(x)))))) | f2(f2(f2(f2(x)))) = null | -P(cuniversal,y) | P(f2(f2(f2(f2(f2(x))))),y).  [resolve(66,k,28,a)].
+
+given #61 (A,wt=96): 73 P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | null = x | P(x,f2(x)) | P(f2(f2(f2(f2(f2(f2(x)))))),cuniversal) | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),f2(f2(f2(f2(f2(x)))))) | f2(f2(f2(f2(x)))) = null | P(f2(f2(f2(f2(f2(x))))),f2(f2(f2(f2(f2(f2(x))))))) | f2(f2(f2(f2(f2(x))))) = null.  [resolve(68,g,58,g),flip(i)].
+
+given #62 (T,wt=76): 83 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),f2(f2(f2(f2(f2(x)))))) | f2(f2(f2(f2(x)))) = null | -P(y,f2(f2(f2(f2(f2(x)))))) | P(y,x).  [resolve(70,k,28,b)].
+
+given #63 (T,wt=76): 84 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),f2(f2(f2(f2(f2(x)))))) | f2(f2(f2(f2(x)))) = null | -P(x,y) | P(f2(f2(f2(f2(f2(x))))),y).  [resolve(70,k,28,a)].
+
+given #64 (T,wt=96): 74 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),f2(f2(f2(f2(f2(x)))))) | f2(f2(f2(f2(x)))) = null | P(f2(f2(f2(f2(f2(x))))),f2(f2(f2(f2(f2(f2(x))))))) | f2(f2(f2(f2(f2(x))))) = null | P(f2(f2(f2(f2(f2(f2(x)))))),x).  [resolve(64,e,61,e),flip(j)].
+
+given #65 (T,wt=96): 85 P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | null = x | P(x,f2(x)) | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),f2(f2(f2(f2(f2(x)))))) | f2(f2(f2(f2(x)))) = null | P(f2(f2(f2(f2(f2(x))))),f2(f2(f2(f2(f2(f2(x))))))) | f2(f2(f2(f2(f2(x))))) = null | f2(f2(f2(f2(f2(f2(x)))))) != null.  [resolve(73,g,30,b),flip(m)].
+
+given #66 (A,wt=99): 86 P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | null = x | P(x,f2(x)) | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),f2(f2(f2(f2(f2(x)))))) | f2(f2(f2(f2(x)))) = null | P(f2(f2(f2(f2(f2(x))))),f2(f2(f2(f2(f2(f2(x))))))) | f2(f2(f2(f2(f2(x))))) = null | -P(y,f2(f2(f2(f2(f2(f2(x))))))) | P(y,cuniversal).  [resolve(73,g,28,b)].
+
+given #67 (T,wt=99): 87 P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | null = x | P(x,f2(x)) | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),f2(f2(f2(f2(f2(x)))))) | f2(f2(f2(f2(x)))) = null | P(f2(f2(f2(f2(f2(x))))),f2(f2(f2(f2(f2(f2(x))))))) | f2(f2(f2(f2(f2(x))))) = null | -P(cuniversal,y) | P(f2(f2(f2(f2(f2(f2(x)))))),y).  [resolve(73,g,28,a)].
+
+given #68 (T,wt=99): 88 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),f2(f2(f2(f2(f2(x)))))) | f2(f2(f2(f2(x)))) = null | P(f2(f2(f2(f2(f2(x))))),f2(f2(f2(f2(f2(f2(x))))))) | f2(f2(f2(f2(f2(x))))) = null | -P(y,f2(f2(f2(f2(f2(f2(x))))))) | P(y,x).  [resolve(74,m,28,b)].
+
+given #69 (T,wt=99): 89 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f2(f2(x)),f2(f2(f2(x)))) | f2(f2(x)) = null | P(f2(f2(f2(x))),f2(f2(f2(f2(x))))) | f2(f2(f2(x))) = null | P(f2(f2(f2(f2(x)))),f2(f2(f2(f2(f2(x)))))) | f2(f2(f2(f2(x)))) = null | P(f2(f2(f2(f2(f2(x))))),f2(f2(f2(f2(f2(f2(x))))))) | f2(f2(f2(f2(f2(x))))) = null | -P(x,y) | P(f2(f2(f2(f2(f2(f2(x)))))),y).  [resolve(74,m,28,a)].
+
+============================== STATISTICS ============================
+
+Given=69. Generated=335. Kept=72. proofs=0.
+Usable=66. Sos=0. Demods=1. Limbo=0, Disabled=26. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=90.
+Forward_subsumed=173. Back_subsumed=1.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=1 (0 lex), Back_demodulated=5. Back_unit_deleted=0.
+Demod_attempts=20576. Demod_rewrites=14.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=1446. Nonunit_bsub_feature_tests=88.
+Megabytes=0.28.
+User_CPU=0.03, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+SEARCH FAILED
+
+SEARCH FAILED
+
+Exiting with failure.
+
+------ process 11292 exit (sos_empty) ------
+
+Process 11292 exit (sos_empty) Sat Sep 19 03:25:32 2020
+
+========================== MACLEOD SUMMARY ===========================
+reasoner: /home/aidin12/macleod/Reasoning/prover9_bin/prover9
+status: 
+execution finished: Sat Sep 19 03:25:34 2020
+total CPU time used: 0
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/prover9 -t100 -f /home/aidin12/macleod/ontologies/after2/Axioms/conversions/Universal_axiom2.all.p9"
+============================ end of footer ===========================

@@ -1,0 +1,7 @@
+(cl-text http://colore.oor.net/after/Axioms/Interior_axiom.clif
+(cl-imports http://colore.oor.net/after/Axioms/B_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_I.clif)
+
+(forall (x) (exists (z)  (if (B z x) (exists (y) (and (I y x) (not (= y null)))))))
+
+)

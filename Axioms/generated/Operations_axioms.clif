@@ -1,0 +1,32 @@
+(cl-text http://colore.oor.net/after/Axioms/Operations_axioms.clif
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+(cl-imports http://colore.oor.net/after/Axioms/B_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_sum.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_compl.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_I.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Equality.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_diff.clif)
+
+(forall (x) (exists (z) (if (B z x) (forall (y u) (if (and (B u x) (I y x)) (= (sum z y) x))))))
+
+(forall (x)  (exists (z) (if (B z x)(forall (y u)(if (and (I x y) (B u y)) (P u (compl x)))))))
+
+(forall (x)  (exists (z) (if (B z x)(forall (y u)(if (and (I x y) (B u y)) (P x (compl u)))))))
+
+(forall (x) (= (diff x null) x))
+
+(forall (x) (= (diff x cuniversal) null))
+
+(forall (x) (= (sum cuniversal x) cuniversal))
+
+(forall (x) (= (sum null x) x))
+
+(forall (x) (if (Point x) (forall (y) (= (prod x y) x))))
+
+(forall (x) (= (prod null x) null))
+
+(forall (x) (= (prod cuniversal x) x))
+
+(forall (x) (if (Point x) (forall (y) (= (prod x y) x))))
+
+)

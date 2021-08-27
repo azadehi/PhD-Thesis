@@ -1,0 +1,18 @@
+(cl-text http://colore.oor.net/after/Axioms/AIP2_3_4.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_I.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Overlap.clif)
+(cl-imports http://colore.oor.net/after/Definitions/Point.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Universal.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Null.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Proper_part.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Whole_boundary.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Identity.clif)
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+
+(forall (x) (iff (= (bdy x) null) (or (= null x)(= x universal) (Point x) (forall (z) (if (PP z x)(I z x)))) ))
+
+(forall (x y z) (if (and (= (bdy x) y) (= (bdy x) z)) (= z y)) )
+
+(forall (x w) (iff (O w (bdy x)) (exists (v) (and (O v w) (B v x)))))
+
+)

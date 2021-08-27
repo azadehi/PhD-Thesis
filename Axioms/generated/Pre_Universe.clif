@@ -1,0 +1,5 @@
+(cl-text http://colore.oor.net/after/Axioms/Pre_Universe.clif
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+
+(exists (y) (forall (x) (if (not (= null x))(P x y))))
+)

@@ -1,0 +1,9 @@
+(cl-text http://colore.oor.net/after/Axioms/prod_existance.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_prod.clif)
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Discrete.clif)
+
+(forall (x y) (iff (= (prod x y) null) (or (= x null) (= y null) (D x y))))
+
+
+)

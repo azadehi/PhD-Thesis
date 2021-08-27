@@ -1,0 +1,8 @@
+fof(axiom10, axiom, ~(! [X] : ! [Y] :  ((~(pp(X,Y)) | (? [Z] :  ((p(Z,Y) & d(Z,X)))))))).
+fof(axiom20, axiom, (! [X] :  ((X=NULL | p(X,X))))).
+fof(axiom30, axiom, (! [X] : ! [Y] :  ((~(p(X,Y) & p(Y,X) & ~(X=NULL) & ~(Y=NULL)) | X=Y)))).
+fof(axiom40, axiom, (! [X] : ! [Y] : ! [Z] :  ((~(p(X,Y) & p(Y,Z) & ~(X=NULL) & ~(Y=NULL) & ~(Z=NULL)) | p(X,Z))))).
+fof(axiom50, axiom, (! [Y] :  ((~(p(NULL,Y)) & ~(p(Y,NULL)))))).
+fof(axiom60, axiom, (! [X] : ! [Y] :  (((~(d(X,Y)) | ~(o(X,Y))) & (o(X,Y) | d(X,Y)))))).
+fof(axiom120, axiom, (! [X] : ! [Y] :  (((~(pp(X,Y)) | (p(X,Y) & ~(p(Y,X)))) & (~(p(X,Y) & ~(p(Y,X))) | pp(X,Y)))))).
+fof(axiom70, axiom, (! [X] : ! [Y] :  (((~(o(X,Y)) | (? [Z] :  ((p(Z,X) & p(Z,Y))))) & (~(? [Z] :  ((p(Z,X) & p(Z,Y)))) | o(X,Y)))))).

@@ -1,0 +1,23 @@
+(cl-text http://colore.oor.net/after/Axioms/Universal_axiom.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_Universal.clif)
+
+
+(forall (x) (iff  (not (= x null))(P x cuniversal)))
+
+
+
+
+
+)
+
+
+
+
+
+
+
+
+
+
+
+

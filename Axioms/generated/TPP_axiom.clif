@@ -1,0 +1,10 @@
+(cl-text http://colore.oor.net/after/Axioms/TPP_axiom.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_TPP.clif)
+(cl-imports http://colore.oor.net/after/Axioms/B_axioms.clif)
+
+(forall (x) (if  (not (exists (y) (B y x)))(not (exists (z) (TPP z x)))))
+
+
+
+
+)

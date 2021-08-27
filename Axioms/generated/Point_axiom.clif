@@ -1,0 +1,10 @@
+(cl-text http://colore.oor.net/after/Axioms/Point_axiom.clif
+(cl-imports http://colore.oor.net/after/Axioms/B_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/Point.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Universal.clif)
+
+(forall (y) (if (Point y) (and (P y cuniversal)(not(exists (x) (B x y))))))
+
+(forall (y) (if (Point y) (and (P y cuniversal)(not(exists (x) (I x y))))))
+
+)

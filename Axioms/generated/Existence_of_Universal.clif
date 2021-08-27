@@ -1,0 +1,6 @@
+(cl-text http://colore.oor.net/after/Axioms/Existence_of_Universal.clif
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+
+(exists (z) (forall (x) (if (not(= x null)) (P x z))))
+
+)

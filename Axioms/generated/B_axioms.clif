@@ -1,0 +1,11 @@
+(cl-text http://colore.oor.net/after/Axioms/B_axioms.clif
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Proper_part.clif)
+
+(forall (x y) (if (B x y)(P x y)))
+(forall (x y z) (if (and (B x y)(B y z)) (B x z)))
+(forall (x y z) (if (and (P x y) (B y z)) (B x z)))
+(forall (x y z) (if (and (B x y) (P y z)) (P x z)))
+
+
+)

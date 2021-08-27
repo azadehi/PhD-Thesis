@@ -1,0 +1,21 @@
+(cl-text http://colore.oor.net/after/Axioms/entities_axioms.clif
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Universal.clif)
+(cl-imports http://colore.oor.net/after/Axioms/Universal_axiom.clif)
+(cl-imports http://colore.oor.net/after/Definitions/Point.clif)
+(cl-imports http://colore.oor.net/after/Axioms/Point_axiom.clif)
+(cl-imports http://colore.oor.net/after/Axioms/Null_Axiom.clif)
+
+
+
+(forall (x) (or (= x null) (P x cuniversal)))
+
+(forall (x) (iff (P x cuniversal) (not (= x null))))
+
+(forall (x) (iff (= x null) (not (P x cuniversal))))
+
+(forall (x) (if (Point x)(and (not (= x cuniversal))(P x cuniversal))))
+
+
+
+)

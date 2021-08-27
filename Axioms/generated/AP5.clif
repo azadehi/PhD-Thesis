@@ -1,0 +1,7 @@
+(cl-text http://colore.oor.net/after/Axioms/AP5.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_Null.clif)
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+
+(exists (z) (forall (x) (if (not(= x null)) (P x z))))
+
+)

@@ -1,0 +1,10 @@
+(cl-text http://colore.oor.net/after/Axioms/compl_existance.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_compl.clif)
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Universal.clif)
+
+
+(forall (x) (iff (= (compl x) null) (= x cuniversal) ))
+
+(forall (x) (iff (= (compl x) cuniversal) (= x null) ))
+)

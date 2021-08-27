@@ -1,0 +1,8 @@
+(cl-text http://colore.oor.net/after/Axioms/Uniq_prod.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_prod.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Equality.clif)
+
+(forall (x y z t) (if (and (= (prod x y) z) (= (prod x y) t)) (= z t)) )
+
+
+)

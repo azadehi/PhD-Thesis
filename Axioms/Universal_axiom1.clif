@@ -1,0 +1,20 @@
+(cl-text http://colore.oor.net/after2/Axioms/Universal_axiom1.clif
+(cl-imports http://colore.oor.net/after2/Axioms/P_axioms.clif)
+
+
+(exists (y) (forall (x) (if (not(= x null))(P x y))))
+
+
+)
+
+
+
+
+
+
+
+
+
+
+
+

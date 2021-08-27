@@ -1,0 +1,5 @@
+(cl-text http://colore.oor.net/after/Axioms/Uniqueness_Universal.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_Universal.clif)
+
+(forall (x)(if (= x G)(not(exists (z) (= z x)))))
+)

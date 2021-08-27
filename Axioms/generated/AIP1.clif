@@ -1,0 +1,21 @@
+(cl-text http://colore.oor.net/after/Axioms/AIP1.clif
+(forall (x) (iff (not(= x null)) (P x x)))
+(forall (x y) (if (and (P x y)  (P y x))  (= x y)))
+(forall (x y z) (if (and (P x y) (P y z)) (P x z)))
+(forall (x y) (iff (and (not(= x null))(not(= y null))(O x y)) (exists (z) (and (P z x) (P z y)))))
+(forall (x y) (iff (and (not(= x null))(not(= y null))(D x y)) (not(O x y))))
+(forall (x y) (if (PP x y) (P x y)))
+(forall (x y) (iff (PP x y) (and (P x y) (not(P y x)))))
+(forall (x y) (if (B x y)(PP x y)))
+(forall (x y) (if (and (B x y)(B y z)) (B x z)))
+(forall (x y) (if (and (P x y) (B y z)) (B x z)))
+(forall (x y) (if (and (B x y) (P y z)) (P x z)))
+(forall (x y) (iff (and (not(= x null))(not(= y null))(I x y)) (and (PP x y) (not(B x y)) (forall (z) (if (B z y)(D z x))))))
+(forall (y) (and (not(P null y)) (not(P y null))))
+(forall (w) (if (not (= null w)) (P w Universal)))
+(not (P null null))
+(forall (x y) (if (and (not(= x null))(not(= y null)))(or (O x y) (D x y))))
+
+(I Universal Universal)))
+
+)

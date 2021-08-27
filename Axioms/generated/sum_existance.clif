@@ -1,0 +1,7 @@
+(cl-text http://colore.oor.net/after/Axioms/sum_existance.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_sum.clif)
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+
+(forall (x y) (iff (= (sum x y) null) (and (= x null) (= y null) )))
+
+)

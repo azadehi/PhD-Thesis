@@ -1,0 +1,14 @@
+(cl-text http://colore.oor.net/after/Axioms/diff_existance.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_diff.clif)
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Universal.clif)
+(cl-imports http://colore.oor.net/after/Definitions/Point.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Equality.clif)
+
+(forall (x y) (iff (= (diff x y) null) (or (= x null)
+                                       (Point x)
+                                       (= y cuniversal)
+                                       (and (not(= x null))(not(= y null))(= x y))
+                                       )))
+
+)

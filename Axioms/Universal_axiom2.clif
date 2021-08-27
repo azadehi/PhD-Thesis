@@ -1,0 +1,21 @@
+(cl-text http://colore.oor.net/after2/Axioms/Universal_axiom2.clif
+(cl-imports http://colore.oor.net/after2/Definitions/D_Universal.clif)
+(cl-imports http://colore.oor.net/after2/Axioms/B_axioms.clif)
+(cl-imports http://colore.oor.net/after2/Axioms/Universal_axiom1.clif)
+
+(not (exists (x) (B x cuniversal)))
+
+
+)
+
+
+
+
+
+
+
+
+
+
+
+

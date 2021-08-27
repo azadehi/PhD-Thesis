@@ -1,0 +1,7 @@
+(cl-text http://colore.oor.net/after/Axioms/Universal_Boundary.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_Universal.clif)
+(cl-imports http://colore.oor.net/after/Axioms/B_axioms.clif)
+
+(not (exists (x) (B x Universal)))
+
+)

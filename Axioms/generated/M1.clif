@@ -1,0 +1,11 @@
+(cl-text http://colore.oor.net/after/Axioms/M1.clif
+(cl-imports http://colore.oor.net/after/Axioms/B_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Null.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Universal.clif)
+(cl-imports http://colore.oor.net/after/Definitions/Point.clif)
+
+
+
+(forall (x) (or (not (= x G)) (not(= x Null))))
+
+)
