@@ -1,6 +1,0 @@
-(cl-text http://colore.oor.net/after2/Theorems/I_Trans.clif
-(cl-imports http://colore.oor.net/after2/Definitions/D_I.clif)
-
-(not(forall (x y z) (if (and (I x y)(I y z))(I x z))))
-
-)
