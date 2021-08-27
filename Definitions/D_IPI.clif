@@ -1,0 +1,6 @@
+(cl-text http://colore.oor.net/after/Definitions/D_IPI.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_IP.clif)
+
+(forall (x y) (iff (IPI x y) (IP y x)))
+
+)

@@ -1,0 +1,6 @@
+(cl-text http://colore.oor.net/after/Definitions/D_II.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_I.clif)
+
+(forall (x y) (iff (II x y) (I y x)))
+
+)

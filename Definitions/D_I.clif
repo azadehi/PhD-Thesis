@@ -1,0 +1,7 @@
+(cl-text http://colore.oor.net/after2/Definitions/D_I.clif
+(cl-imports http://colore.oor.net/after2/Axioms/P_axioms.clif)
+(cl-imports http://colore.oor.net/after2/Axioms/B_axioms.clif)
+(cl-imports http://colore.oor.net/after2/Definitions/D_Discrete.clif)
+
+(forall (x y) (iff (I x y) (and (P x y) (forall (z) (if (B z y)(D z x))))))
+)

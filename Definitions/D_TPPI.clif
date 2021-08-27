@@ -1,0 +1,6 @@
+(cl-text http://colore.oor.net/after2/Definitions/D_TPPI.clif
+(cl-imports http://colore.oor.net/after2/Definitions/D_TPP.clif)
+
+(forall (x y) (iff (TPPI x y) (TPP y x)))
+
+)

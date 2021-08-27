@@ -1,0 +1,8 @@
+(cl-text http://colore.oor.net/after2/Definitions/Point.clif
+(cl-imports http://colore.oor.net/after2/Axioms/P_axioms.clif)
+(cl-imports http://colore.oor.net/after2/Definitions/D_Equality.clif)
+
+(forall (x) (iff  (Point x) (forall (y) (if  (P y x) (EQ y x)))))
+
+
+)

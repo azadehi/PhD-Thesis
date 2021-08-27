@@ -1,0 +1,5 @@
+(cl-text http://colore.oor.net/after2/Definitions/D_Universal.clif
+(cl-imports http://colore.oor.net/after2/Axioms/P_axioms.clif)
+
+(forall (x) (iff (= x cuniversal) (forall (y) (if (not (= y null))(P y x)))))
+)

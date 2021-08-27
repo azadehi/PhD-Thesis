@@ -1,0 +1,5 @@
+(cl-text http://colore.oor.net/after2/Definitions/D_Proper_part.clif
+(cl-imports http://colore.oor.net/after2/Axioms/P_axioms.clif)
+
+(forall (x y) (iff (PP x y) (and (P x y) (not(P y x)))))
+)

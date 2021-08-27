@@ -1,0 +1,9 @@
+(cl-text http://colore.oor.net/after/Definitions/D_Whole_boundary.clif
+
+(cl-imports http://colore.oor.net/after/Axioms/B_axioms.clif)
+
+
+(forall (x) (or (= (bdy x) null) (and (B (bdy x) x) (forall (z) (if (B z x) (P z (bdy x))))) ))
+
+
+)

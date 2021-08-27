@@ -1,0 +1,5 @@
+(cl-text http://colore.oor.net/after2/Definitions/D_Equality.clif
+(cl-imports http://colore.oor.net/after2/Axioms/P_axioms.clif)
+
+(forall (x y) (iff (EQ x y) (and (P y x) (P x y))))
+)

@@ -1,0 +1,11 @@
+(cl-text http://colore.oor.net/after/Definitions/D_Interior_Contact.clif
+(cl-imports http://colore.oor.net/after/Axioms/B_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Imbricate.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_I.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Overpass.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Externally_Connected.clif)
+
+
+(forall (x y)  (iff (IC x y) (and (IMB x y)(not(EC x y)) (not(exists (p) (and (I p x)(I p y))) )) ) )
+
+)

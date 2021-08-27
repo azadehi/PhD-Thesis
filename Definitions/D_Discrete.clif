@@ -1,0 +1,5 @@
+(cl-text http://colore.oor.net/after2/Definitions/D_Discrete.clif
+(cl-imports http://colore.oor.net/after2/Definitions/D_Overlap.clif)
+
+(forall (x y) (iff (D x y) (not(O x y))))
+)

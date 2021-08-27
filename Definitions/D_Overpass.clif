@@ -1,0 +1,8 @@
+(cl-text http://colore.oor.net/after/Definitions/D_Overpass.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_I.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Imbricate.clif)
+
+(forall (x y) (iff (OV x y) (and (IMB x y) (exists (p) (and (I p x)(I p y))) )))
+
+
+)

@@ -1,0 +1,9 @@
+(cl-text http://colore.oor.net/after/Definitions/D_Externally_Connected.clif
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+(cl-imports http://colore.oor.net/after/Axioms/B_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Overlap.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Imbricate.clif)
+
+(forall (x y) (iff (EC x y) (and (IMB x y)(forall (z) (if (and (P z x)(P z y)) (and (B z x) (B z y)))))))
+
+)

@@ -1,0 +1,7 @@
+(cl-text http://colore.oor.net/after/Definitions/D_IP.clif
+(cl-imports http://colore.oor.net/after/Definitions/D_I.clif)
+
+
+
+(forall (x y) (iff (IP x y) (and (not (exists (t) (B t y)))(I x y) (not (I y x)))))
+)

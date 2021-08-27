@@ -1,0 +1,6 @@
+(cl-text http://colore.oor.net/after2/Definitions/D_Proper_part_inverse.clif
+(cl-imports http://colore.oor.net/after2/Definitions/D_Proper_part.clif)
+
+(forall (x y) (iff (PPI x y) (PP y x)))
+
+)

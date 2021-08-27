@@ -1,0 +1,6 @@
+(cl-text http://colore.oor.net/after2/Definitions/D_Overlap.clif
+(cl-imports http://colore.oor.net/after2/Axioms/P_axioms.clif)
+
+(forall (x y) (iff (O x y) (exists (z) (and (P z x) (P z y)))))
+
+)

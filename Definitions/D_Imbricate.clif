@@ -1,0 +1,7 @@
+(cl-text http://colore.oor.net/after/Definitions/D_Imbricate.clif
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Overlap.clif)
+
+
+(forall (x y) (iff (IMB x y) (and (O x y) (not(P x y))(not(P y x)))))
+)
