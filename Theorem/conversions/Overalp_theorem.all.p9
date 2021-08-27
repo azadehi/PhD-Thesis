@@ -1,0 +1,43 @@
+formulas(assumptions).
+-(all x all y  (-(O(x,y)) | (exists z  (all w  (-(P(w,z)) | (P(w,x) & P(w,y))))))).
+(all x  (=(x,null) | P(x,x))).
+(all x all y  (-(P(x,y) & P(y,x)) | =(x,y))).
+(all x all y all z  (-(P(x,y) & P(y,z)) | P(x,z))).
+(all x  ((-(=(x,null)) | (all y  (-(P(y,x)) & -(P(x,y))))) & (-(all y  (-(P(y,x)) & -(P(x,y)))) | =(x,null)))).
+(all x all y  ((-(PI(x,y)) | P(y,x)) & (-(P(y,x)) | PI(x,y)))).
+(all x all y  (-(PP(x,y)) | (exists z  (P(z,y) & D(z,x))))).
+(exists z  (all x  (=(x,null) | P(x,z)))).
+(all x  ((-(=(x,cuniversal)) | (all y  (=(y,null) | P(y,x)))) & (-(all y  (=(y,null) | P(y,x))) | =(x,cuniversal)))).
+(all x  (-(=(x,cuniversal)) | I(x,cuniversal))).
+(all x  ((-(Point(x)) | (-(=(x,null)) & (all y  (-(P(y,x)) | EQ(x,y))))) & (-(-(=(x,null)) & (all y  (-(P(y,x)) | EQ(x,y)))) | Point(x)))).
+(all x all y  ((-(PP(x,y)) | (P(x,y) & -(P(y,x)))) & (-(P(x,y) & -(P(y,x))) | PP(x,y)))).
+(all x all y  ((-(PPI(x,y)) | PP(y,x)) & (-(PP(y,x)) | PPI(x,y)))).
+(all x all y  ((-(EQ(x,y)) | (P(y,x) & P(x,y))) & (-(P(y,x) & P(x,y)) | EQ(x,y)))).
+(all x all y  ((-(O(x,y)) | (exists z  (P(z,x) & P(z,y)))) & (-(exists z  (P(z,x) & P(z,y))) | O(x,y)))).
+(all x all y  ((-(D(x,y)) | -(O(x,y))) & (O(x,y) | D(x,y)))).
+(all x all y  (-(B(x,y)) | PP(x,y))).
+(all x all y all z  (-(B(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z  (-(P(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z  (-(B(x,y) & P(y,z)) | P(x,z))).
+(all x all y  ((-(IMB(x,y)) | (O(x,y) & -(P(x,y)) & -(P(y,x)))) & (-(O(x,y) & -(P(x,y)) & -(P(y,x))) | IMB(x,y)))).
+(all x all y  ((-(I(x,y)) | (P(x,y) & (all z  (-(B(z,y)) | D(z,x))))) & (-(P(x,y) & (all z  (-(B(z,y)) | D(z,x)))) | I(x,y)))).
+(all x all y  ((-(II(x,y)) | I(y,x)) & (-(I(y,x)) | II(x,y)))).
+(all x all y  ((-(TPP(x,y)) | (PP(x,y) & (exists z  (P(z,x) & B(z,y))))) & (-(PP(x,y) & (exists z  (P(z,x) & B(z,y)))) | TPP(x,y)))).
+(all x all y  ((-(TPPI(x,y)) | TPP(y,x)) & (-(TPP(y,x)) | TPPI(x,y)))).
+(all x all y  ((-(OV(x,y)) | (IMB(x,y) & (exists p  (I(p,x) & I(p,y))))) & (-(IMB(x,y) & (exists p  (I(p,x) & I(p,y)))) | OV(x,y)))).
+(all x all y  ((-(EC(x,y)) | (IMB(x,y) & (all z  (-(P(z,x) & P(z,y)) | (B(z,x) & B(z,y)))))) & (-(IMB(x,y) & (all z  (-(P(z,x) & P(z,y)) | (B(z,x) & B(z,y))))) | EC(x,y)))).
+(all x all y  ((-(IC(x,y)) | (IMB(x,y) & -(exists p  (I(p,x) & I(p,y))) & -(all z  (-(P(z,x) & P(z,y)) | (B(z,x) & B(z,y)))))) & (-(IMB(x,y) & -(exists p  (I(p,x) & I(p,y))) & -(all z  (-(P(z,x) & P(z,y)) | (B(z,x) & B(z,y))))) | IC(x,y)))).
+(all x  (-(P(x,cuniversal)) | (exists y  I(y,x)))).
+(all x  (-(P(x,cuniversal) & -(exists z  B(z,x))) | (all y  (-(P(y,x)) | I(y,x))))).
+(all x  (-(exists z  B(z,x)) | (all y  (-(I(y,x)) | PP(y,x))))).
+(all x  (-(exists z  B(z,x)) | (all y  (-(PP(y,x)) | I(y,x) | B(y,x))))).
+(all x  (-(exists z  B(z,x)) | (all y  (-(B(y,x)) | -(I(y,x)))))).
+(all x  (-(exists z  B(z,x)) | (all y  (-(I(y,x)) | -(B(y,x)))))).
+(all x all y  (-((exists z  B(z,x)) & EQ(x,y)) | (exists t  B(t,y)))).
+(all x all y  (-(-(exists z  B(z,x)) & EQ(x,y)) | -(exists t  B(t,y)))).
+(all x all y  (-((-(exists z  B(z,x)) & (exists t  B(t,y))) | ((exists u  B(u,x)) & -(exists v  B(v,y)))) | -(EQ(x,y)))).
+(all y  (-(Point(y)) | -(exists x  B(x,y)))).
+(all x  ((-(=(x,null)) | -(P(x,x))) & (P(x,x) | =(x,null)))).
+(all x  ((-(P(x,x)) | -(=(x,null))) & (=(x,null) | P(x,x)))).
+end_of_list.
+

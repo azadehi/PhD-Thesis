@@ -1,0 +1,115 @@
+fof(axiom10, axiom, ~(! [X] : ! [Y] :  ((~(imb(X,Y)) | ~(p(X,Y)))))).
+fof(axiom20, axiom, ~(! [X] : ! [Y] :  ((~(imb(X,Y)) | ~(pi(X,Y)))))).
+fof(axiom30, axiom, ~(! [X] : ! [Y] :  ((~(p(X,Y)) | ~(imb(X,Y)))))).
+fof(axiom40, axiom, ~(! [X] : ! [Y] :  ((~(pi(X,Y)) | ~(imb(X,Y)))))).
+fof(axiom50, axiom, ~(! [X] : ! [Y] :  ((~(pp(X,Y)) | ~(pi(X,Y)))))).
+fof(axiom60, axiom, ~(! [X] : ! [Y] :  ((~(ppi(X,Y)) | ~(p(X,Y)))))).
+fof(axiom70, axiom, ~(! [X] : ! [Y] :  ((~(p(X,Y)) | ~(ppi(X,Y)))))).
+fof(axiom80, axiom, ~(! [X] : ! [Y] :  ((~(pi(X,Y)) | ~(pp(X,Y)))))).
+fof(axiom90, axiom, ~(! [X] :  ((X=NULL | o(X,X))))).
+fof(axiom100, axiom, ~(! [X] : ! [Y] :  ((~(o(X,Y)) | o(Y,X))))).
+fof(axiom110, axiom, ~(! [X] : ! [Y] :  ((~(p(X,Y)) | (! [Z] :  ((~(o(Z,X)) | o(Z,Y)))))))).
+fof(axiom120, axiom, ~(! [X] :  (~(imb(X,X))))).
+fof(axiom130, axiom, ~(! [X] : ! [Y] :  ((~(imb(X,Y)) | imb(Y,X))))).
+fof(axiom140, axiom, ~(! [X] :  ((X=NULL | eq(X,X))))).
+fof(axiom150, axiom, ~(! [X] : ! [Y] :  ((~(eq(X,Y)) | eq(Y,X))))).
+fof(axiom160, axiom, ~(! [X] : ! [Y] : ! [Z] :  ((~(eq(X,Y) & eq(Y,Z)) | eq(X,Z))))).
+fof(axiom170, axiom, ~(! [X] : ! [Y] :  ((~(ov(X,Y)) | ov(Y,X))))).
+fof(axiom180, axiom, ~(! [X] : ! [Y] :  ((~(ic(X,Y)) | ic(Y,X))))).
+fof(axiom190, axiom, ~(! [X] :  (~(ec(X,X))))).
+fof(axiom200, axiom, ~(! [X] : ! [Y] :  ((~(ec(X,Y)) | ec(Y,X))))).
+fof(axiom210, axiom, ~(! [X] :  ((~(~(X=NULL) & ~(? [Y] :  (b(Y,X)))) | i(X,X))))).
+fof(axiom220, axiom, ~(! [X] : ! [Y] :  ((~(~(X=CUNIVERSAL) & i(X,Y)) | ~(i(Y,X)))))).
+fof(axiom230, axiom, ~(! [X] : ! [Y] : ! [Z] :  ((~(i(X,Y) & i(Y,Z)) | i(X,Z))))).
+fof(axiom240, axiom, ~(! [X] :  (~(pp(X,X))))).
+fof(axiom250, axiom, ~(! [X] : ! [Y] :  ((~(pp(X,Y)) | ~(pp(Y,X)))))).
+fof(axiom260, axiom, ~(! [X] : ! [Y] : ! [Z] :  ((~(pp(X,Y) & pp(Y,Z)) | pp(X,Z))))).
+fof(axiom270, axiom, ~(! [X] :  (~(tpp(X,X))))).
+fof(axiom280, axiom, ~(! [X] : ! [Y] :  ((~(tpp(X,Y)) | ~(tpp(Y,X)))))).
+fof(axiom290, axiom, ~(! [X] : ! [Y] : ! [Z] :  ((~(tpp(X,Y) & tpp(Y,Z)) | tpp(X,Z))))).
+fof(axiom300, axiom, ~(! [X] :  (d(X,compl(X))))).
+fof(axiom310, axiom, ~(! [X] :  (((? [Z] :  (b(Z,X))) | ~(? [Y] :  (ec(Y,X))))))).
+fof(axiom320, axiom, ~(! [X] :  (((? [Z] :  (b(Z,X))) | ~(? [Y] :  (tpp(Y,X))))))).
+fof(axiom330, axiom, ~(! [X] :  ((~(i(X,X)) | ~(? [Z] :  (b(Z,X))))))).
+fof(axiom340, axiom, ~(! [X] : ! [Y] :  ((~(point(X) & point(Y) & o(X,Y)) | eq(X,Y))))).
+fof(axiom350, axiom, ~(! [X] : ! [Y] :  ((~(o(X,Y)) | (? [Z] :  ((point(Z) & p(Z,X) & p(Z,Y)))))))).
+fof(axiom360, axiom, ~(! [X] :  ((~(point(X)) | i(X,X))))).
+fof(axiom370, axiom, ~(! [X] : ! [Y] :  ((~(point(X) & o(X,Y)) | p(X,Y))))).
+fof(axiom380, axiom, ~(! [X] :  (((~(p(X,CUNIVERSAL)) | ~(X=NULL)) & (X=NULL | p(X,CUNIVERSAL)))))).
+fof(axiom390, axiom, (? [X] :  (b(X,CUNIVERSAL)))).
+fof(axiom400, axiom, ~(! [X] : ! [Y] :  ((~(b(X,Y)) | tpp(X,Y))))).
+fof(axiom410, axiom, ~(! [X] :  ((~(? [Z] :  (b(Z,X))) | (! [Y] :  ((~(pp(Y,X)) | i(Y,X) | b(Y,X)))))))).
+fof(axiom420, axiom, ~(! [X] :  ((~(? [Z] :  (b(Z,X))) | (! [Y] :  ((~(b(Y,X)) | ~(i(Y,X))))))))).
+fof(axiom430, axiom, ~(! [X] :  ((~(? [Z] :  (b(Z,X))) | (! [Y] :  ((~(i(Y,X)) | ~(b(Y,X))))))))).
+fof(axiom440, axiom, ~(! [X] : ! [Y] : ! [Z] :  ((~(p(X,Y) & i(Y,Z)) | i(X,Z))))).
+fof(axiom450, axiom, ~(! [X] : ! [Y] : ! [Z] :  ((~(i(X,Y) & p(Y,Z)) | p(X,Z))))).
+fof(axiom460, axiom, ~(! [X] : ! [Y] :  ((~(tpp(X,Y)) | ~(i(X,Y)))))).
+fof(axiom470, axiom, ~(! [X] : ! [Y] :  ((~(pp(X,Y) & (? [Z] :  (b(Z,Y)))) | tpp(X,Y) | i(X,Y))))).
+fof(axiom480, axiom, ~(! [X] : ! [Y] :  ((~(ppi(X,Y) & (? [Z] :  (b(Z,X)))) | tppi(X,Y) | ii(X,Y))))).
+fof(axiom490, axiom, (! [X] :  ((X=NULL | p(X,X))))).
+fof(axiom500, axiom, (! [X] : ! [Y] :  ((~(p(X,Y) & p(Y,X)) | X=Y)))).
+fof(axiom510, axiom, (! [X] : ! [Y] : ! [Z] :  ((~(p(X,Y) & p(Y,Z)) | p(X,Z))))).
+fof(axiom520, axiom, (! [X] :  (((~(X=NULL) | (! [Y] :  ((~(p(Y,X)) & ~(p(X,Y)))))) & (~(! [Y] :  ((~(p(Y,X)) & ~(p(X,Y))))) | X=NULL))))).
+fof(axiom530, axiom, (! [X] : ! [Y] :  (((~(pi(X,Y)) | p(Y,X)) & (~(p(Y,X)) | pi(X,Y)))))).
+fof(axiom580, axiom, (! [X] : ! [Y] :  ((~(pp(X,Y)) | (? [Z] :  ((p(Z,Y) & d(Z,X)))))))).
+fof(axiom740, axiom, (? [Z] :  ((! [X] :  ((X=NULL | p(X,Z))))))).
+fof(axiom790, axiom, (! [X] :  (((~(X=CUNIVERSAL) | (! [Y] :  ((Y=NULL | p(Y,X))))) & (~(! [Y] :  ((Y=NULL | p(Y,X)))) | X=CUNIVERSAL))))).
+fof(axiom840, axiom, (! [X] :  ((~(X=CUNIVERSAL) | i(X,CUNIVERSAL))))).
+fof(axiom900, axiom, (! [X] :  (((~(point(X)) | (~(X=NULL) & (! [Y] :  ((~(p(Y,X)) | eq(X,Y)))))) & (~(~(X=NULL) & (! [Y] :  ((~(p(Y,X)) | eq(X,Y))))) | point(X)))))).
+fof(axiom1000, axiom, (! [X] : ! [Y] :  (((~(pp(X,Y)) | (p(X,Y) & ~(p(Y,X)))) & (~(p(X,Y) & ~(p(Y,X))) | pp(X,Y)))))).
+fof(axiom1050, axiom, (! [X] : ! [Y] :  (((~(ppi(X,Y)) | pp(Y,X)) & (~(pp(Y,X)) | ppi(X,Y)))))).
+fof(axiom1110, axiom, (! [X] : ! [Y] :  (((~(eq(X,Y)) | (p(Y,X) & p(X,Y))) & (~(p(Y,X) & p(X,Y)) | eq(X,Y)))))).
+fof(axiom1160, axiom, (! [X] : ! [Y] :  (((~(o(X,Y)) | (? [Z] :  ((p(Z,X) & p(Z,Y))))) & (~(? [Z] :  ((p(Z,X) & p(Z,Y)))) | o(X,Y)))))).
+fof(axiom1210, axiom, (! [X] : ! [Y] :  (((~(d(X,Y)) | ~(o(X,Y))) & (o(X,Y) | d(X,Y)))))).
+fof(axiom1270, axiom, (! [X] : ! [Y] :  ((~(b(X,Y)) | pp(X,Y))))).
+fof(axiom1280, axiom, (! [X] : ! [Y] : ! [Z] :  ((~(b(X,Y) & b(Y,Z)) | b(X,Z))))).
+fof(axiom1290, axiom, (! [X] : ! [Y] : ! [Z] :  ((~(p(X,Y) & b(Y,Z)) | b(X,Z))))).
+fof(axiom1300, axiom, (! [X] : ! [Y] : ! [Z] :  ((~(b(X,Y) & p(Y,Z)) | p(X,Z))))).
+fof(axiom1400, axiom, (! [X] : ! [Y] :  (((~(imb(X,Y)) | (o(X,Y) & ~(p(X,Y)) & ~(p(Y,X)))) & (~(o(X,Y) & ~(p(X,Y)) & ~(p(Y,X))) | imb(X,Y)))))).
+fof(axiom1500, axiom, (! [X] : ! [Y] :  (((~(i(X,Y)) | (p(X,Y) & (! [Z] :  ((~(b(Z,Y)) | d(Z,X)))))) & (~(p(X,Y) & (! [Z] :  ((~(b(Z,Y)) | d(Z,X))))) | i(X,Y)))))).
+fof(axiom1750, axiom, (! [X] : ! [Y] :  (((~(ii(X,Y)) | i(Y,X)) & (~(i(Y,X)) | ii(X,Y)))))).
+fof(axiom2010, axiom, (! [X] : ! [Y] :  (((~(tpp(X,Y)) | (pp(X,Y) & (? [Z] :  ((p(Z,X) & b(Z,Y)))))) & (~(pp(X,Y) & (? [Z] :  ((p(Z,X) & b(Z,Y))))) | tpp(X,Y)))))).
+fof(axiom2240, axiom, (! [X] : ! [Y] :  (((~(tppi(X,Y)) | tpp(Y,X)) & (~(tpp(Y,X)) | tppi(X,Y)))))).
+fof(axiom2480, axiom, (! [X] : ! [Y] :  (((~(ov(X,Y)) | (imb(X,Y) & (? [P] :  ((i(P,X) & i(P,Y)))))) & (~(imb(X,Y) & (? [P] :  ((i(P,X) & i(P,Y))))) | ov(X,Y)))))).
+fof(axiom2840, axiom, (! [X] : ! [Y] :  (((~(ec(X,Y)) | (imb(X,Y) & (! [Z] :  ((~(p(Z,X) & p(Z,Y)) | (b(Z,X) & b(Z,Y))))))) & (~(imb(X,Y) & (! [Z] :  ((~(p(Z,X) & p(Z,Y)) | (b(Z,X) & b(Z,Y)))))) | ec(X,Y)))))).
+fof(axiom3170, axiom, (! [X] : ! [Y] :  (((~(ic(X,Y)) | (imb(X,Y) & ~(? [P] :  ((i(P,X) & i(P,Y)))) & ~(! [Z] :  ((~(p(Z,X) & p(Z,Y)) | (b(Z,X) & b(Z,Y))))))) & (~(imb(X,Y) & ~(? [P] :  ((i(P,X) & i(P,Y)))) & ~(! [Z] :  ((~(p(Z,X) & p(Z,Y)) | (b(Z,X) & b(Z,Y)))))) | ic(X,Y)))))).
+fof(axiom3660, axiom, (! [X] :  ((~(p(X,CUNIVERSAL)) | (? [Y] :  (i(Y,X))))))).
+fof(axiom3670, axiom, (! [X] :  ((~(p(X,CUNIVERSAL) & ~(? [Z] :  (b(Z,X)))) | (! [Y] :  ((~(p(Y,X)) | i(Y,X)))))))).
+fof(axiom3680, axiom, (! [X] :  ((~(? [Z] :  (b(Z,X))) | (! [Y] :  ((~(i(Y,X)) | pp(Y,X)))))))).
+fof(axiom3690, axiom, (! [X] :  ((~(? [Z] :  (b(Z,X))) | (! [Y] :  ((~(pp(Y,X)) | i(Y,X) | b(Y,X)))))))).
+fof(axiom3700, axiom, (! [X] :  ((~(? [Z] :  (b(Z,X))) | (! [Y] :  ((~(b(Y,X)) | ~(i(Y,X))))))))).
+fof(axiom3710, axiom, (! [X] :  ((~(? [Z] :  (b(Z,X))) | (! [Y] :  ((~(i(Y,X)) | ~(b(Y,X))))))))).
+fof(axiom3720, axiom, (! [X] : ! [Y] :  ((~((? [Z] :  (b(Z,X))) & eq(X,Y)) | (? [T] :  (b(T,Y))))))).
+fof(axiom3730, axiom, (! [X] : ! [Y] :  ((~(~(? [Z] :  (b(Z,X))) & eq(X,Y)) | ~(? [T] :  (b(T,Y))))))).
+fof(axiom3740, axiom, (! [X] : ! [Y] :  ((~((~(? [Z] :  (b(Z,X))) & (? [T] :  (b(T,Y)))) | ((? [U] :  (b(U,X))) & ~(? [V] :  (b(V,Y))))) | ~(eq(X,Y)))))).
+fof(axiom4590, axiom, (! [X] : ! [Y] :  ((! [W] :  (((~(o(W,sum(X,Y))) | o(W,X) | o(W,Y)) & (~(o(W,X) | o(W,Y)) | o(W,sum(X,Y))))))))).
+fof(axiom4650, axiom, (! [X] : ! [Y] :  ((! [W] :  (((~(p(W,prod(X,Y))) | (p(W,X) & p(W,Y))) & (~(p(W,X) & p(W,Y)) | p(W,prod(X,Y))))))))).
+fof(axiom4700, axiom, (! [X] :  ((! [W] :  (((~(p(W,compl(X))) | (d(W,X) & p(W,compl(X)))) & (~(d(W,X) & p(W,compl(X))) | p(W,compl(X))))))))).
+fof(axiom4810, axiom, (! [X] : ! [Y] :  ((! [W] :  (((~(p(W,diff(X,Y))) | (p(W,X) & d(W,Y))) & (~(p(W,X) & d(W,Y)) | p(W,diff(X,Y))))))))).
+fof(axiom4920, axiom, (! [X] : ! [Z] : ! [T] :  ((~(compl(X)=Z & compl(X)=T) | Z=T)))).
+fof(axiom5040, axiom, (! [X] : ! [Y] : ! [Z] : ! [T] :  ((~(diff(X,Y)=Z & diff(X,Y)=T) | Z=T)))).
+fof(axiom5160, axiom, (! [X] : ! [Y] : ! [Z] : ! [T] :  ((~(prod(X,Y)=Z & prod(X,Y)=T) | Z=T)))).
+fof(axiom5220, axiom, (! [X] : ! [Y] : ! [Z] : ! [T] :  ((~(sum(X,Y)=Z & sum(X,Y)=T) | Z=T)))).
+fof(axiom5290, axiom, (! [X] : ! [Y] :  ((~(~(X=NULL) & ~(Y=NULL)) | (? [Z] :  ((~(Z=NULL) & Z=sum(X,Y)))))))).
+fof(axiom5300, axiom, (! [X] : ! [Y] :  (sum(X,Y)=sum(Y,X)))).
+fof(axiom5410, axiom, (! [X] :  (((~(compl(X)=NULL) | X=CUNIVERSAL) & (~(X=CUNIVERSAL) | compl(X)=NULL))))).
+fof(axiom5420, axiom, (! [X] :  (((~(compl(X)=CUNIVERSAL) | X=NULL) & (~(X=NULL) | compl(X)=CUNIVERSAL))))).
+fof(axiom5630, axiom, (! [X] : ! [Y] :  ((~(~(X=NULL) & ~(Y=NULL)) | (? [Z] :  (Z=prod(X,Y))))))).
+fof(axiom5640, axiom, (! [X] : ! [Y] :  (prod(X,Y)=prod(Y,X)))).
+fof(axiom5800, axiom, (! [X] : ! [Y] :  ((~(diff(X,Y)=NULL) | X=NULL | p(X,Y))))).
+fof(axiom5810, axiom, (! [X] : ! [Y] :  ((~(~(X=NULL) & Y=NULL) | diff(X,Y)=X)))).
+fof(axiom5820, axiom, (! [X] : ! [Y] :  ((~(d(X,Y)) | diff(X,Y)=X)))).
+fof(axiom6130, axiom, (! [X] :  ((~(p(X,CUNIVERSAL)) | diff(X,NULL)=X)))).
+fof(axiom6140, axiom, (! [X] :  ((~(p(X,CUNIVERSAL)) | sum(CUNIVERSAL,X)=CUNIVERSAL)))).
+fof(axiom6150, axiom, (! [X] :  ((~(p(X,CUNIVERSAL)) | sum(NULL,X)=X)))).
+fof(axiom6160, axiom, (! [X] :  ((~(p(X,CUNIVERSAL)) | prod(NULL,X)=NULL)))).
+fof(axiom6170, axiom, (! [X] :  ((~(p(X,CUNIVERSAL)) | prod(CUNIVERSAL,X)=X)))).
+fof(axiom6730, axiom, (! [X] :  ((? [Z] :  (((~(Z=maximalint(X)) | (~(X=NULL) & i(Z,X) & (! [U] :  ((~(i(U,X)) | (i(U,Z) & ~(i(Z,U)))))) & ~(? [Y] :  (b(Y,Z))))) & (~(~(X=NULL) & i(Z,X) & (! [U] :  ((~(i(U,X)) | (i(U,Z) & ~(i(Z,U)))))) & ~(? [Y] :  (b(Y,Z)))) | Z=maximalint(X)))))))).
+fof(axiom7120, axiom, (! [X] :  ((bdy(X)=NULL | (b(bdy(X),X) & (! [Z] :  ((~(b(Z,X)) | p(Z,bdy(X)))))))))).
+fof(axiom7300, axiom, (! [X] :  (((~(bdy(X)=NULL) | NULL=X | X=CUNIVERSAL | point(X) | (! [Z] :  ((~(p(Z,X)) | i(Z,X))))) & (~(NULL=X | X=CUNIVERSAL | point(X) | (! [Z] :  ((~(p(Z,X)) | i(Z,X))))) | bdy(X)=NULL))))).
+fof(axiom7310, axiom, (! [X] : ! [Y] : ! [Z] :  ((~(bdy(X)=Y & bdy(X)=Z) | Z=Y)))).
+fof(axiom7320, axiom, (! [X] : ! [W] :  (((~(o(W,bdy(X))) | (? [V] :  ((o(V,W) & b(V,X))))) & (~(? [V] :  ((o(V,W) & b(V,X)))) | o(W,bdy(X))))))).
+fof(axiom7750, axiom, (! [X] :  (((~(spatialentity(X)) | (~(X=NULL) & ~(X=CUNIVERSAL) & ~(point(X)) & p(X,CUNIVERSAL))) & (~(~(X=NULL) & ~(X=CUNIVERSAL) & ~(point(X)) & p(X,CUNIVERSAL)) | spatialentity(X)))))).
+fof(axiom7870, axiom, (! [X] :  (((~(X=NULL) | ~(p(X,X))) & (p(X,X) | X=NULL))))).
+fof(axiom7880, axiom, (! [X] :  (((~(p(X,X)) | ~(X=NULL)) & (X=NULL | p(X,X)))))).
+fof(axiom3940, axiom, (! [Y] :  ((~(point(Y)) | ~(? [X] :  (b(X,Y))))))).
