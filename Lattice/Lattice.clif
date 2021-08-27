@@ -1,0 +1,87 @@
+(cl-text http://colore.oor.net/after/Lattice/Lattice.clif
+(cl-imports http://colore.oor.net/after/Axioms/P_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Part_of_inverse.clif)
+(cl-imports http://colore.oor.net/after/Axioms/Supplementation.clif)
+(cl-imports http://colore.oor.net/after/Axioms/Existence_of_Universal.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Universal.clif)
+(cl-imports http://colore.oor.net/after/Axioms/Universal_axiom.clif)
+(cl-imports http://colore.oor.net/after/Definitions/Point.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Proper_part.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Proper_part_inverse.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Equality.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Overlap.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Discrete.clif)
+(cl-imports http://colore.oor.net/after/Axioms/B_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Imbricate.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_I.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_II.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_TPP.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_TPPI.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Overpass.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Externally_Connected.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Interior_Contact.clif)
+(cl-imports http://colore.oor.net/after/Axioms/entities_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_sum.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_prod.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_compl.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_diff.clif)
+(cl-imports http://colore.oor.net/after/Axioms/Uniq_compl.clif)
+(cl-imports http://colore.oor.net/after/Axioms/Uniq_diff.clif)
+(cl-imports http://colore.oor.net/after/Axioms/Uniq_prod.clif)
+(cl-imports http://colore.oor.net/after/Axioms/Uniq_sum.clif)
+(cl-imports http://colore.oor.net/after/Axioms/sum_existance.clif)
+(cl-imports http://colore.oor.net/after/Axioms/compl_existance.clif)
+(cl-imports http://colore.oor.net/after/Axioms/prod_existance.clif)
+(cl-imports http://colore.oor.net/after/Axioms/diff_existance.clif)
+(cl-imports http://colore.oor.net/after/Axioms/Operations_axioms.clif)
+(cl-imports http://colore.oor.net/after/Axioms/Whole_interior_axiom.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_Whole_boundary.clif)
+(cl-imports http://colore.oor.net/after/Axioms/Whole_boundary_axioms.clif)
+(cl-imports http://colore.oor.net/after/Definitions/D_SpatialEntity.clif)
+
+
+(not (forall (x y) (or (O x y) (D x y))))
+
+(not (forall (x y) (if (IMB x y) (O x y))))
+
+(not (forall (x y) (if (P x y) (O x y))))
+
+(not (forall (x y) (if (PI x y) (O x y))))
+
+(not (forall (x y) (if (PP x y) (P x y))))
+
+(not (forall (x y) (if (PPI x y) (PI x y))))
+
+(not (forall (x y) (if (I x y) (P x y))))
+
+(not (forall (x y) (if (TPP x y) (PP x y))))
+
+(not (forall (x y) (if (TPPI x y) (PPI x y))))
+
+(not (forall (x y) (if (II x y) (PI x y))))
+
+(not (forall (x y) (if (EQ x y) (P x y))))
+
+(not (forall (x y) (if (EQ x y) (PI x y))))
+
+(not (forall (x y) (if (OV x y) (IMB x y))))
+
+(not (forall (x y) (if (IC x y) (IMB x y))))
+
+(not (forall (x y) (if (EC x y) (IMB x y))))
+
+
+(not (forall (x y) (iff (O x y) (or (IMB x y)(P x y)(PI x y)))))
+
+(not (forall (x y) (iff (P x y) (or (I x y)(PP x y)(EQ x y)))))
+
+(not (forall (x y) (iff (PI x y) (or (II x y)(PPI x y)(EQ x y)))))
+
+(not (forall (x y) (iff (IMB x y) (or (OV x y)(IC x y)(EC x y)))))
+
+
+
+
+
+
+)
