@@ -1,0 +1,8 @@
+formulas(assumptions).
+(all x all y all w  ((-(-(=(x,null)) & -(=(y,null)) & O(w,sum(x,y))) | (-(=(w,null)) & (O(w,x) | O(w,y)))) & (-(-(=(w,null)) & (O(w,x) | O(w,y))) | (-(=(x,null)) & -(=(y,null)) & O(w,sum(x,y)))))).
+(all x  (=(x,null) | P(x,x))).
+(all x all y  (-(-(=(x,null)) & -(=(y,null)) & P(x,y) & P(y,x)) | =(x,y))).
+(all x all y all z  (-(-(=(x,null)) & -(=(y,null)) & -(=(z,null)) & P(x,y) & P(y,z)) | P(x,z))).
+(all y  (-(P(null,y)) & -(P(y,null)))).
+end_of_list.
+

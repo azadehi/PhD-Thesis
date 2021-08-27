@@ -1,0 +1,15 @@
+formulas(assumptions).
+(all x all y  ((-(I(x,y)) | (P(x,y) & (-(PP(x,y)) | (exists z  (B(z,y) & D(z,x)))) & (-(exists z  (B(z,y) & D(z,x))) | PP(x,y)))) & (-(P(x,y) & (-(PP(x,y)) | (exists z  (B(z,y) & D(z,x)))) & (-(exists z  (B(z,y) & D(z,x))) | PP(x,y))) | I(x,y)))).
+(all x all y  ((-(D(x,y)) | -(O(x,y))) & (O(x,y) | D(x,y)))).
+(all x all y  (-(B(x,y)) | PP(x,y))).
+(all x all y all z  (-(B(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z  (-(P(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z  (-(B(x,y) & P(y,z)) | P(x,z))).
+(all x all y  ((-(PP(x,y)) | (P(x,y) & -(P(y,x)))) & (-(P(x,y) & -(P(y,x))) | PP(x,y)))).
+(all x  ((=(x,null) | P(x,x)) & (-(P(x,x)) | -(=(x,null))))).
+(all x all y  (-(-(=(x,null)) & -(=(y,null)) & P(x,y) & P(y,x)) | =(x,y))).
+(all x all y all z  (-(-(=(x,null)) & -(=(y,null)) & -(=(z,null)) & P(x,y) & P(y,z)) | P(x,z))).
+(all y  (-(P(null,y)) & -(P(y,null)))).
+(all x all y  ((-(O(x,y)) | (exists z  (P(z,x) & P(z,y)))) & (-(exists z  (P(z,x) & P(z,y))) | O(x,y)))).
+end_of_list.
+

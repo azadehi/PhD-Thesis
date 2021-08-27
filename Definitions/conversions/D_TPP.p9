@@ -1,0 +1,6 @@
+formulas(sos).
+% cl-imports after/Axioms/P_axioms.clif
+% cl-imports after/Axioms/B_axioms.clif
+% cl-imports after/Definitions/D_Proper_part.clif
+( all x11 all x13 ( (tpp(x11, x13)) <-> ((pp(x11, x13) & ( exists x12 (p(x12, x11) & b(x12, x13))) )) )) .
+end_of_list.

@@ -1,0 +1,2 @@
+% cl-imports after/Definitions/D_TPP.clif
+fof(sos10,axiom,( ! [X12] : ! [X11] : ( (tppi(X12, X11)) <=> (tpp(X11, X12)) )) ).

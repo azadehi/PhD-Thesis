@@ -1,0 +1,6 @@
+formulas(sos).
+% cl-imports after/Axioms/B_axioms.clif
+% cl-imports after/Definitions/D_Imbricate.clif
+% cl-imports after/Definitions/D_I.clif
+( all x11 all x14 ( (ic(x11, x14)) <-> ((imb(x11, x14) & - (( exists x13 (i(x13, x11) & i(x13, x14))) ) & - (( all x12 ( ((p(x12, x11) & p(x12, x14))) -> ((b(x12, x11) & b(x12, x14))) )) ))) )) .
+end_of_list.

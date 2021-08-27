@@ -1,0 +1,9 @@
+formulas(assumptions).
+(all x all y  ((-(PPI(x,y)) | PP(y,x)) & (-(PP(y,x)) | PPI(x,y)))).
+(all x all y  ((-(PP(x,y)) | (P(x,y) & -(P(y,x)))) & (-(P(x,y) & -(P(y,x))) | PP(x,y)))).
+(all x  (=(x,null) | P(x,x))).
+(all x all y  (-(P(x,y) & P(y,x)) | =(x,y))).
+(all x all y all z  (-(P(x,y) & P(y,z)) | P(x,z))).
+(all x  ((-(=(x,null)) | (all y  (-(P(y,x)) & -(P(x,y))))) & (-(all y  (-(P(y,x)) & -(P(x,y)))) | =(x,null)))).
+end_of_list.
+

@@ -1,0 +1,5 @@
+% cl-imports after/Axioms/P_axioms.clif
+fof(sos10,axiom,( ! [X11] : (~ (p(null, X11)) & ~ (p(X11, null)))) ).
+fof(sos20,axiom,( ! [X21] : ( (~ ((X21=Null))) => (p(X21, X21)) )) ).
+fof(sos30,axiom,( ! [X32] : ! [X31] : ( ((p(X32, X31) & p(X31, X32))) => ((X32=X31)) )) ).
+fof(sos40,axiom,( ! [X42] : ! [X41] : ! [X43] : ( ((p(X42, X41) & p(X41, X43))) => (p(X42, X43)) )) ).

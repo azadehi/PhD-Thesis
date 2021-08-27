@@ -1,0 +1,5 @@
+formulas(sos).
+% cl-imports after/Axioms/P_axioms.clif
+% cl-imports after/Definitions/D_Discrete.clif
+( all x11 ( all x12 ( (p(x12, compl(x11))) <-> ((d(x12, x11) & p(x12, compl(x11)))) )) ) .
+end_of_list.

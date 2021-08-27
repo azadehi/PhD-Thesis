@@ -1,0 +1,17 @@
+% cl-imports after/Definitions/D_TPP.clif
+fof(sos10,axiom,( ! [X12] : ! [X11] : ( (tppi(X12, X11)) <=> (tpp(X11, X12)) )) ).
+% cl-imports after/Axioms/P_axioms.clif
+% cl-imports after/Definitions/D_Proper_part.clif
+fof(sos20,axiom,( ! [X22] : ! [X21] : ( (b(X22, X21)) => (pp(X22, X21)) )) ).
+fof(sos30,axiom,( ! [X32] : ! [X31] : ( ((b(X32, X31) & b(X31, z))) => (b(X32, z)) )) ).
+fof(sos40,axiom,( ! [X42] : ! [X41] : ( ((p(X42, X41) & b(X41, z))) => (b(X42, z)) )) ).
+fof(sos50,axiom,( ! [X52] : ! [X51] : ( ((b(X52, X51) & p(X51, z))) => (p(X52, z)) )) ).
+% cl-imports after/Axioms/P_axioms.clif
+fof(sos60,axiom,( ! [X62] : ! [X61] : ( (pp(X62, X61)) <=> ((p(X62, X61) & ~ (p(X61, X62)))) )) ).
+% cl-imports after/Axioms/P_axioms.clif
+% cl-imports after/Axioms/B_axioms.clif
+% cl-imports after/Definitions/D_Proper_part.clif
+fof(sos70,axiom,( ! [X73] : ! [X72] : ( (tpp(X73, X72)) <=> ((pp(X73, X72) & ( ? [X71] : (p(X71, X73) & b(X71, X72))) )) )) ).
+fof(sos80,axiom,( ! [X81] : ( (~ ((X81=Null))) => (p(X81, X81)) )) ).
+fof(sos90,axiom,( ! [X92] : ! [X91] : ( ((p(X92, X91) & p(X91, X92))) => ((X92=X91)) )) ).
+fof(sos100,axiom,( ! [X103] : ! [X102] : ! [X101] : ( ((p(X103, X102) & p(X102, X101))) => (p(X103, X101)) )) ).

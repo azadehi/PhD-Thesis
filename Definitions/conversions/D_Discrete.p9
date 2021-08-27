@@ -1,0 +1,4 @@
+formulas(sos).
+% cl-imports after/Definitions/D_Overlap.clif
+( all x11 all x12 ( (d(x11, x12)) <-> (- (o(x11, x12))) )) .
+end_of_list.

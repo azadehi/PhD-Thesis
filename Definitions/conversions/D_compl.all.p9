@@ -1,0 +1,10 @@
+formulas(assumptions).
+(all x  (all w  ((-(P(w,compl(x))) | (D(w,x) & P(w,compl(x)))) & (-(D(w,x) & P(w,compl(x))) | P(w,compl(x)))))).
+(all x  ((=(x,null) | P(x,x)) & (-(P(x,x)) | -(=(x,null))))).
+(all x all y  (-(P(x,y) & P(y,x) & -(=(x,null)) & -(=(y,null))) | =(x,y))).
+(all x all y all z  (-(P(x,y) & P(y,z) & -(=(x,null)) & -(=(y,null)) & -(=(z,null))) | P(x,z))).
+(all y  (-(P(null,y)) & -(P(y,null)))).
+(all x all y  ((-(D(x,y)) | -(O(x,y))) & (O(x,y) | D(x,y)))).
+(all x all y  ((-(O(x,y)) | (exists z  (P(z,x) & P(z,y)))) & (-(exists z  (P(z,x) & P(z,y))) | O(x,y)))).
+end_of_list.
+

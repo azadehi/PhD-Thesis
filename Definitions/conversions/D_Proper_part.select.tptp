@@ -1,0 +1,2 @@
+% cl-imports after/Axioms/P_axioms.clif
+fof(sos10,axiom,( ! [X11] : ! [X12] : ( (pp(X11, X12)) <=> ((p(X11, X12) & ~ (p(X12, X11)))) )) ).

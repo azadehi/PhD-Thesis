@@ -1,0 +1,4 @@
+formulas(sos).
+% cl-imports after/Axioms/P_axioms.clif
+( all x2 (- (p(null, x2)) & - (p(x2, null)))) .
+end_of_list.

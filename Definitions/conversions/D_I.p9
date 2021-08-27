@@ -1,0 +1,6 @@
+formulas(sos).
+% cl-imports after/Axioms/B_axioms.clif
+% cl-imports after/Definitions/D_Discrete.clif
+% cl-imports after/Definitions/D_Proper_part.clif
+( all x11 all x13 ( (i(x11, x13)) <-> ((pp(x11, x13) & - (b(x11, x13)) & ( all x12 ( (b(x12, x13)) -> (d(x12, x11)) )) )) )) .
+end_of_list.

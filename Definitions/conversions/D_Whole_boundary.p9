@@ -1,0 +1,6 @@
+formulas(sos).
+% cl-imports after/Axioms/P_axioms.clif
+% cl-imports after/Axioms/B_axioms.clif
+% cl-imports after/Definitions/D_Null.clif
+( all x11 ((bdy(x11)=null) | (b(bdy(x11), x11) & ( all x12 ( (b(x12, x11)) -> (p(x12, bdy(x11))) )) ))) .
+end_of_list.

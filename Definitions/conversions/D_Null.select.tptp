@@ -1,0 +1,2 @@
+% cl-imports after/Axioms/P_axioms.clif
+fof(sos1,axiom,( ! [X2] : (~ (p(null, X2)) & ~ (p(X2, null)))) ).

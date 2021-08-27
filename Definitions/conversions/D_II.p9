@@ -1,0 +1,4 @@
+formulas(sos).
+% cl-imports after/Definitions/D_I.clif
+( all x11 all x12 ( (ii(x11, x12)) <-> (i(x12, x11)) )) .
+end_of_list.

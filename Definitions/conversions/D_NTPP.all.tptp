@@ -1,0 +1,13 @@
+fof(axiom10, axiom, (! [X] : ! [Y] :  (((~(ntpp(X,Y)) | (! [Z] :  ((~(i(Z,Y)) | pp(X,Z))))) & (~(! [Z] :  ((~(i(Z,Y)) | pp(X,Z)))) | ntpp(X,Y)))))).
+fof(axiom20, axiom, (! [X] : ! [Y] :  (((~(i(X,Y)) | (p(X,Y) & (~(pp(X,Y)) | (? [Z] :  ((b(Z,Y) & d(Z,X))))) & (~(? [Z] :  ((b(Z,Y) & d(Z,X)))) | pp(X,Y)))) & (~(p(X,Y) & (~(pp(X,Y)) | (? [Z] :  ((b(Z,Y) & d(Z,X))))) & (~(? [Z] :  ((b(Z,Y) & d(Z,X)))) | pp(X,Y))) | i(X,Y)))))).
+fof(axiom270, axiom, (! [X] : ! [Y] :  (((~(d(X,Y)) | ~(o(X,Y))) & (o(X,Y) | d(X,Y)))))).
+fof(axiom330, axiom, (! [X] : ! [Y] :  (((~(pp(X,Y)) | (p(X,Y) & ~(p(Y,X)))) & (~(p(X,Y) & ~(p(Y,X))) | pp(X,Y)))))).
+fof(axiom340, axiom, (! [X] :  (((X=NULL | p(X,X)) & (~(p(X,X)) | ~(X=NULL)))))).
+fof(axiom350, axiom, (! [X] : ! [Y] :  ((~(~(X=NULL) & ~(Y=NULL) & p(X,Y) & p(Y,X)) | X=Y)))).
+fof(axiom360, axiom, (! [X] : ! [Y] : ! [Z] :  ((~(~(X=NULL) & ~(Y=NULL) & ~(Z=NULL) & p(X,Y) & p(Y,Z)) | p(X,Z))))).
+fof(axiom370, axiom, (! [Y] :  ((~(p(NULL,Y)) & ~(p(Y,NULL)))))).
+fof(axiom280, axiom, (! [X] : ! [Y] :  (((~(o(X,Y)) | (? [Z] :  ((p(Z,X) & p(Z,Y))))) & (~(? [Z] :  ((p(Z,X) & p(Z,Y)))) | o(X,Y)))))).
+fof(axiom90, axiom, (! [X] : ! [Y] :  ((~(b(X,Y)) | pp(X,Y))))).
+fof(axiom100, axiom, (! [X] : ! [Y] : ! [Z] :  ((~(b(X,Y) & b(Y,Z)) | b(X,Z))))).
+fof(axiom110, axiom, (! [X] : ! [Y] : ! [Z] :  ((~(p(X,Y) & b(Y,Z)) | b(X,Z))))).
+fof(axiom120, axiom, (! [X] : ! [Y] : ! [Z] :  ((~(b(X,Y) & p(Y,Z)) | p(X,Z))))).

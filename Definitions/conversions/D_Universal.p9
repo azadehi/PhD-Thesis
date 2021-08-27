@@ -1,0 +1,6 @@
+formulas(sos).
+% cl-imports after/Definitions/D_Null.clif
+% cl-imports after/Axioms/P_axioms.clif
+% cl-imports after/Definitions/D_Identity.clif
+( all x2 ( (- ((null=x2))) -> (p(x2, universal)) )) .
+end_of_list.

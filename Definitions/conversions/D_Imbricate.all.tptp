@@ -1,0 +1,8 @@
+% cl-imports after/Axioms/P_axioms.clif
+% cl-imports after/Definitions/D_Overlap.clif
+fof(sos10,axiom,( ! [X12] : ! [X11] : ( (imb(X12, X11)) <=> ((o(X12, X11) & ~ (p(X12, X11)) & ~ (p(X11, X12)))) )) ).
+% cl-imports after/Axioms/P_axioms.clif
+fof(sos20,axiom,( ! [X23] : ! [X22] : ( (o(X23, X22)) <=> (( ? [X21] : (p(X21, X23) & p(X21, X22))) ) )) ).
+fof(sos30,axiom,( ! [X31] : ( (~ ((X31=Null))) => (p(X31, X31)) )) ).
+fof(sos40,axiom,( ! [X42] : ! [X41] : ( ((p(X42, X41) & p(X41, X42))) => ((X42=X41)) )) ).
+fof(sos50,axiom,( ! [X53] : ! [X52] : ! [X51] : ( ((p(X53, X52) & p(X52, X51))) => (p(X53, X51)) )) ).

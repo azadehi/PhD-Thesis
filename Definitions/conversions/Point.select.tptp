@@ -1,0 +1,9 @@
+% cl-imports after/Axioms/P_axioms.clif
+% cl-imports after/Definitions/D_Proper_part.clif
+% cl-imports after/Axioms/B_axioms.clif
+% cl-imports after/Definitions/D_Identity.clif
+% cl-imports after/Definitions/D_Null.clif
+% cl-imports after/Definitions/D_Universal.clif
+fof(sos10,axiom,( ! [X11] : ( (pt(X11)) <=> (( ! [X12] : ( (p(X12, X11)) => ((X11=X12)) )) ) )) ).
+fof(sos20,axiom,( ! [X22] : ( (~ (pt(X22))(~ ((X21=Null)), ~ ((X21=U)))) => (( ? [X21] : b(X21, X22)) ) )) ).
+fof(sos30,axiom,( ! [X31] : ( (pt(X31)) => (~ (( ? [X32] : b(X32, X31)) )) )) ).

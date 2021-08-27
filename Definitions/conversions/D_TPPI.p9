@@ -1,0 +1,4 @@
+formulas(sos).
+% cl-imports after/Definitions/D_TPP.clif
+( all x11 all x12 ( (tppi(x11, x12)) <-> (tpp(x12, x11)) )) .
+end_of_list.

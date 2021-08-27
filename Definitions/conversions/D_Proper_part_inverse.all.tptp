@@ -1,0 +1,7 @@
+% cl-imports after/Definitions/D_Proper_part.clif
+fof(sos10,axiom,( ! [X12] : ! [X11] : ( (ppi(X12, X11)) <=> (pp(X11, X12)) )) ).
+% cl-imports after/Axioms/P_axioms.clif
+fof(sos20,axiom,( ! [X22] : ! [X21] : ( (pp(X22, X21)) <=> ((p(X22, X21) & ~ (p(X21, X22)))) )) ).
+fof(sos30,axiom,( ! [X31] : p(X31, X31)) ).
+fof(sos40,axiom,( ! [X42] : ! [X41] : ( ((p(X42, X41) & p(X41, X42))) => ((X42=X41)) )) ).
+fof(sos50,axiom,( ! [X52] : ! [X51] : ! [X53] : ( ((p(X52, X51) & p(X51, X53))) => (p(X52, X53)) )) ).

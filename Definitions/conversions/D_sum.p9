@@ -1,0 +1,4 @@
+formulas(sos).
+% cl-imports after/Axioms/P_axioms.clif
+( all x12 all x11 ( all x13 ( (p(x13, sum(x12, x11))) <-> ((p(x13, x12) | p(x13, x11))) )) ) .
+end_of_list.

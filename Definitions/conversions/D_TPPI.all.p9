@@ -1,0 +1,14 @@
+formulas(assumptions).
+(all x all y  ((-(TPPI(x,y)) | TPP(y,x)) & (-(TPP(y,x)) | TPPI(x,y)))).
+(all x all y  ((-(TPP(x,y)) | (PP(x,y) & (exists z  (P(z,x) & B(z,y))))) & (-(PP(x,y) & (exists z  (P(z,x) & B(z,y)))) | TPP(x,y)))).
+(all x  (=(x,null) | P(x,x))).
+(all x all y  (-(P(x,y) & P(y,x)) | =(x,y))).
+(all x all y all z  (-(P(x,y) & P(y,z)) | P(x,z))).
+(all x  ((-(=(x,null)) | (all y  (-(P(y,x)) & -(P(x,y))))) & (-(all y  (-(P(y,x)) & -(P(x,y)))) | =(x,null)))).
+(all x all y  (-(B(x,y)) | PP(x,y))).
+(all x all y all z  (-(B(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z  (-(P(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z  (-(B(x,y) & P(y,z)) | P(x,z))).
+(all x all y  ((-(PP(x,y)) | (P(x,y) & -(P(y,x)))) & (-(P(x,y) & -(P(y,x))) | PP(x,y)))).
+end_of_list.
+

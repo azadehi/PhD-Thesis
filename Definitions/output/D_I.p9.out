@@ -1,0 +1,902 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 11843 was started by aidin12 on aidin12-HP-Pavilion-dv7-Notebook-PC,
+Sat Sep 19 04:13:55 2020
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/prover9 -t100 -f /home/aidin12/macleod/ontologies/after2/Definitions/conversions/D_I.all.p9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file /home/aidin12/macleod/ontologies/after2/Definitions/conversions/D_I.all.p9
+
+
+formulas(assumptions).
+(all x all y ((-I(x,y) | P(x,y) & (all z (-B(z,y) | D(z,x)))) & (-(P(x,y) & (all z (-B(z,y) | D(z,x)))) | I(x,y)))).
+(all x (x = null | P(x,x))).
+(all x all y (-(P(x,y) & P(y,x)) | x = y)).
+(all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))).
+(all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))).
+(all x all y (-B(x,y) | PP(x,y))).
+(all x all y all z (-(B(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z (-(P(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z (-(B(x,y) & P(y,z)) | P(x,z))).
+(all x all y ((-D(x,y) | -O(x,y)) & (O(x,y) | D(x,y)))).
+(all x all y ((-O(x,y) | (exists z (P(z,x) & P(z,y)))) & (-(exists z (P(z,x) & P(z,y))) | O(x,y)))).
+(all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))).
+end_of_list.
+
+============================== end of input ==========================
+
+% From the command line: assign(max_seconds, 100).
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 (all x all y ((-I(x,y) | P(x,y) & (all z (-B(z,y) | D(z,x)))) & (-(P(x,y) & (all z (-B(z,y) | D(z,x)))) | I(x,y)))) # label(non_clause).  [assumption].
+2 (all x (x = null | P(x,x))) # label(non_clause).  [assumption].
+3 (all x all y (-(P(x,y) & P(y,x)) | x = y)) # label(non_clause).  [assumption].
+4 (all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))) # label(non_clause).  [assumption].
+5 (all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))) # label(non_clause).  [assumption].
+6 (all x all y (-B(x,y) | PP(x,y))) # label(non_clause).  [assumption].
+7 (all x all y all z (-(B(x,y) & B(y,z)) | B(x,z))) # label(non_clause).  [assumption].
+8 (all x all y all z (-(P(x,y) & B(y,z)) | B(x,z))) # label(non_clause).  [assumption].
+9 (all x all y all z (-(B(x,y) & P(y,z)) | P(x,z))) # label(non_clause).  [assumption].
+10 (all x all y ((-D(x,y) | -O(x,y)) & (O(x,y) | D(x,y)))) # label(non_clause).  [assumption].
+11 (all x all y ((-O(x,y) | (exists z (P(z,x) & P(z,y)))) & (-(exists z (P(z,x) & P(z,y))) | O(x,y)))) # label(non_clause).  [assumption].
+12 (all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))) # label(non_clause).  [assumption].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+-I(x,y) | P(x,y).  [clausify(1)].
+-I(x,y) | -B(z,y) | D(z,x).  [clausify(1)].
+-P(x,y) | B(f1(x,y),y) | I(x,y).  [clausify(1)].
+-P(x,y) | -D(f1(x,y),x) | I(x,y).  [clausify(1)].
+null = x | P(x,x).  [clausify(2)].
+-P(x,y) | -P(y,x) | y = x.  [clausify(3)].
+-P(x,y) | -P(y,z) | P(x,z).  [clausify(4)].
+null != x | -P(y,x).  [clausify(5)].
+null != x | -P(x,y).  [clausify(5)].
+P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(5)].
+-B(x,y) | PP(x,y).  [clausify(6)].
+-B(x,y) | -B(y,z) | B(x,z).  [clausify(7)].
+-P(x,y) | -B(y,z) | B(x,z).  [clausify(8)].
+-B(x,y) | -P(y,z) | P(x,z).  [clausify(9)].
+-D(x,y) | -O(x,y).  [clausify(10)].
+O(x,y) | D(x,y).  [clausify(10)].
+-O(x,y) | P(f3(x,y),x).  [clausify(11)].
+-O(x,y) | P(f3(x,y),y).  [clausify(11)].
+-P(x,y) | -P(x,z) | O(y,z).  [clausify(11)].
+-PP(x,y) | P(x,y).  [clausify(12)].
+-PP(x,y) | -P(y,x).  [clausify(12)].
+-P(x,y) | P(y,x) | PP(x,y).  [clausify(12)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating I/2
+13 -P(x,y) | B(f1(x,y),y) | I(x,y).  [clausify(1)].
+14 -I(x,y) | P(x,y).  [clausify(1)].
+15 -I(x,y) | -B(z,y) | D(z,x).  [clausify(1)].
+Derived: -P(x,y) | B(f1(x,y),y) | -B(z,y) | D(z,x).  [resolve(13,c,15,a)].
+16 -P(x,y) | -D(f1(x,y),x) | I(x,y).  [clausify(1)].
+Derived: -P(x,y) | -D(f1(x,y),x) | -B(z,y) | D(z,x).  [resolve(16,c,15,a)].
+
+Eliminating PP/2
+17 -PP(x,y) | P(x,y).  [clausify(12)].
+18 -B(x,y) | PP(x,y).  [clausify(6)].
+Derived: P(x,y) | -B(x,y).  [resolve(17,a,18,b)].
+19 -PP(x,y) | -P(y,x).  [clausify(12)].
+Derived: -P(x,y) | -B(y,x).  [resolve(19,a,18,b)].
+20 -P(x,y) | P(y,x) | PP(x,y).  [clausify(12)].
+
+Eliminating O/2
+21 O(x,y) | D(x,y).  [clausify(10)].
+22 -D(x,y) | -O(x,y).  [clausify(10)].
+23 -O(x,y) | P(f3(x,y),x).  [clausify(11)].
+Derived: P(f3(x,y),x) | D(x,y).  [resolve(23,a,21,a)].
+24 -O(x,y) | P(f3(x,y),y).  [clausify(11)].
+Derived: P(f3(x,y),y) | D(x,y).  [resolve(24,a,21,a)].
+25 -P(x,y) | -P(x,z) | O(y,z).  [clausify(11)].
+Derived: -P(x,y) | -P(x,z) | -D(y,z).  [resolve(25,c,22,b)].
+Derived: -P(x,y) | -P(x,z) | P(f3(y,z),y).  [resolve(25,c,23,a)].
+Derived: -P(x,y) | -P(x,z) | P(f3(y,z),z).  [resolve(25,c,24,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, P, B, D ]).
+Function symbol precedence:  function_order([ null, f1, f3, f2 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+kept:      26 null = x | P(x,x).  [clausify(2)].
+kept:      27 -P(x,y) | -P(y,x) | y = x.  [clausify(3)].
+kept:      28 -P(x,y) | -P(y,z) | P(x,z).  [clausify(4)].
+kept:      29 null != x | -P(y,x).  [clausify(5)].
+kept:      30 null != x | -P(x,y).  [clausify(5)].
+kept:      31 P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(5)].
+kept:      32 -B(x,y) | -B(y,z) | B(x,z).  [clausify(7)].
+kept:      33 -P(x,y) | -B(y,z) | B(x,z).  [clausify(8)].
+kept:      34 -B(x,y) | -P(y,z) | P(x,z).  [clausify(9)].
+kept:      35 -P(x,y) | B(f1(x,y),y) | -B(z,y) | D(z,x).  [resolve(13,c,15,a)].
+kept:      36 -P(x,y) | -D(f1(x,y),x) | -B(z,y) | D(z,x).  [resolve(16,c,15,a)].
+kept:      37 P(x,y) | -B(x,y).  [resolve(17,a,18,b)].
+kept:      38 -P(x,y) | -B(y,x).  [resolve(19,a,18,b)].
+kept:      39 P(f3(x,y),x) | D(x,y).  [resolve(23,a,21,a)].
+kept:      40 P(f3(x,y),y) | D(x,y).  [resolve(24,a,21,a)].
+kept:      41 -P(x,y) | -P(x,z) | -D(y,z).  [resolve(25,c,22,b)].
+kept:      42 -P(x,y) | -P(x,z) | P(f3(y,z),y).  [resolve(25,c,23,a)].
+kept:      43 -P(x,y) | -P(x,z) | P(f3(y,z),z).  [resolve(25,c,24,a)].
+kept:      44 -P(x,y) | -D(y,y).  [factor(41,a,b)].
+kept:      45 -P(x,y) | P(f3(y,y),y).  [factor(42,a,b)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+26 null = x | P(x,x).  [clausify(2)].
+27 -P(x,y) | -P(y,x) | y = x.  [clausify(3)].
+28 -P(x,y) | -P(y,z) | P(x,z).  [clausify(4)].
+29 null != x | -P(y,x).  [clausify(5)].
+30 null != x | -P(x,y).  [clausify(5)].
+31 P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(5)].
+32 -B(x,y) | -B(y,z) | B(x,z).  [clausify(7)].
+33 -P(x,y) | -B(y,z) | B(x,z).  [clausify(8)].
+34 -B(x,y) | -P(y,z) | P(x,z).  [clausify(9)].
+35 -P(x,y) | B(f1(x,y),y) | -B(z,y) | D(z,x).  [resolve(13,c,15,a)].
+36 -P(x,y) | -D(f1(x,y),x) | -B(z,y) | D(z,x).  [resolve(16,c,15,a)].
+37 P(x,y) | -B(x,y).  [resolve(17,a,18,b)].
+38 -P(x,y) | -B(y,x).  [resolve(19,a,18,b)].
+39 P(f3(x,y),x) | D(x,y).  [resolve(23,a,21,a)].
+40 P(f3(x,y),y) | D(x,y).  [resolve(24,a,21,a)].
+41 -P(x,y) | -P(x,z) | -D(y,z).  [resolve(25,c,22,b)].
+42 -P(x,y) | -P(x,z) | P(f3(y,z),y).  [resolve(25,c,23,a)].
+43 -P(x,y) | -P(x,z) | P(f3(y,z),z).  [resolve(25,c,24,a)].
+44 -P(x,y) | -D(y,y).  [factor(41,a,b)].
+45 -P(x,y) | P(f3(y,y),y).  [factor(42,a,b)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+given #1 (I,wt=6): 26 null = x | P(x,x).  [clausify(2)].
+
+given #2 (I,wt=9): 27 -P(x,y) | -P(y,x) | y = x.  [clausify(3)].
+
+given #3 (I,wt=9): 28 -P(x,y) | -P(y,z) | P(x,z).  [clausify(4)].
+
+given #4 (I,wt=6): 29 null != x | -P(y,x).  [clausify(5)].
+
+given #5 (I,wt=6): 30 null != x | -P(x,y).  [clausify(5)].
+
+given #6 (I,wt=11): 31 P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(5)].
+
+given #7 (I,wt=9): 32 -B(x,y) | -B(y,z) | B(x,z).  [clausify(7)].
+
+given #8 (I,wt=9): 33 -P(x,y) | -B(y,z) | B(x,z).  [clausify(8)].
+
+given #9 (I,wt=9): 34 -B(x,y) | -P(y,z) | P(x,z).  [clausify(9)].
+
+given #10 (I,wt=14): 35 -P(x,y) | B(f1(x,y),y) | -B(z,y) | D(z,x).  [resolve(13,c,15,a)].
+
+given #11 (I,wt=14): 36 -P(x,y) | -D(f1(x,y),x) | -B(z,y) | D(z,x).  [resolve(16,c,15,a)].
+
+given #12 (I,wt=6): 37 P(x,y) | -B(x,y).  [resolve(17,a,18,b)].
+
+given #13 (I,wt=6): 38 -P(x,y) | -B(y,x).  [resolve(19,a,18,b)].
+
+given #14 (I,wt=8): 39 P(f3(x,y),x) | D(x,y).  [resolve(23,a,21,a)].
+
+given #15 (I,wt=8): 40 P(f3(x,y),y) | D(x,y).  [resolve(24,a,21,a)].
+
+given #16 (I,wt=9): 41 -P(x,y) | -P(x,z) | -D(y,z).  [resolve(25,c,22,b)].
+
+given #17 (I,wt=11): 42 -P(x,y) | -P(x,z) | P(f3(y,z),y).  [resolve(25,c,23,a)].
+
+given #18 (I,wt=11): 43 -P(x,y) | -P(x,z) | P(f3(y,z),z).  [resolve(25,c,24,a)].
+
+given #19 (I,wt=6): 44 -P(x,y) | -D(y,y).  [factor(41,a,b)].
+
+given #20 (I,wt=8): 45 -P(x,y) | P(f3(y,y),y).  [factor(42,a,b)].
+
+given #21 (A,wt=3): 46 -P(x,null).  [ur(29,a,xx)].
+
+given #22 (F,wt=3): 47 -P(null,x).  [ur(30,a,xx)].
+
+given #23 (F,wt=3): 63 -B(x,null).  [ur(37,a,46,a)].
+
+given #24 (F,wt=3): 64 -B(null,x).  [ur(37,a,47,a)].
+
+given #25 (T,wt=8): 62 P(f3(x,x),x) | null = x.  [resolve(45,a,26,b)].
+
+given #26 (T,wt=8): 69 null = x | f3(x,x) != null.  [resolve(62,a,30,b),flip(b)].
+
+given #27 (T,wt=11): 48 P(x,f2(x)) | null = x | f2(x) != null.  [resolve(31,a,30,b),flip(c)].
+
+given #28 (T,wt=11): 54 -P(x,y) | P(f3(x,y),x) | null = x.  [resolve(42,a,26,b)].
+
+given #29 (A,wt=14): 49 P(x,f2(x)) | null = x | -P(y,f2(x)) | P(y,x).  [resolve(31,a,28,b)].
+
+given #30 (T,wt=11): 56 -P(x,y) | P(f3(y,x),y) | null = x.  [resolve(42,b,26,b)].
+
+given #31 (T,wt=11): 58 -P(x,y) | P(f3(x,y),y) | null = x.  [resolve(43,a,26,b)].
+
+given #32 (T,wt=11): 60 -P(x,y) | P(f3(y,x),x) | null = x.  [resolve(43,b,26,b)].
+
+given #33 (T,wt=11): 70 null = x | -P(y,f3(x,x)) | P(y,x).  [resolve(62,a,28,b)].
+
+given #34 (A,wt=14): 50 P(x,f2(x)) | null = x | -P(x,y) | P(f2(x),y).  [resolve(31,a,28,a)].
+
+given #35 (T,wt=11): 71 null = x | -P(x,y) | P(f3(x,x),y).  [resolve(62,a,28,a)].
+
+given #36 (T,wt=13): 65 null = x | -P(f3(x,x),y) | P(f3(y,x),x).  [resolve(62,a,43,b)].
+
+given #37 (T,wt=13): 66 null = x | -P(f3(x,x),y) | P(f3(x,y),y).  [resolve(62,a,43,a)].
+
+given #38 (T,wt=13): 67 null = x | -P(f3(x,x),y) | P(f3(y,x),y).  [resolve(62,a,42,b)].
+
+given #39 (A,wt=18): 51 P(f3(f1(x,y),x),f1(x,y)) | -P(x,y) | -B(z,y) | D(z,x).  [resolve(39,b,36,b)].
+
+given #40 (T,wt=13): 68 null = x | -P(f3(x,x),y) | P(f3(x,y),x).  [resolve(62,a,42,a)].
+
+given #41 (T,wt=13): 72 null = x | -P(x,f3(x,x)) | f3(x,x) = x.  [resolve(62,a,27,b)].
+
+given #42 (T,wt=15): 77 P(f3(x,f3(x,x)),x) | f3(x,x) = null | null = x.  [resolve(56,a,62,a),flip(b)].
+
+given #43 (T,wt=15): 79 P(f3(f3(x,x),x),x) | f3(x,x) = null | null = x.  [resolve(58,a,62,a),flip(b)].
+
+given #44 (A,wt=16): 52 P(f3(f1(x,y),x),x) | -P(x,y) | -B(z,y) | D(z,x).  [resolve(40,b,36,b)].
+
+given #45 (T,wt=15): 97 f3(x,x) = null | null = x | f3(x,f3(x,x)) != null.  [resolve(77,a,30,b),flip(c)].
+
+given #46 (T,wt=15): 113 f3(x,x) = null | null = x | f3(f3(x,x),x) != null.  [resolve(79,a,30,b),flip(c)].
+
+given #47 (T,wt=16): 53 -P(f2(x),y) | P(f3(x,y),x) | P(x,f2(x)) | null = x.  [resolve(42,a,31,a)].
+
+given #48 (T,wt=16): 55 -P(f2(x),y) | P(f3(y,x),y) | P(x,f2(x)) | null = x.  [resolve(42,b,31,a)].
+
+given #49 (A,wt=16): 57 -P(f2(x),y) | P(f3(x,y),y) | P(x,f2(x)) | null = x.  [resolve(43,a,31,a)].
+
+given #50 (T,wt=16): 59 -P(f2(x),y) | P(f3(y,x),x) | P(x,f2(x)) | null = x.  [resolve(43,b,31,a)].
+
+given #51 (T,wt=17): 73 P(f3(f3(x,x),x),f3(x,x)) | f3(x,x) = null | null = x.  [resolve(54,a,62,a),flip(b)].
+
+given #52 (T,wt=17): 78 P(f3(x,f2(x)),x) | f2(x) = null | P(x,f2(x)) | null = x.  [resolve(56,a,31,a),flip(b)].
+
+given #53 (T,wt=17): 80 P(f3(f2(x),x),x) | f2(x) = null | P(x,f2(x)) | null = x.  [resolve(58,a,31,a),flip(b)].
+
+given #54 (A,wt=18): 74 P(f3(f2(x),x),f2(x)) | f2(x) = null | P(x,f2(x)) | null = x.  [resolve(54,a,31,a),flip(b)].
+
+given #55 (T,wt=17): 81 P(f3(x,f3(x,x)),f3(x,x)) | f3(x,x) = null | null = x.  [resolve(60,a,62,a),flip(b)].
+
+given #56 (T,wt=17): 83 null = x | P(f3(f3(x,x),f3(x,x)),x) | f3(x,x) = null.  [resolve(70,b,62,a),flip(c)].
+
+given #57 (T,wt=17): 143 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) != null.  [resolve(78,a,30,b),flip(d)].
+
+given #58 (T,wt=17): 159 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) != null.  [resolve(80,a,30,b),flip(d)].
+
+given #59 (A,wt=18): 75 P(x,f2(x)) | null = x | P(f3(f2(x),f2(x)),x) | f2(x) = null.  [resolve(49,c,62,a),flip(d)].
+
+given #60 (T,wt=17): 177 f2(x) = null | P(x,f2(x)) | null = x | -P(x,f3(f2(x),x)).  [factor(174,b,e)].
+
+given #61 (T,wt=17): 202 null = x | f3(x,x) = null | f3(f3(x,x),f3(x,x)) != null.  [resolve(83,b,30,b),flip(c)].
+
+given #62 (T,wt=18): 82 P(f3(x,f2(x)),f2(x)) | f2(x) = null | P(x,f2(x)) | null = x.  [resolve(60,a,31,a),flip(b)].
+
+given #63 (T,wt=17): 234 f2(x) = null | P(x,f2(x)) | null = x | -P(x,f3(x,f2(x))).  [factor(231,b,e)].
+
+given #64 (A,wt=22): 76 P(x,f2(x)) | null = x | P(f2(f2(x)),x) | P(f2(x),f2(f2(x))) | f2(x) = null.  [resolve(49,c,31,a),flip(e)].
+
+given #65 (T,wt=18): 98 f3(x,x) = null | null = x | -P(y,f3(x,f3(x,x))) | P(y,x).  [resolve(77,a,28,b)].
+
+given #66 (T,wt=18): 99 f3(x,x) = null | null = x | -P(x,y) | P(f3(x,f3(x,x)),y).  [resolve(77,a,28,a)].
+
+given #67 (T,wt=18): 114 f3(x,x) = null | null = x | -P(y,f3(f3(x,x),x)) | P(y,x).  [resolve(79,a,28,b)].
+
+given #68 (T,wt=18): 115 f3(x,x) = null | null = x | -P(x,y) | P(f3(f3(x,x),x),y).  [resolve(79,a,28,a)].
+
+given #69 (A,wt=22): 84 null = x | P(f2(f3(x,x)),x) | P(f3(x,x),f2(f3(x,x))) | f3(x,x) = null.  [resolve(70,b,31,a),flip(d)].
+
+given #70 (T,wt=18): 217 P(x,f2(x)) | null = x | f2(x) = null | f3(f2(x),f2(x)) != null.  [resolve(75,c,30,b),flip(d)].
+
+given #71 (T,wt=19): 123 f3(x,x) = null | null = x | P(f3(f3(x,x),f3(x,x)),f3(x,x)).  [resolve(73,a,45,a)].
+
+given #72 (T,wt=19): 169 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f2(x),f2(x)),f2(x)).  [resolve(74,a,45,a)].
+
+given #73 (T,wt=18): 325 f2(x) = null | P(x,f2(x)) | null = x | -P(x,f3(f2(x),f2(x))).  [factor(322,b,e)].
+
+given #74 (A,wt=28): 85 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | P(f3(f3(x,f3(x,x)),f3(x,f3(x,x))),x).  [resolve(77,a,71,b),flip(c)].
+
+given #75 (T,wt=20): 93 f3(x,x) = null | null = x | -P(f3(x,f3(x,x)),y) | P(f3(y,x),x).  [resolve(77,a,43,b)].
+
+given #76 (T,wt=20): 94 f3(x,x) = null | null = x | -P(f3(x,f3(x,x)),y) | P(f3(x,y),y).  [resolve(77,a,43,a)].
+
+given #77 (T,wt=20): 95 f3(x,x) = null | null = x | -P(f3(x,f3(x,x)),y) | P(f3(y,x),y).  [resolve(77,a,42,b)].
+
+given #78 (T,wt=20): 96 f3(x,x) = null | null = x | -P(f3(x,f3(x,x)),y) | P(f3(x,y),x).  [resolve(77,a,42,a)].
+
+given #79 (A,wt=30): 86 f3(f3(x,x),f3(x,x)) = null | f3(x,x) = null | null = x | P(f3(f3(x,x),f3(f3(x,x),f3(x,x))),x).  [resolve(77,a,70,b),flip(b)].
+
+given #80 (T,wt=20): 109 f3(x,x) = null | null = x | -P(f3(f3(x,x),x),y) | P(f3(y,x),x).  [resolve(79,a,43,b)].
+
+given #81 (T,wt=20): 110 f3(x,x) = null | null = x | -P(f3(f3(x,x),x),y) | P(f3(x,y),y).  [resolve(79,a,43,a)].
+
+given #82 (T,wt=20): 111 f3(x,x) = null | null = x | -P(f3(f3(x,x),x),y) | P(f3(y,x),y).  [resolve(79,a,42,b)].
+
+given #83 (T,wt=20): 112 f3(x,x) = null | null = x | -P(f3(f3(x,x),x),y) | P(f3(x,y),x).  [resolve(79,a,42,a)].
+
+given #84 (A,wt=28): 87 f3(x,x) = null | null = x | P(f3(x,f3(x,f3(x,x))),f3(x,f3(x,x))) | f3(x,f3(x,x)) = null.  [resolve(77,a,60,a),flip(d)].
+
+given #85 (T,wt=20): 128 f3(x,x) = null | null = x | -P(y,f3(f3(x,x),x)) | P(y,f3(x,x)).  [resolve(73,a,28,b)].
+
+given #86 (T,wt=20): 129 f3(x,x) = null | null = x | -P(f3(x,x),y) | P(f3(f3(x,x),x),y).  [resolve(73,a,28,a)].
+
+given #87 (T,wt=20): 144 f2(x) = null | P(x,f2(x)) | null = x | -P(y,f3(x,f2(x))) | P(y,x).  [resolve(78,a,28,b)].
+
+given #88 (T,wt=20): 145 f2(x) = null | P(x,f2(x)) | null = x | -P(x,y) | P(f3(x,f2(x)),y).  [resolve(78,a,28,a)].
+
+given #89 (A,wt=24): 88 f3(x,x) = null | null = x | P(f3(f3(x,f3(x,x)),x),x) | f3(x,f3(x,x)) = null.  [resolve(77,a,58,a),flip(d)].
+
+given #90 (T,wt=20): 160 f2(x) = null | P(x,f2(x)) | null = x | -P(y,f3(f2(x),x)) | P(y,x).  [resolve(80,a,28,b)].
+
+given #91 (T,wt=20): 161 f2(x) = null | P(x,f2(x)) | null = x | -P(x,y) | P(f3(f2(x),x),y).  [resolve(80,a,28,a)].
+
+given #92 (T,wt=20): 188 f3(x,x) = null | null = x | -P(y,f3(x,f3(x,x))) | P(y,f3(x,x)).  [resolve(81,a,28,b)].
+
+given #93 (T,wt=20): 189 f3(x,x) = null | null = x | -P(f3(x,x),y) | P(f3(x,f3(x,x)),y).  [resolve(81,a,28,a)].
+
+given #94 (A,wt=24): 89 f3(x,x) = null | null = x | P(f3(x,f3(x,f3(x,x))),x) | f3(x,f3(x,x)) = null.  [resolve(77,a,56,a),flip(d)].
+
+given #95 (T,wt=20): 203 null = x | f3(x,x) = null | -P(y,f3(f3(x,x),f3(x,x))) | P(y,x).  [resolve(83,b,28,b)].
+
+given #96 (T,wt=20): 204 null = x | f3(x,x) = null | -P(x,y) | P(f3(f3(x,x),f3(x,x)),y).  [resolve(83,b,28,a)].
+
+given #97 (T,wt=21): 174 f2(x) = null | P(x,f2(x)) | null = x | -P(y,f3(f2(x),x)) | P(y,f2(x)).  [resolve(74,a,28,b)].
+
+given #98 (T,wt=21): 175 f2(x) = null | P(x,f2(x)) | null = x | -P(f2(x),y) | P(f3(f2(x),x),y).  [resolve(74,a,28,a)].
+
+given #99 (A,wt=28): 90 f3(x,x) = null | null = x | P(f3(f3(x,f3(x,x)),x),f3(x,f3(x,x))) | f3(x,f3(x,x)) = null.  [resolve(77,a,54,a),flip(d)].
+
+given #100 (T,wt=21): 218 P(x,f2(x)) | null = x | f2(x) = null | -P(y,f3(f2(x),f2(x))) | P(y,x).  [resolve(75,c,28,b)].
+
+given #101 (T,wt=21): 219 P(x,f2(x)) | null = x | f2(x) = null | -P(x,y) | P(f3(f2(x),f2(x)),y).  [resolve(75,c,28,a)].
+
+given #102 (T,wt=21): 231 f2(x) = null | P(x,f2(x)) | null = x | -P(y,f3(x,f2(x))) | P(y,f2(x)).  [resolve(82,a,28,b)].
+
+given #103 (T,wt=21): 232 f2(x) = null | P(x,f2(x)) | null = x | -P(f2(x),y) | P(f3(x,f2(x)),y).  [resolve(82,a,28,a)].
+
+given #104 (A,wt=35): 91 f3(x,x) = null | null = x | P(f3(x,f3(x,x)),f2(f3(x,f3(x,x)))) | f3(x,f3(x,x)) = null | P(f2(f3(x,f3(x,x))),x).  [resolve(77,a,50,c),flip(d)].
+
+given #105 (T,wt=22): 100 f3(x,x) = null | null = x | -P(x,f3(x,f3(x,x))) | f3(x,f3(x,x)) = x.  [resolve(77,a,27,b)].
+
+given #106 (T,wt=22): 116 f3(x,x) = null | null = x | -P(x,f3(f3(x,x),x)) | f3(f3(x,x),x) = x.  [resolve(79,a,27,b)].
+
+given #107 (T,wt=22): 125 f3(x,x) = null | null = x | -P(f3(f3(x,x),x),y) | P(f3(f3(x,x),y),y).  [resolve(73,a,43,a)].
+
+given #108 (T,wt=22): 126 f3(x,x) = null | null = x | -P(f3(f3(x,x),x),y) | P(f3(y,f3(x,x)),y).  [resolve(73,a,42,b)].
+
+given #109 (A,wt=28): 92 f3(f2(x),f2(x)) = null | f2(x) = null | P(x,f2(x)) | null = x | P(f3(f2(x),f3(f2(x),f2(x))),x).  [resolve(77,a,49,c),flip(b)].
+
+given #110 (T,wt=22): 139 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(x,f2(x)),y) | P(f3(y,x),x).  [resolve(78,a,43,b)].
+
+given #111 (T,wt=22): 140 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(x,f2(x)),y) | P(f3(x,y),y).  [resolve(78,a,43,a)].
+
+given #112 (T,wt=22): 141 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(x,f2(x)),y) | P(f3(y,x),y).  [resolve(78,a,42,b)].
+
+given #113 (T,wt=22): 142 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(x,f2(x)),y) | P(f3(x,y),x).  [resolve(78,a,42,a)].
+
+given #114 (A,wt=28): 101 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | P(f3(f3(f3(x,x),x),f3(f3(x,x),x)),x).  [resolve(79,a,71,b),flip(c)].
+
+given #115 (T,wt=22): 155 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(f2(x),x),y) | P(f3(y,x),x).  [resolve(80,a,43,b)].
+
+given #116 (T,wt=22): 156 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(f2(x),x),y) | P(f3(x,y),y).  [resolve(80,a,43,a)].
+
+given #117 (T,wt=22): 157 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(f2(x),x),y) | P(f3(y,x),y).  [resolve(80,a,42,b)].
+
+given #118 (T,wt=22): 158 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(f2(x),x),y) | P(f3(x,y),x).  [resolve(80,a,42,a)].
+
+given #119 (A,wt=30): 102 f3(f3(x,x),f3(x,x)) = null | f3(x,x) = null | null = x | P(f3(f3(f3(x,x),f3(x,x)),f3(x,x)),x).  [resolve(79,a,70,b),flip(b)].
+
+given #120 (T,wt=22): 185 f3(x,x) = null | null = x | -P(f3(x,f3(x,x)),y) | P(f3(f3(x,x),y),y).  [resolve(81,a,43,a)].
+
+given #121 (T,wt=22): 186 f3(x,x) = null | null = x | -P(f3(x,f3(x,x)),y) | P(f3(y,f3(x,x)),y).  [resolve(81,a,42,b)].
+
+given #122 (T,wt=22): 198 null = x | f3(x,x) = null | -P(f3(f3(x,x),f3(x,x)),y) | P(f3(y,x),x).  [resolve(83,b,43,b)].
+
+given #123 (T,wt=22): 199 null = x | f3(x,x) = null | -P(f3(f3(x,x),f3(x,x)),y) | P(f3(x,y),y).  [resolve(83,b,43,a)].
+
+given #124 (A,wt=28): 103 f3(x,x) = null | null = x | P(f3(x,f3(f3(x,x),x)),f3(f3(x,x),x)) | f3(f3(x,x),x) = null.  [resolve(79,a,60,a),flip(d)].
+
+given #125 (T,wt=22): 200 null = x | f3(x,x) = null | -P(f3(f3(x,x),f3(x,x)),y) | P(f3(y,x),y).  [resolve(83,b,42,b)].
+
+given #126 (T,wt=22): 201 null = x | f3(x,x) = null | -P(f3(f3(x,x),f3(x,x)),y) | P(f3(x,y),x).  [resolve(83,b,42,a)].
+
+given #127 (T,wt=22): 245 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | f2(f2(x)) != null.  [resolve(76,c,30,b),flip(e)].
+
+given #128 (T,wt=22): 292 null = x | P(f3(x,x),f2(f3(x,x))) | f3(x,x) = null | f2(f3(x,x)) != null.  [resolve(84,b,30,b),flip(d)].
+
+given #129 (A,wt=24): 104 f3(x,x) = null | null = x | P(f3(f3(f3(x,x),x),x),x) | f3(f3(x,x),x) = null.  [resolve(79,a,58,a),flip(d)].
+
+given #130 (T,wt=22): 307 f3(x,x) = null | null = x | -P(y,f3(f3(x,x),f3(x,x))) | P(y,f3(x,x)).  [resolve(123,c,28,b)].
+
+given #131 (T,wt=22): 308 f3(x,x) = null | null = x | -P(f3(x,x),y) | P(f3(f3(x,x),f3(x,x)),y).  [resolve(123,c,28,a)].
+
+given #132 (T,wt=22): 322 f2(x) = null | P(x,f2(x)) | null = x | -P(y,f3(f2(x),f2(x))) | P(y,f2(x)).  [resolve(169,d,28,b)].
+
+given #133 (T,wt=22): 323 f2(x) = null | P(x,f2(x)) | null = x | -P(f2(x),y) | P(f3(f2(x),f2(x)),y).  [resolve(169,d,28,a)].
+
+given #134 (A,wt=24): 105 f3(x,x) = null | null = x | P(f3(x,f3(f3(x,x),x)),x) | f3(f3(x,x),x) = null.  [resolve(79,a,56,a),flip(d)].
+
+given #135 (T,wt=23): 171 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(f2(x),x),y) | P(f3(f2(x),y),y).  [resolve(74,a,43,a)].
+
+given #136 (T,wt=23): 172 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(f2(x),x),y) | P(f3(y,f2(x)),y).  [resolve(74,a,42,b)].
+
+given #137 (T,wt=23): 213 P(x,f2(x)) | null = x | f2(x) = null | -P(f3(f2(x),f2(x)),y) | P(f3(y,x),x).  [resolve(75,c,43,b)].
+
+given #138 (T,wt=23): 214 P(x,f2(x)) | null = x | f2(x) = null | -P(f3(f2(x),f2(x)),y) | P(f3(x,y),y).  [resolve(75,c,43,a)].
+
+given #139 (A,wt=28): 106 f3(x,x) = null | null = x | P(f3(f3(f3(x,x),x),x),f3(f3(x,x),x)) | f3(f3(x,x),x) = null.  [resolve(79,a,54,a),flip(d)].
+
+given #140 (T,wt=23): 215 P(x,f2(x)) | null = x | f2(x) = null | -P(f3(f2(x),f2(x)),y) | P(f3(y,x),y).  [resolve(75,c,42,b)].
+
+given #141 (T,wt=23): 216 P(x,f2(x)) | null = x | f2(x) = null | -P(f3(f2(x),f2(x)),y) | P(f3(x,y),x).  [resolve(75,c,42,a)].
+
+given #142 (T,wt=23): 228 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(x,f2(x)),y) | P(f3(f2(x),y),y).  [resolve(82,a,43,a)].
+
+given #143 (T,wt=23): 229 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(x,f2(x)),y) | P(f3(y,f2(x)),y).  [resolve(82,a,42,b)].
+
+given #144 (A,wt=35): 107 f3(x,x) = null | null = x | P(f3(f3(x,x),x),f2(f3(f3(x,x),x))) | f3(f3(x,x),x) = null | P(f2(f3(f3(x,x),x)),x).  [resolve(79,a,50,c),flip(d)].
+
+given #145 (T,wt=24): 124 f3(x,x) = null | null = x | -P(f3(f3(x,x),x),y) | P(f3(y,f3(x,x)),f3(x,x)).  [resolve(73,a,43,b)].
+
+given #146 (T,wt=24): 127 f3(x,x) = null | null = x | -P(f3(f3(x,x),x),y) | P(f3(f3(x,x),y),f3(x,x)).  [resolve(73,a,42,a)].
+
+given #147 (T,wt=24): 170 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(f2(x),x),y) | P(f3(y,f2(x)),f2(x)).  [resolve(74,a,43,b)].
+
+given #148 (T,wt=24): 173 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(f2(x),x),y) | P(f3(f2(x),y),f2(x)).  [resolve(74,a,42,a)].
+
+given #149 (A,wt=28): 108 f3(f2(x),f2(x)) = null | f2(x) = null | P(x,f2(x)) | null = x | P(f3(f3(f2(x),f2(x)),f2(x)),x).  [resolve(79,a,49,c),flip(b)].
+
+given #150 (T,wt=24): 184 f3(x,x) = null | null = x | -P(f3(x,f3(x,x)),y) | P(f3(y,f3(x,x)),f3(x,x)).  [resolve(81,a,43,b)].
+
+given #151 (T,wt=24): 187 f3(x,x) = null | null = x | -P(f3(x,f3(x,x)),y) | P(f3(f3(x,x),y),f3(x,x)).  [resolve(81,a,42,a)].
+
+given #152 (T,wt=24): 227 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(x,f2(x)),y) | P(f3(y,f2(x)),f2(x)).  [resolve(82,a,43,b)].
+
+given #153 (T,wt=24): 230 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(x,f2(x)),y) | P(f3(f2(x),y),f2(x)).  [resolve(82,a,42,a)].
+
+given #154 (A,wt=30): 117 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | P(f3(f3(f3(x,x),x),f3(f3(x,x),x)),f3(x,x)).  [resolve(73,a,71,b),flip(c)].
+
+given #155 (T,wt=24): 304 f3(x,x) = null | null = x | -P(f3(f3(x,x),f3(x,x)),y) | P(f3(f3(x,x),y),y).  [resolve(123,c,43,a)].
+
+given #156 (T,wt=24): 305 f3(x,x) = null | null = x | -P(f3(f3(x,x),f3(x,x)),y) | P(f3(y,f3(x,x)),y).  [resolve(123,c,42,b)].
+
+given #157 (T,wt=24): 319 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(f2(x),f2(x)),y) | P(f3(f2(x),y),y).  [resolve(169,d,43,a)].
+
+given #158 (T,wt=24): 320 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(f2(x),f2(x)),y) | P(f3(y,f2(x)),y).  [resolve(169,d,42,b)].
+
+given #159 (A,wt=30): 118 f3(x,x) = null | null = x | P(f3(f3(x,x),f3(f3(x,x),x)),f3(f3(x,x),x)) | f3(f3(x,x),x) = null.  [resolve(73,a,60,a),flip(d)].
+
+given #160 (T,wt=24): 373 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | f3(x,f3(x,f3(x,x))) != null.  [resolve(87,c,30,b),flip(d)].
+
+given #161 (T,wt=24): 425 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | f3(f3(x,f3(x,x)),x) != null.  [resolve(88,c,30,b),flip(d)].
+
+given #162 (T,wt=24): 668 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | f3(x,f3(f3(x,x),x)) != null.  [resolve(103,c,30,b),flip(d)].
+
+given #163 (T,wt=24): 700 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | f3(f3(f3(x,x),x),x) != null.  [resolve(104,c,30,b),flip(d)].
+
+given #164 (A,wt=28): 119 f3(x,x) = null | null = x | P(f3(f3(f3(x,x),x),f3(x,x)),f3(x,x)) | f3(f3(x,x),x) = null.  [resolve(73,a,58,a),flip(d)].
+
+given #165 (T,wt=25): 134 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f3(x,f2(x)),x),x) | f3(x,f2(x)) = null.  [resolve(78,a,58,a),flip(e)].
+
+given #166 (T,wt=25): 135 f2(x) = null | P(x,f2(x)) | null = x | P(f3(x,f3(x,f2(x))),x) | f3(x,f2(x)) = null.  [resolve(78,a,56,a),flip(e)].
+
+given #167 (T,wt=25): 150 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f3(f2(x),x),x),x) | f3(f2(x),x) = null.  [resolve(80,a,58,a),flip(e)].
+
+given #168 (T,wt=25): 151 f2(x) = null | P(x,f2(x)) | null = x | P(f3(x,f3(f2(x),x)),x) | f3(f2(x),x) = null.  [resolve(80,a,56,a),flip(e)].
+
+given #169 (A,wt=28): 120 f3(x,x) = null | null = x | P(f3(f3(x,x),f3(f3(x,x),x)),f3(x,x)) | f3(f3(x,x),x) = null.  [resolve(73,a,56,a),flip(d)].
+
+given #170 (T,wt=25): 176 f2(x) = null | P(x,f2(x)) | null = x | -P(f2(x),f3(f2(x),x)) | f3(f2(x),x) = f2(x).  [resolve(74,a,27,b)].
+
+given #171 (T,wt=25): 233 f2(x) = null | P(x,f2(x)) | null = x | -P(f2(x),f3(x,f2(x))) | f3(x,f2(x)) = f2(x).  [resolve(82,a,27,b)].
+
+given #172 (T,wt=25): 246 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | -P(y,f2(f2(x))) | P(y,x).  [resolve(76,c,28,b)].
+
+given #173 (T,wt=25): 247 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | -P(x,y) | P(f2(f2(x)),y).  [resolve(76,c,28,a)].
+
+given #174 (A,wt=30): 121 f3(x,x) = null | null = x | P(f3(f3(f3(x,x),x),f3(x,x)),f3(f3(x,x),x)) | f3(f3(x,x),x) = null.  [resolve(73,a,54,a),flip(d)].
+
+given #175 (T,wt=25): 293 null = x | P(f3(x,x),f2(f3(x,x))) | f3(x,x) = null | -P(y,f2(f3(x,x))) | P(y,x).  [resolve(84,b,28,b)].
+
+given #176 (T,wt=25): 294 null = x | P(f3(x,x),f2(f3(x,x))) | f3(x,x) = null | -P(x,y) | P(f2(f3(x,x)),y).  [resolve(84,b,28,a)].
+
+given #177 (T,wt=25): 318 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(f2(x),f2(x)),y) | P(f3(y,f2(x)),f2(x)).  [resolve(169,d,43,b)].
+
+given #178 (T,wt=25): 321 f2(x) = null | P(x,f2(x)) | null = x | -P(f3(f2(x),f2(x)),y) | P(f3(f2(x),y),f2(x)).  [resolve(169,d,42,a)].
+
+given #179 (A,wt=37): 122 f3(x,x) = null | null = x | P(f3(f3(x,x),x),f2(f3(f3(x,x),x))) | f3(f3(x,x),x) = null | P(f2(f3(f3(x,x),x)),f3(x,x)).  [resolve(73,a,50,c),flip(d)].
+
+given #180 (T,wt=25): 914 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | f3(f3(x,f2(x)),x) != null.  [resolve(134,d,30,b),flip(e)].
+
+given #181 (T,wt=25): 948 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | f3(x,f3(x,f2(x))) != null.  [resolve(135,d,30,b),flip(e)].
+
+given #182 (T,wt=25): 982 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | f3(f3(f2(x),x),x) != null.  [resolve(150,d,30,b),flip(e)].
+
+given #183 (T,wt=25): 1016 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | f3(x,f3(f2(x),x)) != null.  [resolve(151,d,30,b),flip(e)].
+
+given #184 (A,wt=26): 130 f3(x,x) = null | null = x | -P(f3(x,x),f3(f3(x,x),x)) | f3(f3(x,x),x) = f3(x,x).  [resolve(73,a,27,b)].
+
+given #185 (T,wt=26): 190 f3(x,x) = null | null = x | -P(f3(x,x),f3(x,f3(x,x))) | f3(x,f3(x,x)) = f3(x,x).  [resolve(81,a,27,b)].
+
+given #186 (T,wt=26): 205 null = x | f3(x,x) = null | -P(x,f3(f3(x,x),f3(x,x))) | f3(f3(x,x),f3(x,x)) = x.  [resolve(83,b,27,b)].
+
+given #187 (T,wt=26): 303 f3(x,x) = null | null = x | -P(f3(f3(x,x),f3(x,x)),y) | P(f3(y,f3(x,x)),f3(x,x)).  [resolve(123,c,43,b)].
+
+given #188 (T,wt=26): 306 f3(x,x) = null | null = x | -P(f3(f3(x,x),f3(x,x)),y) | P(f3(f3(x,x),y),f3(x,x)).  [resolve(123,c,42,a)].
+
+given #189 (A,wt=28): 131 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | P(f3(f3(x,f2(x)),f3(x,f2(x))),x).  [resolve(78,a,71,b),flip(d)].
+
+given #190 (T,wt=26): 451 f3(x,x) = null | null = x | P(f3(x,f3(x,f3(x,x))),f3(x,x)) | f3(x,f3(x,x)) = null.  [resolve(188,c,87,c),merge(d),merge(e)].
+
+given #191 (T,wt=26): 507 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | P(f3(f3(x,f3(x,x)),x),f3(x,x)).  [resolve(90,c,188,c),merge(d),merge(e)].
+
+given #192 (T,wt=26): 654 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | P(f3(x,f3(f3(x,x),x)),f3(x,x)).  [resolve(103,c,128,c),merge(d),merge(e)].
+
+given #193 (T,wt=26): 757 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | P(f3(f3(f3(x,x),x),x),f3(x,x)).  [resolve(106,c,128,c),merge(d),merge(e)].
+
+given #194 (A,wt=32): 132 f2(f3(x,x)) = null | P(f3(x,x),f2(f3(x,x))) | f3(x,x) = null | null = x | P(f3(f3(x,x),f2(f3(x,x))),x).  [resolve(78,a,70,b),flip(c)].
+
+given #195 (T,wt=26): 843 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | P(f3(f3(x,x),f3(f3(x,x),x)),x).  [resolve(118,c,114,c),merge(d),merge(e)].
+
+given #196 (T,wt=26): 855 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | f3(f3(x,x),f3(f3(x,x),x)) != null.  [resolve(118,c,30,b),flip(d)].
+
+given #197 (T,wt=26): 870 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | P(f3(f3(f3(x,x),x),f3(x,x)),x).  [resolve(119,c,70,b),merge(d)].
+
+given #198 (T,wt=26): 880 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | f3(f3(f3(x,x),x),f3(x,x)) != null.  [resolve(119,c,30,b),flip(d)].
+
+given #199 (A,wt=28): 133 f2(x) = null | P(x,f2(x)) | null = x | P(f3(x,f3(x,f2(x))),f3(x,f2(x))) | f3(x,f2(x)) = null.  [resolve(78,a,60,a),flip(e)].
+
+given #200 (T,wt=26): 1371 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | P(f3(x,f3(x,f2(x))),f2(x)).  [resolve(133,d,231,d),merge(e),merge(f),merge(g)].
+
+given #201 (T,wt=25): 1413 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | -P(x,f3(x,f3(x,f2(x)))).  [factor(1410,b,f)].
+
+given #202 (T,wt=27): 165 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f3(f2(x),x),f2(x)),f2(x)) | f3(f2(x),x) = null.  [resolve(74,a,58,a),flip(e)].
+
+given #203 (T,wt=26): 1430 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | P(f3(f3(f2(x),x),f2(x)),x).  [resolve(165,d,49,c),merge(e),merge(f)].
+
+given #204 (A,wt=28): 136 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f3(x,f2(x)),x),f3(x,f2(x))) | f3(x,f2(x)) = null.  [resolve(78,a,54,a),flip(e)].
+
+given #205 (T,wt=26): 1435 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | f3(f3(f2(x),x),f2(x)) != null.  [resolve(165,d,30,b),flip(e)].
+
+given #206 (T,wt=26): 1439 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | -P(x,f3(f3(f2(x),x),f2(x))).  [factor(1436,b,f)].
+
+given #207 (T,wt=26): 1476 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | P(f3(f3(x,f2(x)),x),f2(x)).  [resolve(136,d,231,d),merge(e),merge(f),merge(g)].
+
+given #208 (T,wt=25): 1517 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | -P(x,f3(f3(x,f2(x)),x)).  [factor(1514,b,f)].
+
+given #209 (A,wt=34): 137 f2(x) = null | P(x,f2(x)) | null = x | P(f3(x,f2(x)),f2(f3(x,f2(x)))) | f3(x,f2(x)) = null | P(f2(f3(x,f2(x))),x).  [resolve(78,a,50,c),flip(e)].
+
+given #210 (T,wt=27): 166 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f2(x),f3(f2(x),x)),f2(x)) | f3(f2(x),x) = null.  [resolve(74,a,56,a),flip(e)].
+
+given #211 (T,wt=26): 1564 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | P(f3(f2(x),f3(f2(x),x)),x).  [resolve(166,d,49,c),merge(e),merge(f)].
+
+given #212 (T,wt=26): 1569 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | f3(f2(x),f3(f2(x),x)) != null.  [resolve(166,d,30,b),flip(e)].
+
+given #213 (T,wt=26): 1573 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | -P(x,f3(f2(x),f3(f2(x),x))).  [factor(1570,b,f)].
+
+given #214 (A,wt=30): 138 f2(f2(x)) = null | P(f2(x),f2(f2(x))) | f2(x) = null | P(x,f2(x)) | null = x | P(f3(f2(x),f2(f2(x))),x).  [resolve(78,a,49,c),flip(c)].
+
+given #215 (T,wt=27): 208 P(x,f2(x)) | null = x | f2(x) = null | P(f3(f3(f2(x),f2(x)),x),x) | f3(f2(x),f2(x)) = null.  [resolve(75,c,58,a),flip(e)].
+
+given #216 (T,wt=27): 209 P(x,f2(x)) | null = x | f2(x) = null | P(f3(x,f3(f2(x),f2(x))),x) | f3(f2(x),f2(x)) = null.  [resolve(75,c,56,a),flip(e)].
+
+given #217 (T,wt=27): 223 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f3(x,f2(x)),f2(x)),f2(x)) | f3(x,f2(x)) = null.  [resolve(82,a,58,a),flip(e)].
+
+given #218 (T,wt=26): 1730 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | P(f3(f3(x,f2(x)),f2(x)),x).  [resolve(223,d,49,c),merge(e),merge(f)].
+
+given #219 (A,wt=28): 147 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | P(f3(f3(f2(x),x),f3(f2(x),x)),x).  [resolve(80,a,71,b),flip(d)].
+
+given #220 (T,wt=26): 1735 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | f3(f3(x,f2(x)),f2(x)) != null.  [resolve(223,d,30,b),flip(e)].
+
+given #221 (T,wt=26): 1739 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | -P(x,f3(f3(x,f2(x)),f2(x))).  [factor(1736,b,f)].
+
+given #222 (T,wt=27): 224 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f2(x),f3(x,f2(x))),f2(x)) | f3(x,f2(x)) = null.  [resolve(82,a,56,a),flip(e)].
+
+given #223 (T,wt=26): 1822 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | P(f3(f2(x),f3(x,f2(x))),x).  [resolve(224,d,49,c),merge(e),merge(f)].
+
+given #224 (A,wt=32): 148 f2(f3(x,x)) = null | P(f3(x,x),f2(f3(x,x))) | f3(x,x) = null | null = x | P(f3(f2(f3(x,x)),f3(x,x)),x).  [resolve(80,a,70,b),flip(c)].
+
+given #225 (T,wt=26): 1827 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | f3(f2(x),f3(x,f2(x))) != null.  [resolve(224,d,30,b),flip(e)].
+
+given #226 (T,wt=26): 1831 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | -P(x,f3(f2(x),f3(x,f2(x)))).  [factor(1828,b,f)].
+
+given #227 (T,wt=27): 241 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | -P(f2(f2(x)),y) | P(f3(y,x),x).  [resolve(76,c,43,b)].
+
+given #228 (T,wt=27): 242 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | -P(f2(f2(x)),y) | P(f3(x,y),y).  [resolve(76,c,43,a)].
+
+given #229 (A,wt=28): 149 f2(x) = null | P(x,f2(x)) | null = x | P(f3(x,f3(f2(x),x)),f3(f2(x),x)) | f3(f2(x),x) = null.  [resolve(80,a,60,a),flip(e)].
+
+given #230 (T,wt=26): 1897 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | P(f3(x,f3(f2(x),x)),f2(x)).  [resolve(149,d,174,d),merge(e),merge(f),merge(g)].
+
+given #231 (T,wt=25): 1937 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | -P(x,f3(x,f3(f2(x),x))).  [factor(1934,b,f)].
+
+given #232 (T,wt=27): 243 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | -P(f2(f2(x)),y) | P(f3(y,x),y).  [resolve(76,c,42,b)].
+
+given #233 (T,wt=27): 244 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | -P(f2(f2(x)),y) | P(f3(x,y),x).  [resolve(76,c,42,a)].
+
+given #234 (A,wt=28): 152 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f3(f2(x),x),x),f3(f2(x),x)) | f3(f2(x),x) = null.  [resolve(80,a,54,a),flip(e)].
+
+given #235 (T,wt=26): 1942 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | P(f3(f3(f2(x),x),x),f2(x)).  [resolve(152,d,174,d),merge(e),merge(f),merge(g)].
+
+given #236 (T,wt=25): 1981 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | -P(x,f3(f3(f2(x),x),x)).  [factor(1978,b,f)].
+
+given #237 (T,wt=27): 288 null = x | P(f3(x,x),f2(f3(x,x))) | f3(x,x) = null | -P(f2(f3(x,x)),y) | P(f3(y,x),x).  [resolve(84,b,43,b)].
+
+given #238 (T,wt=27): 289 null = x | P(f3(x,x),f2(f3(x,x))) | f3(x,x) = null | -P(f2(f3(x,x)),y) | P(f3(x,y),y).  [resolve(84,b,43,a)].
+
+given #239 (A,wt=34): 153 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f2(x),x),f2(f3(f2(x),x))) | f3(f2(x),x) = null | P(f2(f3(f2(x),x)),x).  [resolve(80,a,50,c),flip(e)].
+
+given #240 (T,wt=27): 290 null = x | P(f3(x,x),f2(f3(x,x))) | f3(x,x) = null | -P(f2(f3(x,x)),y) | P(f3(y,x),y).  [resolve(84,b,42,b)].
+
+given #241 (T,wt=27): 291 null = x | P(f3(x,x),f2(f3(x,x))) | f3(x,x) = null | -P(f2(f3(x,x)),y) | P(f3(x,y),x).  [resolve(84,b,42,a)].
+
+given #242 (T,wt=27): 324 f2(x) = null | P(x,f2(x)) | null = x | -P(f2(x),f3(f2(x),f2(x))) | f3(f2(x),f2(x)) = f2(x).  [resolve(169,d,27,b)].
+
+given #243 (T,wt=27): 426 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(y,f3(f3(x,f3(x,x)),x)) | P(y,x).  [resolve(88,c,28,b)].
+
+given #244 (A,wt=30): 154 f2(f2(x)) = null | P(f2(x),f2(f2(x))) | f2(x) = null | P(x,f2(x)) | null = x | P(f3(f2(f2(x)),f2(x)),x).  [resolve(80,a,49,c),flip(c)].
+
+given #245 (T,wt=27): 427 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(x,y) | P(f3(f3(x,f3(x,x)),x),y).  [resolve(88,c,28,a)].
+
+given #246 (T,wt=27): 480 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(y,f3(x,f3(x,f3(x,x)))) | P(y,x).  [resolve(89,c,28,b)].
+
+given #247 (T,wt=27): 481 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(x,y) | P(f3(x,f3(x,f3(x,x))),y).  [resolve(89,c,28,a)].
+
+given #248 (T,wt=27): 701 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(y,f3(f3(f3(x,x),x),x)) | P(y,x).  [resolve(104,c,28,b)].
+
+given #249 (A,wt=29): 163 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | P(f3(f3(f2(x),x),f3(f2(x),x)),f2(x)).  [resolve(74,a,71,b),flip(d)].
+
+given #250 (T,wt=27): 702 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(x,y) | P(f3(f3(f3(x,x),x),x),y).  [resolve(104,c,28,a)].
+
+given #251 (T,wt=27): 750 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(y,f3(x,f3(f3(x,x),x))) | P(y,x).  [resolve(105,c,28,b)].
+
+given #252 (T,wt=27): 751 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(x,y) | P(f3(x,f3(f3(x,x),x)),y).  [resolve(105,c,28,a)].
+
+given #253 (T,wt=27): 1672 P(x,f2(x)) | null = x | f2(x) = null | f3(f2(x),f2(x)) = null | f3(f3(f2(x),f2(x)),x) != null.  [resolve(208,d,30,b),flip(e)].
+
+given #254 (A,wt=29): 164 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f2(x),f3(f2(x),x)),f3(f2(x),x)) | f3(f2(x),x) = null.  [resolve(74,a,60,a),flip(e)].
+
+given #255 (T,wt=27): 1710 P(x,f2(x)) | null = x | f2(x) = null | f3(f2(x),f2(x)) = null | f3(x,f3(f2(x),f2(x))) != null.  [resolve(209,d,30,b),flip(e)].
+
+given #256 (T,wt=28): 180 f3(x,x) = null | null = x | P(f3(f3(x,f3(x,x)),f3(x,x)),f3(x,x)) | f3(x,f3(x,x)) = null.  [resolve(81,a,58,a),flip(d)].
+
+given #257 (T,wt=26): 2224 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | P(f3(f3(x,f3(x,x)),f3(x,x)),x).  [resolve(180,c,70,b),merge(d)].
+
+given #258 (T,wt=26): 2234 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | f3(f3(x,f3(x,x)),f3(x,x)) != null.  [resolve(180,c,30,b),flip(d)].
+
+given #259 (A,wt=29): 167 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f3(f2(x),x),f2(x)),f3(f2(x),x)) | f3(f2(x),x) = null.  [resolve(74,a,54,a),flip(e)].
+
+given #260 (T,wt=28): 181 f3(x,x) = null | null = x | P(f3(f3(x,x),f3(x,f3(x,x))),f3(x,x)) | f3(x,f3(x,x)) = null.  [resolve(81,a,56,a),flip(d)].
+
+given #261 (T,wt=26): 2304 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | P(f3(f3(x,x),f3(x,f3(x,x))),x).  [resolve(181,c,70,b),merge(d)].
+
+given #262 (T,wt=26): 2314 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | f3(f3(x,x),f3(x,f3(x,x))) != null.  [resolve(181,c,30,b),flip(d)].
+
+given #263 (T,wt=28): 193 null = x | f3(x,x) = null | P(f3(f3(f3(x,x),f3(x,x)),x),x) | f3(f3(x,x),f3(x,x)) = null.  [resolve(83,b,58,a),flip(d)].
+
+given #264 (A,wt=35): 168 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f2(x),x),f2(f3(f2(x),x))) | f3(f2(x),x) = null | P(f2(f3(f2(x),x)),f2(x)).  [resolve(74,a,50,c),flip(e)].
+
+given #265 (T,wt=28): 194 null = x | f3(x,x) = null | P(f3(x,f3(f3(x,x),f3(x,x))),x) | f3(f3(x,x),f3(x,x)) = null.  [resolve(83,b,56,a),flip(d)].
+
+given #266 (T,wt=28): 340 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | f3(f3(x,f3(x,x)),f3(x,f3(x,x))) != null.  [resolve(85,d,30,b),flip(d)].
+
+given #267 (T,wt=28): 594 f3(f2(x),f2(x)) = null | f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),f3(f2(x),f2(x))) != null.  [resolve(92,e,30,b),flip(e)].
+
+given #268 (T,wt=28): 621 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | f3(f3(f3(x,x),x),f3(f3(x,x),x)) != null.  [resolve(101,d,30,b),flip(d)].
+
+given #269 (A,wt=30): 178 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | P(f3(f3(x,f3(x,x)),f3(x,f3(x,x))),f3(x,x)).  [resolve(81,a,71,b),flip(c)].
+
+given #270 (T,wt=28): 818 f3(f2(x),f2(x)) = null | f2(x) = null | P(x,f2(x)) | null = x | f3(f3(f2(x),f2(x)),f2(x)) != null.  [resolve(108,e,30,b),flip(e)].
+
+given #271 (T,wt=28): 915 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | -P(y,f3(f3(x,f2(x)),x)) | P(y,x).  [resolve(134,d,28,b)].
+
+given #272 (T,wt=28): 916 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | -P(x,y) | P(f3(f3(x,f2(x)),x),y).  [resolve(134,d,28,a)].
+
+given #273 (T,wt=28): 949 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | -P(y,f3(x,f3(x,f2(x)))) | P(y,x).  [resolve(135,d,28,b)].
+
+given #274 (A,wt=30): 179 f3(x,x) = null | null = x | P(f3(f3(x,x),f3(x,f3(x,x))),f3(x,f3(x,x))) | f3(x,f3(x,x)) = null.  [resolve(81,a,60,a),flip(d)].
+
+given #275 (T,wt=28): 950 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | -P(x,y) | P(f3(x,f3(x,f2(x))),y).  [resolve(135,d,28,a)].
+
+given #276 (T,wt=28): 983 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | -P(y,f3(f3(f2(x),x),x)) | P(y,x).  [resolve(150,d,28,b)].
+
+given #277 (T,wt=28): 984 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | -P(x,y) | P(f3(f3(f2(x),x),x),y).  [resolve(150,d,28,a)].
+
+given #278 (T,wt=28): 1017 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | -P(y,f3(x,f3(f2(x),x))) | P(y,x).  [resolve(151,d,28,b)].
+
+given #279 (A,wt=30): 182 f3(x,x) = null | null = x | P(f3(f3(x,f3(x,x)),f3(x,x)),f3(x,f3(x,x))) | f3(x,f3(x,x)) = null.  [resolve(81,a,54,a),flip(d)].
+
+given #280 (T,wt=28): 1018 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | -P(x,y) | P(f3(x,f3(f2(x),x)),y).  [resolve(151,d,28,a)].
+
+given #281 (T,wt=28): 1179 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | f3(f3(x,f2(x)),f3(x,f2(x))) != null.  [resolve(131,e,30,b),flip(e)].
+
+given #282 (T,wt=28): 1802 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | f3(f3(f2(x),x),f3(f2(x),x)) != null.  [resolve(147,e,30,b),flip(e)].
+
+given #283 (T,wt=28): 2142 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | -P(x,f3(f3(f2(x),x),f3(f2(x),x))).  [factor(2139,b,f)].
+
+given #284 (A,wt=37): 183 f3(x,x) = null | null = x | P(f3(x,f3(x,x)),f2(f3(x,f3(x,x)))) | f3(x,f3(x,x)) = null | P(f2(f3(x,f3(x,x))),f3(x,x)).  [resolve(81,a,50,c),flip(d)].
+
+given #285 (T,wt=28): 2382 null = x | f3(x,x) = null | f3(f3(x,x),f3(x,x)) = null | f3(f3(f3(x,x),f3(x,x)),x) != null.  [resolve(193,c,30,b),flip(d)].
+
+given #286 (T,wt=28): 2435 null = x | f3(x,x) = null | f3(f3(x,x),f3(x,x)) = null | f3(x,f3(f3(x,x),f3(x,x))) != null.  [resolve(194,c,30,b),flip(d)].
+
+given #287 (T,wt=29): 221 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | P(f3(f3(x,f2(x)),f3(x,f2(x))),f2(x)).  [resolve(82,a,71,b),flip(d)].
+
+given #288 (T,wt=28): 2751 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | -P(x,f3(f3(x,f2(x)),f3(x,f2(x)))).  [factor(2748,b,f)].
+
+given #289 (A,wt=34): 191 null = x | f3(x,x) = null | f3(f3(x,x),f3(x,x)) = null | P(f3(f3(f3(x,x),f3(x,x)),f3(f3(x,x),f3(x,x))),x).  [resolve(83,b,71,b),flip(c)].
+
+given #290 (T,wt=29): 222 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f2(x),f3(x,f2(x))),f3(x,f2(x))) | f3(x,f2(x)) = null.  [resolve(82,a,60,a),flip(e)].
+
+given #291 (T,wt=29): 225 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f3(x,f2(x)),f2(x)),f3(x,f2(x))) | f3(x,f2(x)) = null.  [resolve(82,a,54,a),flip(e)].
+
+given #292 (T,wt=29): 237 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f3(f2(f2(x)),x),x) | f2(f2(x)) = null.  [resolve(76,c,58,a),flip(f)].
+
+given #293 (T,wt=29): 238 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f3(x,f2(f2(x))),x) | f2(f2(x)) = null.  [resolve(76,c,56,a),flip(f)].
+
+given #294 (A,wt=34): 192 null = x | f3(x,x) = null | P(f3(x,f3(f3(x,x),f3(x,x))),f3(f3(x,x),f3(x,x))) | f3(f3(x,x),f3(x,x)) = null.  [resolve(83,b,60,a),flip(d)].
+
+given #295 (T,wt=29): 314 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f3(f2(x),f2(x)),f2(x)),f2(x)) | f3(f2(x),f2(x)) = null.  [resolve(169,d,58,a),flip(e)].
+
+given #296 (T,wt=28): 2961 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),f2(x)) = null | -P(x,f3(f3(f2(x),f2(x)),f2(x))).  [factor(2958,b,f)].
+
+given #297 (T,wt=29): 315 f2(x) = null | P(x,f2(x)) | null = x | P(f3(f2(x),f3(f2(x),f2(x))),f2(x)) | f3(f2(x),f2(x)) = null.  [resolve(169,d,56,a),flip(e)].
+
+given #298 (T,wt=28): 2978 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),f2(x)) = null | -P(x,f3(f2(x),f3(f2(x),f2(x)))).  [factor(2975,b,f)].
+
+given #299 (A,wt=34): 195 null = x | f3(x,x) = null | P(f3(f3(f3(x,x),f3(x,x)),x),f3(f3(x,x),f3(x,x))) | f3(f3(x,x),f3(x,x)) = null.  [resolve(83,b,54,a),flip(d)].
+
+given #300 (T,wt=29): 421 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(f3(f3(x,f3(x,x)),x),y) | P(f3(y,x),x).  [resolve(88,c,43,b)].
+
+given #301 (T,wt=29): 422 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(f3(f3(x,f3(x,x)),x),y) | P(f3(x,y),y).  [resolve(88,c,43,a)].
+
+given #302 (T,wt=29): 423 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(f3(f3(x,f3(x,x)),x),y) | P(f3(y,x),y).  [resolve(88,c,42,b)].
+
+given #303 (T,wt=29): 424 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(f3(f3(x,f3(x,x)),x),y) | P(f3(x,y),x).  [resolve(88,c,42,a)].
+
+given #304 (A,wt=43): 196 null = x | f3(x,x) = null | P(f3(f3(x,x),f3(x,x)),f2(f3(f3(x,x),f3(x,x)))) | f3(f3(x,x),f3(x,x)) = null | P(f2(f3(f3(x,x),f3(x,x))),x).  [resolve(83,b,50,c),flip(d)].
+
+given #305 (T,wt=29): 476 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(f3(x,f3(x,f3(x,x))),y) | P(f3(y,x),x).  [resolve(89,c,43,b)].
+
+given #306 (T,wt=29): 477 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(f3(x,f3(x,f3(x,x))),y) | P(f3(x,y),y).  [resolve(89,c,43,a)].
+
+given #307 (T,wt=29): 478 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(f3(x,f3(x,f3(x,x))),y) | P(f3(y,x),y).  [resolve(89,c,42,b)].
+
+given #308 (T,wt=29): 479 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(f3(x,f3(x,f3(x,x))),y) | P(f3(x,y),x).  [resolve(89,c,42,a)].
+
+given #309 (A,wt=31): 197 f2(x) = null | f3(f2(x),f2(x)) = null | P(x,f2(x)) | null = x | P(f3(f3(f2(x),f2(x)),f3(f2(x),f2(x))),x).  [resolve(83,b,49,c),flip(a)].
+
+given #310 (T,wt=29): 696 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(f3(f3(f3(x,x),x),x),y) | P(f3(y,x),x).  [resolve(104,c,43,b)].
+
+given #311 (T,wt=29): 697 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(f3(f3(f3(x,x),x),x),y) | P(f3(x,y),y).  [resolve(104,c,43,a)].
+
+given #312 (T,wt=29): 698 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(f3(f3(f3(x,x),x),x),y) | P(f3(y,x),y).  [resolve(104,c,42,b)].
+
+given #313 (T,wt=29): 699 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(f3(f3(f3(x,x),x),x),y) | P(f3(x,y),x).  [resolve(104,c,42,a)].
+
+given #314 (A,wt=33): 206 P(f3(x,x),f2(f3(x,x))) | f3(x,x) = null | f2(f3(x,x)) = null | null = x | P(f3(f2(f3(x,x)),f2(f3(x,x))),x).  [resolve(75,c,70,b),flip(b)].
+
+given #315 (T,wt=29): 746 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(f3(x,f3(f3(x,x),x)),y) | P(f3(y,x),x).  [resolve(105,c,43,b)].
+
+given #316 (T,wt=29): 747 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(f3(x,f3(f3(x,x),x)),y) | P(f3(x,y),y).  [resolve(105,c,43,a)].
+
+given #317 (T,wt=29): 748 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(f3(x,f3(f3(x,x),x)),y) | P(f3(y,x),y).  [resolve(105,c,42,b)].
+
+given #318 (T,wt=29): 749 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(f3(x,f3(f3(x,x),x)),y) | P(f3(x,y),x).  [resolve(105,c,42,a)].
+
+given #319 (A,wt=31): 207 P(x,f2(x)) | null = x | f2(x) = null | P(f3(x,f3(f2(x),f2(x))),f3(f2(x),f2(x))) | f3(f2(x),f2(x)) = null.  [resolve(75,c,60,a),flip(e)].
+
+given #320 (T,wt=28): 3051 P(x,f2(x)) | null = x | f2(x) = null | f3(f2(x),f2(x)) = null | P(f3(x,f3(f2(x),f2(x))),f2(x)).  [resolve(207,d,322,d),merge(e),merge(f),merge(g)].
+
+given #321 (T,wt=27): 3099 P(x,f2(x)) | null = x | f2(x) = null | f3(f2(x),f2(x)) = null | -P(x,f3(x,f3(f2(x),f2(x)))).  [factor(3096,a,f)].
+
+given #322 (T,wt=29): 1203 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(y,f3(x,f3(x,f3(x,x)))) | P(y,f3(x,x)).  [resolve(451,c,28,b)].
+
+given #323 (T,wt=29): 1204 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(f3(x,x),y) | P(f3(x,f3(x,f3(x,x))),y).  [resolve(451,c,28,a)].
+
+given #324 (A,wt=31): 210 P(x,f2(x)) | null = x | f2(x) = null | P(f3(f3(f2(x),f2(x)),x),f3(f2(x),f2(x))) | f3(f2(x),f2(x)) = null.  [resolve(75,c,54,a),flip(e)].
+
+given #325 (T,wt=28): 3110 P(x,f2(x)) | null = x | f2(x) = null | f3(f2(x),f2(x)) = null | P(f3(f3(f2(x),f2(x)),x),f2(x)).  [resolve(210,d,322,d),merge(e),merge(f),merge(g)].
+
+given #326 (T,wt=27): 3157 P(x,f2(x)) | null = x | f2(x) = null | f3(f2(x),f2(x)) = null | -P(x,f3(f3(f2(x),f2(x)),x)).  [factor(3154,a,f)].
+
+given #327 (T,wt=29): 1226 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(y,f3(f3(x,f3(x,x)),x)) | P(y,f3(x,x)).  [resolve(507,d,28,b)].
+
+given #328 (T,wt=29): 1227 f3(x,x) = null | null = x | f3(x,f3(x,x)) = null | -P(f3(x,x),y) | P(f3(f3(x,f3(x,x)),x),y).  [resolve(507,d,28,a)].
+
+given #329 (A,wt=38): 211 P(x,f2(x)) | null = x | f2(x) = null | P(f3(f2(x),f2(x)),f2(f3(f2(x),f2(x)))) | f3(f2(x),f2(x)) = null | P(f2(f3(f2(x),f2(x))),x).  [resolve(75,c,50,c),flip(e)].
+
+given #330 (T,wt=29): 1249 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(y,f3(x,f3(f3(x,x),x))) | P(y,f3(x,x)).  [resolve(654,d,28,b)].
+
+given #331 (T,wt=29): 1250 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(f3(x,x),y) | P(f3(x,f3(f3(x,x),x)),y).  [resolve(654,d,28,a)].
+
+given #332 (T,wt=29): 1272 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(y,f3(f3(f3(x,x),x),x)) | P(y,f3(x,x)).  [resolve(757,d,28,b)].
+
+given #333 (T,wt=29): 1273 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(f3(x,x),y) | P(f3(f3(f3(x,x),x),x),y).  [resolve(757,d,28,a)].
+
+given #334 (A,wt=31): 212 P(f2(x),f2(f2(x))) | f2(x) = null | f2(f2(x)) = null | P(x,f2(x)) | null = x | P(f3(f2(f2(x)),f2(f2(x))),x).  [resolve(75,c,49,c),flip(b)].
+
+given #335 (T,wt=29): 1333 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(y,f3(f3(x,x),f3(f3(x,x),x))) | P(y,x).  [resolve(843,d,28,b)].
+
+given #336 (T,wt=29): 1334 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(x,y) | P(f3(f3(x,x),f3(f3(x,x),x)),y).  [resolve(843,d,28,a)].
+
+given #337 (T,wt=29): 1366 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(y,f3(f3(f3(x,x),x),f3(x,x))) | P(y,x).  [resolve(870,d,28,b)].
+
+given #338 (T,wt=29): 1367 f3(x,x) = null | null = x | f3(f3(x,x),x) = null | -P(x,y) | P(f3(f3(f3(x,x),x),f3(x,x)),y).  [resolve(870,d,28,a)].
+
+given #339 (A,wt=35): 226 f2(x) = null | P(x,f2(x)) | null = x | P(f3(x,f2(x)),f2(f3(x,f2(x)))) | f3(x,f2(x)) = null | P(f2(f3(x,f2(x))),f2(x)).  [resolve(82,a,50,c),flip(e)].
+
+given #340 (T,wt=29): 1410 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | -P(y,f3(x,f3(x,f2(x)))) | P(y,f2(x)).  [resolve(1371,e,28,b)].
+
+given #341 (T,wt=29): 1411 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | -P(f2(x),y) | P(f3(x,f3(x,f2(x))),y).  [resolve(1371,e,28,a)].
+
+given #342 (T,wt=29): 1472 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | -P(y,f3(f3(f2(x),x),f2(x))) | P(y,x).  [resolve(1430,e,28,b)].
+
+given #343 (T,wt=29): 1473 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | -P(x,y) | P(f3(f3(f2(x),x),f2(x)),y).  [resolve(1430,e,28,a)].
+
+given #344 (A,wt=39): 235 P(f3(x,x),f2(f3(x,x))) | f3(x,x) = null | P(f2(f3(x,x)),f2(f2(f3(x,x)))) | f2(f3(x,x)) = null | null = x | P(f2(f2(f3(x,x))),x).  [resolve(76,c,70,b),flip(b)].
+
+given #345 (T,wt=29): 1514 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | -P(y,f3(f3(x,f2(x)),x)) | P(y,f2(x)).  [resolve(1476,e,28,b)].
+
+given #346 (T,wt=29): 1515 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | -P(f2(x),y) | P(f3(f3(x,f2(x)),x),y).  [resolve(1476,e,28,a)].
+
+given #347 (T,wt=29): 1606 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | -P(y,f3(f2(x),f3(f2(x),x))) | P(y,x).  [resolve(1564,e,28,b)].
+
+given #348 (T,wt=29): 1607 f2(x) = null | P(x,f2(x)) | null = x | f3(f2(x),x) = null | -P(x,y) | P(f3(f2(x),f3(f2(x),x)),y).  [resolve(1564,e,28,a)].
+
+given #349 (A,wt=31): 236 P(x,f2(x)) | null = x | P(f2(x),f2(f2(x))) | f2(x) = null | P(f3(x,f2(f2(x))),f2(f2(x))) | f2(f2(x)) = null.  [resolve(76,c,60,a),flip(f)].
+
+given #350 (T,wt=29): 1772 f2(x) = null | P(x,f2(x)) | null = x | f3(x,f2(x)) = null | -P(y,f3(f3(x,f2(x)),f2(x))) | P(y,x).  [resolve(1730,e,28,b)].
+
+========================== MACLEOD SUMMARY ===========================
+reasoner: /home/aidin12/macleod/Reasoning/prover9_bin/prover9
+status: 
+execution finished: Sat Sep 19 04:13:58 2020
+total CPU time used: 0
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/prover9 -t100 -f /home/aidin12/macleod/ontologies/after2/Definitions/conversions/D_I.all.p9"
+============================ end of footer ===========================

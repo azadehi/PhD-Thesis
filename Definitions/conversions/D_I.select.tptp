@@ -1,0 +1,19 @@
+% cl-imports after/Axioms/B_axioms.clif
+% cl-imports after/Definitions/D_Discrete.clif
+% cl-imports after/Definitions/D_Proper_part.clif
+fof(sos10,axiom,( ! [X11] : ! [X12] : ( (i(X11, X12)) <=> ((pp(X11, X12) & ~ (b(X11, X12)) & ( ! [X13] : ( (b(X13, X12)) => (d(X13, X11)) )) )) )) ).
+% cl-imports after/Axioms/P_axioms.clif
+% cl-imports after/Definitions/D_Proper_part.clif
+fof(sos20,axiom,( ! [X21] : ! [X22] : ( (b(X21, X22)) => (pp(X21, X22)) )) ).
+fof(sos30,axiom,( ! [X31] : ! [X32] : ( ((b(X31, X32) & b(X32, z))) => (b(X31, z)) )) ).
+fof(sos40,axiom,( ! [X41] : ! [X42] : ( ((p(X41, X42) & b(X42, z))) => (b(X41, z)) )) ).
+fof(sos50,axiom,( ! [X51] : ! [X52] : ( ((b(X51, X52) & p(X52, z))) => (p(X51, z)) )) ).
+% cl-imports after/Definitions/D_Overlap.clif
+fof(sos60,axiom,( ! [X61] : ! [X62] : ( (d(X61, X62)) <=> (~ (o(X61, X62))) )) ).
+% cl-imports after/Axioms/P_axioms.clif
+fof(sos70,axiom,( ! [X71] : ! [X72] : ( (pp(X71, X72)) <=> ((p(X71, X72) & ~ (p(X72, X71)))) )) ).
+fof(sos80,axiom,( ! [X81] : ( (~ ((X81=Null))) => (p(X81, X81)) )) ).
+fof(sos90,axiom,( ! [X91] : ! [X92] : ( ((p(X91, X92) & p(X92, X91))) => ((X91=X92)) )) ).
+fof(sos100,axiom,( ! [X101] : ! [X102] : ! [X103] : ( ((p(X101, X102) & p(X102, X103))) => (p(X101, X103)) )) ).
+% cl-imports after/Axioms/P_axioms.clif
+fof(sos110,axiom,( ! [X111] : ! [X112] : ( (o(X111, X112)) <=> (( ? [X113] : (p(X113, X111) & p(X113, X112))) ) )) ).

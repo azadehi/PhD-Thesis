@@ -1,0 +1,8 @@
+formulas(assumptions).
+(all x all y  ((-(=(x,y)) | (all z  ((-(P(z,x)) | P(z,y)) & (-(P(z,y)) | P(z,x))))) & (-(all z  ((-(P(z,x)) | P(z,y)) & (-(P(z,y)) | P(z,x)))) | =(x,y)))).
+(all x  (=(x,null) | P(x,x))).
+(all x all y  (-(-(=(x,null)) & -(=(y,null))) | -(P(x,y) & P(y,x)) | =(x,y))).
+(all x all y all z  (-(-(=(x,null)) & -(=(y,null)) & -(=(z,null))) | -(P(x,y) & P(y,z)) | P(x,z))).
+(all y  (-(P(null,y)) & -(P(y,null)))).
+end_of_list.
+

@@ -1,0 +1,2 @@
+% cl-imports after/Axioms/B_axioms.clif
+fof(sos10,axiom,( ! [X11] : ( (bd(X11)) <=> (( ? [X12] : b(X11, X12)) ) )) ).

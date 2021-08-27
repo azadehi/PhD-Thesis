@@ -1,0 +1,2 @@
+% cl-imports after/Definitions/D_Overlap.clif
+fof(sos10,axiom,( ! [X11] : ! [X12] : ( (d(X11, X12)) <=> (~ (o(X11, X12))) )) ).
