@@ -1,0 +1,11 @@
+(cl-text http://colore.oor.net/after2/Theorems/EQproperties.clif
+(cl-imports http://colore.oor.net/after2/Definitions/D_Equality.clif)
+
+
+
+(not(forall (x y z) (if (and (EQ x y) (EQ y z)) (EQ x z))))
+
+
+
+
+)

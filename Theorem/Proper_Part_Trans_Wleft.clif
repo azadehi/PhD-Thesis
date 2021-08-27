@@ -1,0 +1,7 @@
+(cl-text http://colore.oor.net/after2/Theorems/Proper_Part_Trans_Wleft.clif
+(cl-imports http://colore.oor.net/after2/Definitions/D_Proper_part.clif)
+
+
+(not(forall (x y z) (if (and (PP x y) (P y z))(PP x z))))
+
+)

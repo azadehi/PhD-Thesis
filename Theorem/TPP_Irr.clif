@@ -1,0 +1,6 @@
+(cl-text http://colore.oor.net/after2/Theorems/TPP_Irr.clif
+(cl-imports http://colore.oor.net/after2/Definitions/D_TPP.clif)
+
+(not(forall (x) (not(TPP x x))))
+
+)
