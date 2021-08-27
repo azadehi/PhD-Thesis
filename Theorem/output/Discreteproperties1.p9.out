@@ -1,0 +1,232 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 7993 was started by aidin12 on aidin12-HP-Pavilion-dv7-Notebook-PC,
+Fri Sep 18 15:42:18 2020
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/prover9 -t100 -f /home/aidin12/macleod/ontologies/after2/Theorems/conversions/Discreteproperties1.all.p9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file /home/aidin12/macleod/ontologies/after2/Theorems/conversions/Discreteproperties1.all.p9
+
+
+formulas(assumptions).
+-(all x (x = null | -D(x,x))).
+(all x all y ((-D(x,y) | -O(x,y)) & (O(x,y) | D(x,y)))).
+(all x all y ((-O(x,y) | (exists z (P(z,x) & P(z,y)))) & (-(exists z (P(z,x) & P(z,y))) | O(x,y)))).
+(all x (x = null | P(x,x))).
+(all x all y (-(P(x,y) & P(y,x)) | x = y)).
+(all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))).
+(all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))).
+end_of_list.
+
+============================== end of input ==========================
+
+% From the command line: assign(max_seconds, 100).
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 -(all x (x = null | -D(x,x))) # label(non_clause).  [assumption].
+2 (all x all y ((-D(x,y) | -O(x,y)) & (O(x,y) | D(x,y)))) # label(non_clause).  [assumption].
+3 (all x all y ((-O(x,y) | (exists z (P(z,x) & P(z,y)))) & (-(exists z (P(z,x) & P(z,y))) | O(x,y)))) # label(non_clause).  [assumption].
+4 (all x (x = null | P(x,x))) # label(non_clause).  [assumption].
+5 (all x all y (-(P(x,y) & P(y,x)) | x = y)) # label(non_clause).  [assumption].
+6 (all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))) # label(non_clause).  [assumption].
+7 (all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))) # label(non_clause).  [assumption].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+null != c1.  [clausify(1)].
+D(c1,c1).  [clausify(1)].
+-D(x,y) | -O(x,y).  [clausify(2)].
+O(x,y) | D(x,y).  [clausify(2)].
+-O(x,y) | P(f1(x,y),x).  [clausify(3)].
+-O(x,y) | P(f1(x,y),y).  [clausify(3)].
+-P(x,y) | -P(x,z) | O(y,z).  [clausify(3)].
+null = x | P(x,x).  [clausify(4)].
+-P(x,y) | -P(y,x) | y = x.  [clausify(5)].
+-P(x,y) | -P(y,z) | P(x,z).  [clausify(6)].
+null != x | -P(y,x).  [clausify(7)].
+null != x | -P(x,y).  [clausify(7)].
+P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(7)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating D/2
+8 -D(x,y) | -O(x,y).  [clausify(2)].
+9 D(c1,c1).  [clausify(1)].
+Derived: -O(c1,c1).  [resolve(8,a,9,a)].
+10 O(x,y) | D(x,y).  [clausify(2)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, P, O ]).
+Function symbol precedence:  function_order([ null, c1, f1, f2 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+           11 null != c1.  [clausify(1)].
+kept:      12 c1 != null.  [copy(11),flip(a)].
+kept:      13 -O(x,y) | P(f1(x,y),x).  [clausify(3)].
+kept:      14 -O(x,y) | P(f1(x,y),y).  [clausify(3)].
+kept:      15 -P(x,y) | -P(x,z) | O(y,z).  [clausify(3)].
+kept:      16 null = x | P(x,x).  [clausify(4)].
+kept:      17 -P(x,y) | -P(y,x) | y = x.  [clausify(5)].
+kept:      18 -P(x,y) | -P(y,z) | P(x,z).  [clausify(6)].
+kept:      19 null != x | -P(y,x).  [clausify(7)].
+kept:      20 null != x | -P(x,y).  [clausify(7)].
+kept:      21 P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(7)].
+kept:      22 -O(c1,c1).  [resolve(8,a,9,a)].
+kept:      23 -P(x,y) | O(y,y).  [factor(15,a,b)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+12 c1 != null.  [copy(11),flip(a)].
+13 -O(x,y) | P(f1(x,y),x).  [clausify(3)].
+14 -O(x,y) | P(f1(x,y),y).  [clausify(3)].
+15 -P(x,y) | -P(x,z) | O(y,z).  [clausify(3)].
+16 null = x | P(x,x).  [clausify(4)].
+17 -P(x,y) | -P(y,x) | y = x.  [clausify(5)].
+18 -P(x,y) | -P(y,z) | P(x,z).  [clausify(6)].
+19 null != x | -P(y,x).  [clausify(7)].
+20 null != x | -P(x,y).  [clausify(7)].
+21 P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(7)].
+22 -O(c1,c1).  [resolve(8,a,9,a)].
+23 -P(x,y) | O(y,y).  [factor(15,a,b)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+given #1 (I,wt=3): 12 c1 != null.  [copy(11),flip(a)].
+
+given #2 (I,wt=8): 13 -O(x,y) | P(f1(x,y),x).  [clausify(3)].
+
+given #3 (I,wt=8): 14 -O(x,y) | P(f1(x,y),y).  [clausify(3)].
+
+given #4 (I,wt=9): 15 -P(x,y) | -P(x,z) | O(y,z).  [clausify(3)].
+
+given #5 (I,wt=6): 16 null = x | P(x,x).  [clausify(4)].
+
+given #6 (I,wt=9): 17 -P(x,y) | -P(y,x) | y = x.  [clausify(5)].
+
+given #7 (I,wt=9): 18 -P(x,y) | -P(y,z) | P(x,z).  [clausify(6)].
+
+given #8 (I,wt=6): 19 null != x | -P(y,x).  [clausify(7)].
+
+given #9 (I,wt=6): 20 null != x | -P(x,y).  [clausify(7)].
+
+given #10 (I,wt=11): 21 P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(7)].
+
+given #11 (I,wt=3): 22 -O(c1,c1).  [resolve(8,a,9,a)].
+
+given #12 (I,wt=6): 23 -P(x,y) | O(y,y).  [factor(15,a,b)].
+
+given #13 (A,wt=9): 24 null = x | -P(x,y) | O(y,x).  [resolve(16,b,15,b)].
+
+given #14 (F,wt=3): 26 -P(x,null).  [ur(19,a,xx)].
+
+given #15 (F,wt=3): 27 -P(null,x).  [ur(20,a,xx)].
+
+given #16 (F,wt=3): 35 -P(x,c1).  [ur(23,b,22,a)].
+-------- Proof 1 -------- 
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 14.
+% Level of proof is 4.
+% Maximum clause weight is 9.000.
+% Given clauses 16.
+
+1 -(all x (x = null | -D(x,x))) # label(non_clause).  [assumption].
+2 (all x all y ((-D(x,y) | -O(x,y)) & (O(x,y) | D(x,y)))) # label(non_clause).  [assumption].
+3 (all x all y ((-O(x,y) | (exists z (P(z,x) & P(z,y)))) & (-(exists z (P(z,x) & P(z,y))) | O(x,y)))) # label(non_clause).  [assumption].
+4 (all x (x = null | P(x,x))) # label(non_clause).  [assumption].
+8 -D(x,y) | -O(x,y).  [clausify(2)].
+9 D(c1,c1).  [clausify(1)].
+11 null != c1.  [clausify(1)].
+12 c1 != null.  [copy(11),flip(a)].
+15 -P(x,y) | -P(x,z) | O(y,z).  [clausify(3)].
+16 null = x | P(x,x).  [clausify(4)].
+22 -O(c1,c1).  [resolve(8,a,9,a)].
+23 -P(x,y) | O(y,y).  [factor(15,a,b)].
+35 -P(x,c1).  [ur(23,b,22,a)].
+40 $F.  [resolve(35,a,16,b),flip(a),unit_del(a,12)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=16. Generated=45. Kept=28. proofs=1.
+Usable=16. Sos=10. Demods=0. Limbo=1, Disabled=15. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=16. Back_subsumed=1.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=23. Nonunit_bsub_feature_tests=41.
+Megabytes=0.09.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+------ process 7993 exit (max_proofs) ------
+
+Process 7993 exit (max_proofs) Fri Sep 18 15:42:18 2020
+
+========================== MACLEOD SUMMARY ===========================
+reasoner: /home/aidin12/macleod/Reasoning/prover9_bin/prover9
+status: PROOF
+execution finished: Fri Sep 18 15:42:21 2020
+total CPU time used: 0
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/prover9 -t100 -f /home/aidin12/macleod/ontologies/after2/Theorems/conversions/Discreteproperties1.all.p9"
+============================ end of footer ===========================

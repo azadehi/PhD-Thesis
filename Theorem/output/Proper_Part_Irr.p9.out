@@ -1,0 +1,153 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 8396 was started by aidin12 on aidin12-HP-Pavilion-dv7-Notebook-PC,
+Fri Sep 18 16:47:49 2020
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/prover9 -t100 -f /home/aidin12/macleod/ontologies/after2/Theorems/conversions/Proper_Part_Irr.all.p9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file /home/aidin12/macleod/ontologies/after2/Theorems/conversions/Proper_Part_Irr.all.p9
+
+
+formulas(assumptions).
+-(all x -PP(x,x)).
+(all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))).
+(all x (x = null | P(x,x))).
+(all x all y (-(P(x,y) & P(y,x)) | x = y)).
+(all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))).
+(all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))).
+end_of_list.
+
+============================== end of input ==========================
+
+% From the command line: assign(max_seconds, 100).
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 -(all x -PP(x,x)) # label(non_clause).  [assumption].
+2 (all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))) # label(non_clause).  [assumption].
+3 (all x (x = null | P(x,x))) # label(non_clause).  [assumption].
+4 (all x all y (-(P(x,y) & P(y,x)) | x = y)) # label(non_clause).  [assumption].
+5 (all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))) # label(non_clause).  [assumption].
+6 (all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))) # label(non_clause).  [assumption].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+PP(c1,c1).  [clausify(1)].
+-PP(x,y) | P(x,y).  [clausify(2)].
+-PP(x,y) | -P(y,x).  [clausify(2)].
+-P(x,y) | P(y,x) | PP(x,y).  [clausify(2)].
+null = x | P(x,x).  [clausify(3)].
+-P(x,y) | -P(y,x) | y = x.  [clausify(4)].
+-P(x,y) | -P(y,z) | P(x,z).  [clausify(5)].
+null != x | -P(y,x).  [clausify(6)].
+null != x | -P(x,y).  [clausify(6)].
+P(f1(x),x) | P(x,f1(x)) | null = x.  [clausify(6)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating PP/2
+7 -PP(x,y) | P(x,y).  [clausify(2)].
+8 PP(c1,c1).  [clausify(1)].
+Derived: P(c1,c1).  [resolve(7,a,8,a)].
+9 -PP(x,y) | -P(y,x).  [clausify(2)].
+Derived: -P(c1,c1).  [resolve(9,a,8,a)].
+10 -P(x,y) | P(y,x) | PP(x,y).  [clausify(2)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, P ]).
+Function symbol precedence:  function_order([ null, c1, f1 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+kept:      11 null = x | P(x,x).  [clausify(3)].
+kept:      12 -P(x,y) | -P(y,x) | y = x.  [clausify(4)].
+kept:      13 -P(x,y) | -P(y,z) | P(x,z).  [clausify(5)].
+kept:      14 null != x | -P(y,x).  [clausify(6)].
+kept:      15 null != x | -P(x,y).  [clausify(6)].
+kept:      16 P(f1(x),x) | P(x,f1(x)) | null = x.  [clausify(6)].
+kept:      17 P(c1,c1).  [resolve(7,a,8,a)].
+           18 -P(c1,c1).  [resolve(9,a,8,a)].
+-------- Proof 1 -------- 
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 8.
+% Level of proof is 3.
+% Maximum clause weight is 3.000.
+% Given clauses 0.
+
+1 -(all x -PP(x,x)) # label(non_clause).  [assumption].
+2 (all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))) # label(non_clause).  [assumption].
+7 -PP(x,y) | P(x,y).  [clausify(2)].
+8 PP(c1,c1).  [clausify(1)].
+9 -PP(x,y) | -P(y,x).  [clausify(2)].
+17 P(c1,c1).  [resolve(7,a,8,a)].
+18 -P(c1,c1).  [resolve(9,a,8,a)].
+19 $F.  [copy(18),unit_del(a,17)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=0. Generated=8. Kept=7. proofs=1.
+Usable=0. Sos=0. Demods=0. Limbo=7, Disabled=12. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=0. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=2. Nonunit_bsub_feature_tests=0.
+Megabytes=0.05.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+------ process 8396 exit (max_proofs) ------
+
+Process 8396 exit (max_proofs) Fri Sep 18 16:47:49 2020
+
+========================== MACLEOD SUMMARY ===========================
+reasoner: /home/aidin12/macleod/Reasoning/prover9_bin/prover9
+status: PROOF
+execution finished: Fri Sep 18 16:47:51 2020
+total CPU time used: 0
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/prover9 -t100 -f /home/aidin12/macleod/ontologies/after2/Theorems/conversions/Proper_Part_Irr.all.p9"
+============================ end of footer ===========================

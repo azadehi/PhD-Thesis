@@ -1,0 +1,251 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 11077 was started by aidin12 on aidin12-HP-Pavilion-dv7-Notebook-PC,
+Sat Sep 19 02:54:45 2020
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/prover9 -t100 -f /home/aidin12/macleod/ontologies/after2/Theorems/conversions/PointTheorem.all.p9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file /home/aidin12/macleod/ontologies/after2/Theorems/conversions/PointTheorem.all.p9
+
+
+formulas(assumptions).
+-(all x (-Point(x) | -(exists y PP(y,x)))).
+(all x ((-Point(x) | (all y (-P(y,x) | EQ(y,x)))) & (-(all y (-P(y,x) | EQ(y,x))) | Point(x)))).
+(all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))).
+(all x (x = null | P(x,x))).
+(all x all y (-(P(x,y) & P(y,x)) | x = y)).
+(all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))).
+(all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))).
+(all x all y ((-EQ(x,y) | P(y,x) & P(x,y)) & (-(P(y,x) & P(x,y)) | EQ(x,y)))).
+end_of_list.
+
+============================== end of input ==========================
+
+% From the command line: assign(max_seconds, 100).
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 -(all x (-Point(x) | -(exists y PP(y,x)))) # label(non_clause).  [assumption].
+2 (all x ((-Point(x) | (all y (-P(y,x) | EQ(y,x)))) & (-(all y (-P(y,x) | EQ(y,x))) | Point(x)))) # label(non_clause).  [assumption].
+3 (all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))) # label(non_clause).  [assumption].
+4 (all x (x = null | P(x,x))) # label(non_clause).  [assumption].
+5 (all x all y (-(P(x,y) & P(y,x)) | x = y)) # label(non_clause).  [assumption].
+6 (all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))) # label(non_clause).  [assumption].
+7 (all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))) # label(non_clause).  [assumption].
+8 (all x all y ((-EQ(x,y) | P(y,x) & P(x,y)) & (-(P(y,x) & P(x,y)) | EQ(x,y)))) # label(non_clause).  [assumption].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+Point(c1).  [clausify(1)].
+PP(c2,c1).  [clausify(1)].
+-Point(x) | -P(y,x) | EQ(y,x).  [clausify(2)].
+P(f1(x),x) | Point(x).  [clausify(2)].
+-EQ(f1(x),x) | Point(x).  [clausify(2)].
+-PP(x,y) | P(x,y).  [clausify(3)].
+-PP(x,y) | -P(y,x).  [clausify(3)].
+-P(x,y) | P(y,x) | PP(x,y).  [clausify(3)].
+null = x | P(x,x).  [clausify(4)].
+-P(x,y) | -P(y,x) | y = x.  [clausify(5)].
+-P(x,y) | -P(y,z) | P(x,z).  [clausify(6)].
+null != x | -P(y,x).  [clausify(7)].
+null != x | -P(x,y).  [clausify(7)].
+P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(7)].
+-EQ(x,y) | P(y,x).  [clausify(8)].
+-EQ(x,y) | P(x,y).  [clausify(8)].
+-P(x,y) | -P(y,x) | EQ(y,x).  [clausify(8)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating Point/1
+9 -Point(x) | -P(y,x) | EQ(y,x).  [clausify(2)].
+10 Point(c1).  [clausify(1)].
+Derived: -P(x,c1) | EQ(x,c1).  [resolve(9,a,10,a)].
+11 P(f1(x),x) | Point(x).  [clausify(2)].
+Derived: P(f1(x),x) | -P(y,x) | EQ(y,x).  [resolve(11,b,9,a)].
+12 -EQ(f1(x),x) | Point(x).  [clausify(2)].
+Derived: -EQ(f1(x),x) | -P(y,x) | EQ(y,x).  [resolve(12,b,9,a)].
+
+Eliminating PP/2
+13 -PP(x,y) | P(x,y).  [clausify(3)].
+14 PP(c2,c1).  [clausify(1)].
+Derived: P(c2,c1).  [resolve(13,a,14,a)].
+15 -PP(x,y) | -P(y,x).  [clausify(3)].
+Derived: -P(c1,c2).  [resolve(15,a,14,a)].
+16 -P(x,y) | P(y,x) | PP(x,y).  [clausify(3)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, P, EQ ]).
+Function symbol precedence:  function_order([ null, c1, c2, f1, f2 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+  % set(neg_ur_resolution).  % (non-Horn, less than 100 clauses)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+kept:      17 null = x | P(x,x).  [clausify(4)].
+kept:      18 -P(x,y) | -P(y,x) | y = x.  [clausify(5)].
+kept:      19 -P(x,y) | -P(y,z) | P(x,z).  [clausify(6)].
+kept:      20 null != x | -P(y,x).  [clausify(7)].
+kept:      21 null != x | -P(x,y).  [clausify(7)].
+kept:      22 P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(7)].
+kept:      23 -EQ(x,y) | P(y,x).  [clausify(8)].
+kept:      24 -EQ(x,y) | P(x,y).  [clausify(8)].
+kept:      25 -P(x,y) | -P(y,x) | EQ(y,x).  [clausify(8)].
+kept:      26 -P(x,c1) | EQ(x,c1).  [resolve(9,a,10,a)].
+kept:      27 P(f1(x),x) | -P(y,x) | EQ(y,x).  [resolve(11,b,9,a)].
+kept:      28 -EQ(f1(x),x) | -P(y,x) | EQ(y,x).  [resolve(12,b,9,a)].
+kept:      29 P(c2,c1).  [resolve(13,a,14,a)].
+kept:      30 -P(c1,c2).  [resolve(15,a,14,a)].
+kept:      31 -P(x,x) | EQ(x,x).  [factor(25,a,b)].
+
+============================== end of process initial clauses ========
+
+============================== CLAUSES FOR SEARCH ====================
+
+% Clauses after input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+17 null = x | P(x,x).  [clausify(4)].
+18 -P(x,y) | -P(y,x) | y = x.  [clausify(5)].
+19 -P(x,y) | -P(y,z) | P(x,z).  [clausify(6)].
+20 null != x | -P(y,x).  [clausify(7)].
+21 null != x | -P(x,y).  [clausify(7)].
+22 P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(7)].
+23 -EQ(x,y) | P(y,x).  [clausify(8)].
+24 -EQ(x,y) | P(x,y).  [clausify(8)].
+25 -P(x,y) | -P(y,x) | EQ(y,x).  [clausify(8)].
+26 -P(x,c1) | EQ(x,c1).  [resolve(9,a,10,a)].
+27 P(f1(x),x) | -P(y,x) | EQ(y,x).  [resolve(11,b,9,a)].
+28 -EQ(f1(x),x) | -P(y,x) | EQ(y,x).  [resolve(12,b,9,a)].
+29 P(c2,c1).  [resolve(13,a,14,a)].
+30 -P(c1,c2).  [resolve(15,a,14,a)].
+31 -P(x,x) | EQ(x,x).  [factor(25,a,b)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== end of clauses for search =============
+
+============================== SEARCH ================================
+
+% Starting search at 0.01 seconds.
+
+given #1 (I,wt=6): 17 null = x | P(x,x).  [clausify(4)].
+
+given #2 (I,wt=9): 18 -P(x,y) | -P(y,x) | y = x.  [clausify(5)].
+
+given #3 (I,wt=9): 19 -P(x,y) | -P(y,z) | P(x,z).  [clausify(6)].
+
+given #4 (I,wt=6): 20 null != x | -P(y,x).  [clausify(7)].
+
+given #5 (I,wt=6): 21 null != x | -P(x,y).  [clausify(7)].
+
+given #6 (I,wt=11): 22 P(f2(x),x) | P(x,f2(x)) | null = x.  [clausify(7)].
+
+given #7 (I,wt=6): 23 -EQ(x,y) | P(y,x).  [clausify(8)].
+
+given #8 (I,wt=6): 24 -EQ(x,y) | P(x,y).  [clausify(8)].
+
+given #9 (I,wt=9): 25 -P(x,y) | -P(y,x) | EQ(y,x).  [clausify(8)].
+
+given #10 (I,wt=6): 26 -P(x,c1) | EQ(x,c1).  [resolve(9,a,10,a)].
+
+given #11 (I,wt=10): 27 P(f1(x),x) | -P(y,x) | EQ(y,x).  [resolve(11,b,9,a)].
+
+given #12 (I,wt=10): 28 -EQ(f1(x),x) | -P(y,x) | EQ(y,x).  [resolve(12,b,9,a)].
+
+given #13 (I,wt=3): 29 P(c2,c1).  [resolve(13,a,14,a)].
+
+given #14 (I,wt=3): 30 -P(c1,c2).  [resolve(15,a,14,a)].
+-------- Proof 1 -------- 
+
+============================== PROOF =================================
+
+% Proof 1 at 0.01 (+ 0.00) seconds.
+% Length of proof is 15.
+% Level of proof is 4.
+% Maximum clause weight is 6.000.
+% Given clauses 14.
+
+1 -(all x (-Point(x) | -(exists y PP(y,x)))) # label(non_clause).  [assumption].
+2 (all x ((-Point(x) | (all y (-P(y,x) | EQ(y,x)))) & (-(all y (-P(y,x) | EQ(y,x))) | Point(x)))) # label(non_clause).  [assumption].
+3 (all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))) # label(non_clause).  [assumption].
+8 (all x all y ((-EQ(x,y) | P(y,x) & P(x,y)) & (-(P(y,x) & P(x,y)) | EQ(x,y)))) # label(non_clause).  [assumption].
+9 -Point(x) | -P(y,x) | EQ(y,x).  [clausify(2)].
+10 Point(c1).  [clausify(1)].
+13 -PP(x,y) | P(x,y).  [clausify(3)].
+14 PP(c2,c1).  [clausify(1)].
+15 -PP(x,y) | -P(y,x).  [clausify(3)].
+23 -EQ(x,y) | P(y,x).  [clausify(8)].
+26 -P(x,c1) | EQ(x,c1).  [resolve(9,a,10,a)].
+29 P(c2,c1).  [resolve(13,a,14,a)].
+30 -P(c1,c2).  [resolve(15,a,14,a)].
+42 EQ(c2,c1).  [resolve(29,a,26,a)].
+50 $F.  [ur(23,b,30,a),unit_del(a,42)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=14. Generated=55. Kept=33. proofs=1.
+Usable=14. Sos=15. Demods=0. Limbo=1, Disabled=25. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=21. Back_subsumed=1.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=0 (0 lex), Back_demodulated=0. Back_unit_deleted=2.
+Demod_attempts=0. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=13. Nonunit_bsub_feature_tests=41.
+Megabytes=0.10.
+User_CPU=0.01, System_CPU=0.00, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+------ process 11077 exit (max_proofs) ------
+
+Process 11077 exit (max_proofs) Sat Sep 19 02:54:45 2020
+
+========================== MACLEOD SUMMARY ===========================
+reasoner: /home/aidin12/macleod/Reasoning/prover9_bin/prover9
+status: PROOF
+execution finished: Sat Sep 19 02:54:47 2020
+total CPU time used: 0
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/prover9 -t100 -f /home/aidin12/macleod/ontologies/after2/Theorems/conversions/PointTheorem.all.p9"
+============================ end of footer ===========================

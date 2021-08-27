@@ -1,0 +1,707 @@
+============================== Mace4 =================================
+Mace4 (64) version 2009-11A, November 2009.
+Process 7684 was started by aidin12 on aidin12-HP-Pavilion-dv7-Notebook-PC,
+Fri Sep 18 15:19:48 2020
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/mace4 -v0 -t300 -s60 -n2 -N40 -f /home/aidin12/macleod/ontologies/after2/Theorems/conversions/Overlapproperties2.all.p9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file /home/aidin12/macleod/ontologies/after2/Theorems/conversions/Overlapproperties2.all.p9
+
+
+formulas(assumptions).
+-(all x all y (-O(x,y) | O(y,x))).
+(all x all y ((-O(x,y) | (exists z (P(z,x) & P(z,y)))) & (-(exists z (P(z,x) & P(z,y))) | O(x,y)))).
+(all x (x = null | P(x,x))).
+(all x all y (-(P(x,y) & P(y,x)) | x = y)).
+(all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))).
+(all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))).
+end_of_list.
+
+% From the command line: clear(verbose).
+
+% From the command line: assign(max_seconds, 300).
+
+% From the command line: assign(max_seconds_per, 60).
+    % assign(domain_size, 2) -> assign(start_size, 2).
+    % assign(domain_size, 2) -> assign(end_size, 2).
+
+% From the command line: assign(domain_size, 2).
+
+% From the command line: assign(end_size, 40).
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 -(all x all y (-O(x,y) | O(y,x))) # label(non_clause).  [assumption].
+2 (all x all y ((-O(x,y) | (exists z (P(z,x) & P(z,y)))) & (-(exists z (P(z,x) & P(z,y))) | O(x,y)))) # label(non_clause).  [assumption].
+3 (all x (x = null | P(x,x))) # label(non_clause).  [assumption].
+4 (all x all y (-(P(x,y) & P(y,x)) | x = y)) # label(non_clause).  [assumption].
+5 (all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))) # label(non_clause).  [assumption].
+6 (all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))) # label(non_clause).  [assumption].
+
+============================== end of process non-clausal formulas ===
+
+============================== CLAUSES FOR SEARCH ====================
+
+formulas(mace4_clauses).
+O(c1,c2).
+-O(c2,c1).
+-O(x,y) | P(f1(x,y),x).
+-O(x,y) | P(f1(x,y),y).
+-P(x,y) | -P(x,z) | O(y,z).
+null = x | P(x,x).
+-P(x,y) | -P(y,x) | y = x.
+-P(x,y) | -P(y,z) | P(x,z).
+null != x | -P(y,x).
+null != x | -P(x,y).
+P(f2(x),x) | P(x,f2(x)) | null = x.
+end_of_list.
+
+============================== end of clauses for search =============
+
+% There are no natural numbers in the input.
+
+============================== DOMAIN SIZE 2 =========================
+
+=== Mace4 starting on domain size 2. ===
+
+============================== STATISTICS ============================
+
+For domain size 2.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.01 seconds).
+Ground clauses: seen=42, kept=40.
+Selections=3, assignments=5, propagations=14, current_models=0.
+Rewrite_terms=25, rewrite_bools=56, indexes=5.
+Rules_from_neg_clauses=4, cross_offs=4.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 3 =========================
+
+=== Mace4 starting on domain size 3. ===
+
+============================== STATISTICS ============================
+
+For domain size 3.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.01 seconds).
+Ground clauses: seen=107, kept=104.
+Selections=4, assignments=8, propagations=22, current_models=0.
+Rewrite_terms=41, rewrite_bools=142, indexes=7.
+Rules_from_neg_clauses=4, cross_offs=10.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 4 =========================
+
+=== Mace4 starting on domain size 4. ===
+
+============================== STATISTICS ============================
+
+For domain size 4.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.01 seconds).
+Ground clauses: seen=218, kept=214.
+Selections=4, assignments=8, propagations=30, current_models=0.
+Rewrite_terms=55, rewrite_bools=260, indexes=9.
+Rules_from_neg_clauses=3, cross_offs=15.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 5 =========================
+
+=== Mace4 starting on domain size 5. ===
+
+============================== STATISTICS ============================
+
+For domain size 5.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.02 seconds).
+Ground clauses: seen=387, kept=382.
+Selections=5, assignments=12, propagations=33, current_models=0.
+Rewrite_terms=79, rewrite_bools=407, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=18.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 6 =========================
+
+=== Mace4 starting on domain size 6. ===
+
+============================== STATISTICS ============================
+
+For domain size 6.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.02 seconds).
+Ground clauses: seen=626, kept=620.
+Selections=5, assignments=12, propagations=37, current_models=0.
+Rewrite_terms=103, rewrite_bools=580, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=21.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 7 =========================
+
+=== Mace4 starting on domain size 7. ===
+
+============================== STATISTICS ============================
+
+For domain size 7.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.02 seconds).
+Ground clauses: seen=947, kept=940.
+Selections=5, assignments=12, propagations=41, current_models=0.
+Rewrite_terms=131, rewrite_bools=783, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=24.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 8 =========================
+
+=== Mace4 starting on domain size 8. ===
+
+============================== STATISTICS ============================
+
+For domain size 8.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.02 seconds).
+Ground clauses: seen=1362, kept=1354.
+Selections=5, assignments=12, propagations=45, current_models=0.
+Rewrite_terms=163, rewrite_bools=1016, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=27.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 9 =========================
+
+=== Mace4 starting on domain size 9. ===
+
+============================== STATISTICS ============================
+
+For domain size 9.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.02 seconds).
+Ground clauses: seen=1883, kept=1874.
+Selections=5, assignments=12, propagations=49, current_models=0.
+Rewrite_terms=199, rewrite_bools=1279, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=30.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 10 ========================
+
+=== Mace4 starting on domain size 10. ===
+
+============================== STATISTICS ============================
+
+For domain size 10.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.02 seconds).
+Ground clauses: seen=2522, kept=2512.
+Selections=5, assignments=12, propagations=53, current_models=0.
+Rewrite_terms=239, rewrite_bools=1572, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=33.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 11 ========================
+
+=== Mace4 starting on domain size 11. ===
+
+============================== STATISTICS ============================
+
+For domain size 11.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.03 seconds).
+Ground clauses: seen=3291, kept=3280.
+Selections=5, assignments=12, propagations=57, current_models=0.
+Rewrite_terms=283, rewrite_bools=1895, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=36.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 12 ========================
+
+=== Mace4 starting on domain size 12. ===
+
+============================== STATISTICS ============================
+
+For domain size 12.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.03 seconds).
+Ground clauses: seen=4202, kept=4190.
+Selections=5, assignments=12, propagations=61, current_models=0.
+Rewrite_terms=331, rewrite_bools=2248, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=39.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 13 ========================
+
+=== Mace4 starting on domain size 13. ===
+
+============================== STATISTICS ============================
+
+For domain size 13.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.04 seconds).
+Ground clauses: seen=5267, kept=5254.
+Selections=5, assignments=12, propagations=65, current_models=0.
+Rewrite_terms=383, rewrite_bools=2631, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=42.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 14 ========================
+
+=== Mace4 starting on domain size 14. ===
+
+============================== STATISTICS ============================
+
+For domain size 14.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.05 seconds).
+Ground clauses: seen=6498, kept=6484.
+Selections=5, assignments=12, propagations=69, current_models=0.
+Rewrite_terms=439, rewrite_bools=3044, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=45.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 15 ========================
+
+=== Mace4 starting on domain size 15. ===
+
+============================== STATISTICS ============================
+
+For domain size 15.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.06 seconds).
+Ground clauses: seen=7907, kept=7892.
+Selections=5, assignments=12, propagations=73, current_models=0.
+Rewrite_terms=499, rewrite_bools=3487, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=48.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 16 ========================
+
+=== Mace4 starting on domain size 16. ===
+
+============================== STATISTICS ============================
+
+For domain size 16.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.07 seconds).
+Ground clauses: seen=9506, kept=9490.
+Selections=5, assignments=12, propagations=77, current_models=0.
+Rewrite_terms=563, rewrite_bools=3960, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=51.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 17 ========================
+
+=== Mace4 starting on domain size 17. ===
+
+============================== STATISTICS ============================
+
+For domain size 17.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.09 seconds).
+Ground clauses: seen=11307, kept=11290.
+Selections=5, assignments=12, propagations=81, current_models=0.
+Rewrite_terms=631, rewrite_bools=4463, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=54.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 18 ========================
+
+=== Mace4 starting on domain size 18. ===
+
+============================== STATISTICS ============================
+
+For domain size 18.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.11 seconds).
+Ground clauses: seen=13322, kept=13304.
+Selections=5, assignments=12, propagations=85, current_models=0.
+Rewrite_terms=703, rewrite_bools=4996, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=57.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 19 ========================
+
+=== Mace4 starting on domain size 19. ===
+
+============================== STATISTICS ============================
+
+For domain size 19.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.14 seconds).
+Ground clauses: seen=15563, kept=15544.
+Selections=5, assignments=12, propagations=89, current_models=0.
+Rewrite_terms=779, rewrite_bools=5559, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=60.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 20 ========================
+
+=== Mace4 starting on domain size 20. ===
+
+============================== STATISTICS ============================
+
+For domain size 20.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.16 seconds).
+Ground clauses: seen=18042, kept=18022.
+Selections=5, assignments=12, propagations=93, current_models=0.
+Rewrite_terms=859, rewrite_bools=6152, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=63.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 21 ========================
+
+=== Mace4 starting on domain size 21. ===
+
+============================== STATISTICS ============================
+
+For domain size 21.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.19 seconds).
+Ground clauses: seen=20771, kept=20750.
+Selections=5, assignments=12, propagations=97, current_models=0.
+Rewrite_terms=943, rewrite_bools=6775, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=66.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 22 ========================
+
+=== Mace4 starting on domain size 22. ===
+
+============================== STATISTICS ============================
+
+For domain size 22.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.22 seconds).
+Ground clauses: seen=23762, kept=23740.
+Selections=5, assignments=12, propagations=101, current_models=0.
+Rewrite_terms=1031, rewrite_bools=7428, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=69.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 23 ========================
+
+=== Mace4 starting on domain size 23. ===
+
+============================== STATISTICS ============================
+
+For domain size 23.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.26 seconds).
+Ground clauses: seen=27027, kept=27004.
+Selections=5, assignments=12, propagations=105, current_models=0.
+Rewrite_terms=1123, rewrite_bools=8111, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=72.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 24 ========================
+
+=== Mace4 starting on domain size 24. ===
+
+============================== STATISTICS ============================
+
+For domain size 24.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.30 seconds).
+Ground clauses: seen=30578, kept=30554.
+Selections=5, assignments=12, propagations=109, current_models=0.
+Rewrite_terms=1219, rewrite_bools=8824, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=75.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 25 ========================
+
+=== Mace4 starting on domain size 25. ===
+
+============================== STATISTICS ============================
+
+For domain size 25.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.35 seconds).
+Ground clauses: seen=34427, kept=34402.
+Selections=5, assignments=12, propagations=113, current_models=0.
+Rewrite_terms=1319, rewrite_bools=9567, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=78.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 26 ========================
+
+=== Mace4 starting on domain size 26. ===
+
+============================== STATISTICS ============================
+
+For domain size 26.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.39 seconds).
+Ground clauses: seen=38586, kept=38560.
+Selections=5, assignments=12, propagations=117, current_models=0.
+Rewrite_terms=1423, rewrite_bools=10340, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=81.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 27 ========================
+
+=== Mace4 starting on domain size 27. ===
+
+============================== STATISTICS ============================
+
+For domain size 27.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.45 seconds).
+Ground clauses: seen=43067, kept=43040.
+Selections=5, assignments=12, propagations=121, current_models=0.
+Rewrite_terms=1531, rewrite_bools=11143, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=84.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 28 ========================
+
+=== Mace4 starting on domain size 28. ===
+
+============================== STATISTICS ============================
+
+For domain size 28.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.50 seconds).
+Ground clauses: seen=47882, kept=47854.
+Selections=5, assignments=12, propagations=125, current_models=0.
+Rewrite_terms=1643, rewrite_bools=11976, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=87.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 29 ========================
+
+=== Mace4 starting on domain size 29. ===
+
+============================== STATISTICS ============================
+
+For domain size 29.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.57 seconds).
+Ground clauses: seen=53043, kept=53014.
+Selections=5, assignments=12, propagations=129, current_models=0.
+Rewrite_terms=1759, rewrite_bools=12839, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=90.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 30 ========================
+
+=== Mace4 starting on domain size 30. ===
+
+============================== STATISTICS ============================
+
+For domain size 30.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.64 seconds).
+Ground clauses: seen=58562, kept=58532.
+Selections=5, assignments=12, propagations=133, current_models=0.
+Rewrite_terms=1879, rewrite_bools=13732, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=93.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 31 ========================
+
+=== Mace4 starting on domain size 31. ===
+
+============================== STATISTICS ============================
+
+For domain size 31.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.72 seconds).
+Ground clauses: seen=64451, kept=64420.
+Selections=5, assignments=12, propagations=137, current_models=0.
+Rewrite_terms=2003, rewrite_bools=14655, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=96.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 32 ========================
+
+=== Mace4 starting on domain size 32. ===
+
+============================== STATISTICS ============================
+
+For domain size 32.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.81 seconds).
+Ground clauses: seen=70722, kept=70690.
+Selections=5, assignments=12, propagations=141, current_models=0.
+Rewrite_terms=2131, rewrite_bools=15608, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=99.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 33 ========================
+
+=== Mace4 starting on domain size 33. ===
+
+============================== STATISTICS ============================
+
+For domain size 33.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.91 seconds).
+Ground clauses: seen=77387, kept=77354.
+Selections=5, assignments=12, propagations=145, current_models=0.
+Rewrite_terms=2263, rewrite_bools=16591, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=102.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 34 ========================
+
+=== Mace4 starting on domain size 34. ===
+
+============================== STATISTICS ============================
+
+For domain size 34.
+
+Current CPU time: 0.00 seconds (total CPU time: 1.03 seconds).
+Ground clauses: seen=84458, kept=84424.
+Selections=5, assignments=12, propagations=149, current_models=0.
+Rewrite_terms=2399, rewrite_bools=17604, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=105.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 35 ========================
+
+=== Mace4 starting on domain size 35. ===
+
+============================== STATISTICS ============================
+
+For domain size 35.
+
+Current CPU time: 0.00 seconds (total CPU time: 1.14 seconds).
+Ground clauses: seen=91947, kept=91912.
+Selections=5, assignments=12, propagations=153, current_models=0.
+Rewrite_terms=2539, rewrite_bools=18647, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=108.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 36 ========================
+
+=== Mace4 starting on domain size 36. ===
+
+============================== STATISTICS ============================
+
+For domain size 36.
+
+Current CPU time: 0.00 seconds (total CPU time: 1.28 seconds).
+Ground clauses: seen=99866, kept=99830.
+Selections=5, assignments=12, propagations=157, current_models=0.
+Rewrite_terms=2683, rewrite_bools=19720, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=111.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 37 ========================
+
+=== Mace4 starting on domain size 37. ===
+
+============================== STATISTICS ============================
+
+For domain size 37.
+
+Current CPU time: 0.00 seconds (total CPU time: 1.42 seconds).
+Ground clauses: seen=108227, kept=108190.
+Selections=5, assignments=12, propagations=161, current_models=0.
+Rewrite_terms=2831, rewrite_bools=20823, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=114.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 38 ========================
+
+=== Mace4 starting on domain size 38. ===
+
+============================== STATISTICS ============================
+
+For domain size 38.
+
+Current CPU time: 0.00 seconds (total CPU time: 1.57 seconds).
+Ground clauses: seen=117042, kept=117004.
+Selections=5, assignments=12, propagations=165, current_models=0.
+Rewrite_terms=2983, rewrite_bools=21956, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=117.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 39 ========================
+
+=== Mace4 starting on domain size 39. ===
+
+============================== STATISTICS ============================
+
+For domain size 39.
+
+Current CPU time: 0.00 seconds (total CPU time: 1.73 seconds).
+Ground clauses: seen=126323, kept=126284.
+Selections=5, assignments=12, propagations=169, current_models=0.
+Rewrite_terms=3139, rewrite_bools=23119, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=120.
+
+============================== end of statistics =====================
+
+============================== DOMAIN SIZE 40 ========================
+
+=== Mace4 starting on domain size 40. ===
+
+============================== STATISTICS ============================
+
+For domain size 40.
+
+Current CPU time: 0.00 seconds (total CPU time: 1.90 seconds).
+Ground clauses: seen=136082, kept=136042.
+Selections=5, assignments=12, propagations=173, current_models=0.
+Rewrite_terms=3299, rewrite_bools=24312, indexes=9.
+Rules_from_neg_clauses=2, cross_offs=123.
+
+============================== end of statistics =====================
+
+------ process 7684 exit (exhausted) ------
+
+User_CPU=1.90, System_CPU=0.01, Wall_clock=2.
+
+Exiting with failure.
+
+Process 7684 exit (exhausted) Fri Sep 18 15:19:50 2020
+The process finished Fri Sep 18 15:19:50 2020
+
+========================== MACLEOD SUMMARY ===========================
+reasoner: /home/aidin12/macleod/Reasoning/prover9_bin/mace4
+status: 
+execution finished: Fri Sep 18 15:19:50 2020
+total CPU time used: 0
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/mace4 -v0 -t300 -s60 -n2 -N40 -f /home/aidin12/macleod/ontologies/after2/Theorems/conversions/Overlapproperties2.all.p9"
+============================ end of footer ===========================
