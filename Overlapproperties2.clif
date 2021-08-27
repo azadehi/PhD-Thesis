@@ -1,6 +1,0 @@
-(cl-text http://colore.oor.net/after2/Theorems/Overlapproperties2.clif
-(cl-imports http://colore.oor.net/after2/Definitions/D_Overlap.clif)
-
-(not(forall (x y) (if (O x y)(O y x))))
-
-)
