@@ -1,0 +1,6 @@
+(cl-text http://colore.oor.net/after2/Theorems/Discreteproperties2.clif
+(cl-imports http://colore.oor.net/after2/Definitions/D_Discrete.clif)
+
+(not(forall (x y) (if (D x y)(D y x))))
+
+)

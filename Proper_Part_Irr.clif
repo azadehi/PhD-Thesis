@@ -1,0 +1,7 @@
+(cl-text http://colore.oor.net/after2/Theorems/Proper_Part_Irr.clif
+(cl-imports http://colore.oor.net/after2/Definitions/D_Proper_part.clif)
+
+
+(not(forall (x) (not(PP x x))))
+
+)

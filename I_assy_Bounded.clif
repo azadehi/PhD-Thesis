@@ -1,0 +1,6 @@
+(cl-text http://colore.oor.net/after2/Theorems/I_assy_Bounded.clif
+(cl-imports http://colore.oor.net/after2/Definitions/D_I.clif)
+(cl-imports http://colore.oor.net/after2/Axioms/B_axioms.clif)
+
+(not(forall (x y) (if (exists (z) (B z x))(if (I x y)(not(I y x))))))
+)
