@@ -1,6 +1,0 @@
-(cl-text http://colore.oor.net/after2/Theorems/I_antisy_UnBounded.clif
-(cl-imports http://colore.oor.net/after2/Definitions/D_I.clif)
-(cl-imports http://colore.oor.net/after2/Axioms/B_axioms.clif)
-
-(not(forall (x y) (if (not(exists (z) (B z x)))(if (and(I x y)(I y x))(= x y)))))
-)
