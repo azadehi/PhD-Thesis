@@ -1,0 +1,13 @@
+(cl-text http://colore.oor.net/after/JEPD/JE/JE0.clif
+(cl-imports http://colore.oor.net/after/All.clif)
+
+
+
+
+(not(forall (x y) (if (and (not (= x null)) (not(= y null)) (not (exists (z) (B z x))) (not (exists (t) (B t y))))
+(or (D x y)(OV x y)(IP x y)(EQ x y)(IPI x y))
+)))
+
+
+
+)
