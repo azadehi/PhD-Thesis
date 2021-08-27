@@ -1,0 +1,119 @@
+% ott+11_2:1_add=large:afp=40000:afq=2.0:amm=sco:anc=none:br=off:cond=on:irw=on:nwc=1:sd=2:ss=axioms:st=2.0:sos=all:urr=on:updr=off_3 on PD23.all
+% Refutation not found, incomplete strategy% ------------------------------
+% Version: Vampire 4.4.0 (commit ec631da4 on 2019-12-19 08:57:28 +0000)
+% Termination reason: Refutation not found, incomplete strategy
+
+% Memory used [KB]: 5245
+% Time elapsed: 0.014 s
+% ------------------------------
+% ------------------------------
+% dis+1010_10_afr=on:afp=100000:afq=2.0:amm=sco:anc=none:ep=RS:fde=unused:gs=on:nwc=1:sos=on:sac=on:sp=occurrence_2 on PD23.all
+% Refutation not found, incomplete strategy% ------------------------------
+% Version: Vampire 4.4.0 (commit ec631da4 on 2019-12-19 08:57:28 +0000)
+% Termination reason: Refutation not found, incomplete strategy
+
+% Memory used [KB]: 9850
+% Time elapsed: 0.008 s
+% ------------------------------
+% ------------------------------
+% ott+1010_5:4_av=off:bd=off:fde=none:irw=on:lma=on:nm=32:nwc=2.5:sd=2:ss=axioms:st=3.0:urr=on_5 on PD23.all
+% Refutation not found, incomplete strategy% ------------------------------
+% Version: Vampire 4.4.0 (commit ec631da4 on 2019-12-19 08:57:28 +0000)
+% Termination reason: Refutation not found, incomplete strategy
+
+% Memory used [KB]: 767
+% Time elapsed: 0.001 s
+% ------------------------------
+% ------------------------------
+% WARNING: value z3 for option sas not known
+% lrs+4_2_av=off:gs=on:gsem=on:lma=on:nm=16:nwc=1:sas=z3:stl=30:sos=on:urr=on_3 on PD23.all
+% Refutation not found, incomplete strategy% ------------------------------
+% Version: Vampire 4.4.0 (commit ec631da4 on 2019-12-19 08:57:28 +0000)
+% Termination reason: Refutation not found, incomplete strategy
+
+% Memory used [KB]: 5373
+% Time elapsed: 0.002 s
+% ------------------------------
+% ------------------------------
+% lrs+1011_3:1_add=off:afr=on:afp=10000:afq=1.1:amm=off:bce=on:cond=on:ep=R:fsr=off:nm=16:nwc=1:stl=30:sos=all:sp=reverse_arity:updr=off_2 on PD23.all
+% Refutation not found, incomplete strategy% ------------------------------
+% Version: Vampire 4.4.0 (commit ec631da4 on 2019-12-19 08:57:28 +0000)
+% Termination reason: Refutation not found, incomplete strategy
+
+% Memory used [KB]: 5373
+% Time elapsed: 0.003 s
+% ------------------------------
+% ------------------------------
+% dis+1011_10_aac=none:add=large:afp=10000:afq=1.1:amm=off:anc=none:fsr=off:gs=on:gsem=off:irw=on:nm=6:newcnf=on:nwc=2.5:sp=reverse_arity:updr=off_2 on PD23.all
+% Refutation found. Thanks to Tanya!
+% SZS status Unsatisfiable for PD23.all
+% SZS output start Proof for PD23.all
+fof(f326,plain,(
+  $false),
+  inference(global_subsumption,[],[f276,f324])).
+fof(f324,plain,(
+  ( ! [X0,X1] : (X0 != X1) )),
+  inference(superposition,[],[f171,f276])).
+fof(f171,plain,(
+  ( ! [X4] : (sK0(X4) != X4) )),
+  inference(cnf_transformation,[],[f123])).
+fof(f123,plain,(
+  ! [X4] : ? [X0,X1] : (i(X0,X1) & ic(X0,X1) & ? [X2] : b(X2,X1) & ? [X3] : b(X3,X0) & X1 != X4 & X0 != X4)),
+  inference(flattening,[],[f122])).
+fof(f122,plain,(
+  ! [X4] : ? [X0,X1] : (i(X0,X1) & (ic(X0,X1) & ? [X2] : b(X2,X1) & ? [X3] : b(X3,X0) & X1 != X4 & X0 != X4))),
+  inference(ennf_transformation,[],[f45])).
+fof(f45,plain,(
+  ! [X4] : ~! [X0,X1] : (~i(X0,X1) | ~(ic(X0,X1) & ? [X2] : b(X2,X1) & ? [X3] : b(X3,X0) & X1 != X4 & X0 != X4))),
+  inference(flattening,[],[f44])).
+fof(f44,plain,(
+  ! [X4] : ~! [X0] : ! [X1] : (~i(X0,X1) | ~(ic(X0,X1) & ? [X2] : b(X2,X1) & ? [X3] : b(X3,X0) & X1 != X4 & X0 != X4))),
+  inference(closure,[],[f43])).
+fof(f43,plain,(
+  ( ! [X4] : (~! [X0] : ! [X1] : (~i(X0,X1) | ~(ic(X0,X1) & ? [X2] : b(X2,X1) & ? [X3] : b(X3,X0) & X1 != X4 & X0 != X4))) )),
+  inference(rectify,[],[f1])).
+fof(f1,axiom,(
+  ( ! [X2] : (~! [X0] : ! [X1] : (~i(X0,X1) | ~(ic(X0,X1) & ? [X4] : b(X4,X1) & ? [X3] : b(X3,X0) & X1 != X2 & X0 != X2))) )),
+  file('/home/aidin12/macleod/ontologies/after/JEPD/PD/conversions/PD23.all.tptp',axiom10)).
+fof(f276,plain,(
+  ( ! [X0,X1] : (X0 = X1) )),
+  inference(global_subsumption,[],[f268,f182])).
+fof(f182,plain,(
+  ( ! [X0,X1] : (p(X0,X0) | X0 = X1) )),
+  inference(cnf_transformation,[],[f53])).
+fof(f53,plain,(
+  ! [X1,X0] : ((X0 = X1 | p(X0,X0)) & (~p(X0,X0) | X0 != X1))),
+  inference(flattening,[],[f52])).
+fof(f52,plain,(
+  ! [X1] : ! [X0] : ((X0 = X1 | p(X0,X0)) & (~p(X0,X0) | X0 != X1))),
+  inference(closure,[],[f51])).
+fof(f51,plain,(
+  ( ! [X1] : (! [X0] : ((X0 = X1 | p(X0,X0)) & (~p(X0,X0) | X0 != X1))) )),
+  inference(rectify,[],[f41])).
+fof(f41,axiom,(
+  ( ! [X2] : (! [X0] : ((X0 = X2 | p(X0,X0)) & (~p(X0,X0) | X0 != X2))) )),
+  file('/home/aidin12/macleod/ontologies/after/JEPD/PD/conversions/PD23.all.tptp',axiom4810)).
+fof(f268,plain,(
+  ( ! [X1] : (~p(X1,X1)) )),
+  inference(equality_resolution,[],[f183])).
+fof(f183,plain,(
+  ( ! [X0,X1] : (X0 != X1 | ~p(X0,X0)) )),
+  inference(cnf_transformation,[],[f53])).
+% SZS output end Proof for PD23.all
+% ------------------------------
+% Version: Vampire 4.4.0 (commit ec631da4 on 2019-12-19 08:57:28 +0000)
+% Termination reason: Refutation
+
+% Memory used [KB]: 9978
+% Time elapsed: 0.005 s
+% ------------------------------
+% ------------------------------
+% Success in time 0.232 s
+
+========================== MACLEOD SUMMARY ===========================
+reasoner: /home/aidin12/macleod/Reasoning/vampire/vampire_lin64
+status: PROOF
+execution finished: Fri Feb 21 16:09:23 2020
+total CPU time used: 0
+The command was "/home/aidin12/macleod/Reasoning/vampire/vampire_lin64 --mode casc --proof tptp -t 100 --input_file /home/aidin12/macleod/ontologies/after/JEPD/PD/conversions/PD23.all.tptp"
+============================ end of footer ===========================
