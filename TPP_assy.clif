@@ -1,6 +1,0 @@
-(cl-text http://colore.oor.net/after2/Theorems/TPP_assy.clif
-(cl-imports http://colore.oor.net/after2/Definitions/D_TPP.clif)
-
-(not(forall (x y) (if (TPP x y)(not(TPP y x)))))
-
-)
