@@ -1,0 +1,812 @@
+============================== Prover9 ===============================
+Prover9 (64) version 2009-11A, November 2009.
+Process 7941 was started by aidin12 on aidin12-HP-Pavilion-dv7-Notebook-PC,
+Mon Feb  3 11:59:51 2020
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/prover9 -t100 -f /home/aidin12/macleod/ontologies/after/JEPD/PD/conversions/PD103.all.p9".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file /home/aidin12/macleod/ontologies/after/JEPD/PD/conversions/PD103.all.p9
+
+
+formulas(assumptions).
+-(all x all y (-(x != null & y != null & (exists z B(z,x)) & (exists t B(t,y)) & TPPI(x,y)) | -OV(x,y))).
+(all x (x = null | P(x,x))).
+(all x all y (-(P(x,y) & P(y,x)) | x = y)).
+(all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))).
+(all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))).
+(all x all y ((-PI(x,y) | P(y,x)) & (-P(y,x) | PI(x,y)))).
+(all x all y (-PP(x,y) | (exists z (P(z,y) & D(z,x))))).
+(exists z all x (x = null | P(x,z))).
+(all x ((x != cuniversal | (all y (y = null | P(y,x)))) & (-(all y (y = null | P(y,x))) | x = cuniversal))).
+-(exists x B(x,cuniversal)).
+(all x ((-Point(x) | x != null & (all y (-P(y,x) | EQ(x,y)))) & (-(x != null & (all y (-P(y,x) | EQ(x,y)))) | Point(x)))).
+(all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))).
+(all x all y ((-PPI(x,y) | PP(y,x)) & (-PP(y,x) | PPI(x,y)))).
+(all x all y ((-EQ(x,y) | P(y,x) & P(x,y)) & (-(P(y,x) & P(x,y)) | EQ(x,y)))).
+(all x all y ((-O(x,y) | (exists z (P(z,x) & P(z,y)))) & (-(exists z (P(z,x) & P(z,y))) | O(x,y)))).
+(all x all y ((-D(x,y) | -O(x,y)) & (O(x,y) | D(x,y)))).
+(all x all y (-B(x,y) | PP(x,y))).
+(all x all y all z (-(B(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z (-(P(x,y) & B(y,z)) | B(x,z))).
+(all x all y all z (-(B(x,y) & P(y,z)) | P(x,z))).
+(all x all y ((-IMB(x,y) | O(x,y) & -P(x,y) & -P(y,x)) & (-(O(x,y) & -P(x,y) & -P(y,x)) | IMB(x,y)))).
+(all x all y ((-I(x,y) | P(x,y) & (all z (-B(z,y) | D(z,x)))) & (-(P(x,y) & (all z (-B(z,y) | D(z,x)))) | I(x,y)))).
+(all x all y ((-II(x,y) | I(y,x)) & (-I(y,x) | II(x,y)))).
+(all x all y ((-IP(x,y) | -(exists t B(t,y)) & I(x,y) & -I(y,x)) & (-(-(exists t B(t,y)) & I(x,y) & -I(y,x)) | IP(x,y)))).
+(all x all y ((-IPI(x,y) | IP(y,x)) & (-IP(y,x) | IPI(x,y)))).
+(all x all y ((-TPP(x,y) | PP(x,y) & (exists z (P(z,x) & B(z,y)))) & (-(PP(x,y) & (exists z (P(z,x) & B(z,y)))) | TPP(x,y)))).
+(all x all y ((-TPPI(x,y) | TPP(y,x)) & (-TPP(y,x) | TPPI(x,y)))).
+(all x all y ((-OV(x,y) | IMB(x,y) & (exists p (I(p,x) & I(p,y)))) & (-(IMB(x,y) & (exists p (I(p,x) & I(p,y)))) | OV(x,y)))).
+(all x all y ((-EC(x,y) | IMB(x,y) & (all z (-(P(z,x) & P(z,y)) | B(z,x) & B(z,y)))) & (-(IMB(x,y) & (all z (-(P(z,x) & P(z,y)) | B(z,x) & B(z,y)))) | EC(x,y)))).
+(all x all y ((-IC(x,y) | IMB(x,y) & -EC(x,y) & -(exists p (I(p,x) & I(p,y)))) & (-(IMB(x,y) & -EC(x,y) & -(exists p (I(p,x) & I(p,y)))) | IC(x,y)))).
+(all x (x = null | (exists y I(y,x)))).
+(all x ((exists z B(z,x)) | -(exists y EC(y,x)))).
+(all x (-(exists z B(z,x)) | (all y (-B(y,x) | -I(y,x))))).
+(all x (-(exists z B(z,x)) | (all y (-I(y,x) | -B(y,x))))).
+(all x all y (-((exists z B(z,x)) & EQ(x,y)) | (exists t B(t,y)))).
+(all x all y (-(-(exists z B(z,x)) & EQ(x,y)) | -(exists t B(t,y)))).
+(all x all y (-(-(exists z B(z,x)) & (exists t B(t,y))) | -EQ(x,y))).
+(all x all y (-(PP(x,y) & -(exists z B(z,y))) | IP(x,y))).
+(all x all y all w ((-O(w,sum(x,y)) | O(w,x) | O(w,y)) & (-(O(w,x) | O(w,y)) | O(w,sum(x,y))))).
+(all x all y all w ((-P(w,prod(x,y)) | P(w,x) & P(w,y)) & (-(P(w,x) & P(w,y)) | P(w,prod(x,y))))).
+(all x all w ((-P(w,compl(x)) | D(w,x) & P(w,compl(x))) & (-(D(w,x) & P(w,compl(x))) | P(w,compl(x))))).
+(all x all y all w ((-P(w,diff(x,y)) | P(w,x) & D(w,y)) & (-(P(w,x) & D(w,y)) | P(w,diff(x,y))))).
+(all x all z all t (-(compl(x) = z & compl(x) = t) | z = t)).
+(all x all y all z all t (-(diff(x,y) = z & diff(x,y) = t) | z = t)).
+(all x all y all z all t (-(prod(x,y) = z & prod(x,y) = t) | z = t)).
+(all x all y all z all t (-(sum(x,y) = z & sum(x,y) = t) | z = t)).
+(all x all y (-(x != null & y != null) | (exists z (z != null & z = sum(x,y))))).
+(all x all y sum(x,y) = sum(y,x)).
+(all x ((compl(x) != null | x = cuniversal) & (x != cuniversal | compl(x) = null))).
+(all x ((compl(x) != cuniversal | x = null) & (x != null | compl(x) = cuniversal))).
+(all x all y prod(x,y) = prod(y,x)).
+(all x all y (diff(x,y) != null | x = null | P(x,y))).
+(all x all y (-D(x,y) | diff(x,y) = x)).
+(all x (-P(x,cuniversal) | diff(x,null) = x)).
+(all x (-P(x,cuniversal) | sum(null,x) = x)).
+(all x (x = null | (exists z (I(z,x) & (all u (-I(u,x) | I(u,z))) & -(exists y B(y,z)))))).
+(all x (bdy(x) = null | B(bdy(x),x) & (all z (-B(z,x) | P(z,bdy(x)))))).
+(all x ((x != null | -P(x,x)) & (P(x,x) | x = null))).
+(all x ((-P(x,x) | x != null) & (x = null | P(x,x)))).
+end_of_list.
+
+============================== end of input ==========================
+
+% From the command line: assign(max_seconds, 100).
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 -(all x all y (-(x != null & y != null & (exists z B(z,x)) & (exists t B(t,y)) & TPPI(x,y)) | -OV(x,y))) # label(non_clause).  [assumption].
+2 (all x (x = null | P(x,x))) # label(non_clause).  [assumption].
+3 (all x all y (-(P(x,y) & P(y,x)) | x = y)) # label(non_clause).  [assumption].
+4 (all x all y all z (-(P(x,y) & P(y,z)) | P(x,z))) # label(non_clause).  [assumption].
+5 (all x ((x != null | (all y (-P(y,x) & -P(x,y)))) & (-(all y (-P(y,x) & -P(x,y))) | x = null))) # label(non_clause).  [assumption].
+6 (all x all y ((-PI(x,y) | P(y,x)) & (-P(y,x) | PI(x,y)))) # label(non_clause).  [assumption].
+7 (all x all y (-PP(x,y) | (exists z (P(z,y) & D(z,x))))) # label(non_clause).  [assumption].
+8 (exists z all x (x = null | P(x,z))) # label(non_clause).  [assumption].
+9 (all x ((x != cuniversal | (all y (y = null | P(y,x)))) & (-(all y (y = null | P(y,x))) | x = cuniversal))) # label(non_clause).  [assumption].
+10 -(exists x B(x,cuniversal)) # label(non_clause).  [assumption].
+11 (all x ((-Point(x) | x != null & (all y (-P(y,x) | EQ(x,y)))) & (-(x != null & (all y (-P(y,x) | EQ(x,y)))) | Point(x)))) # label(non_clause).  [assumption].
+12 (all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))) # label(non_clause).  [assumption].
+13 (all x all y ((-PPI(x,y) | PP(y,x)) & (-PP(y,x) | PPI(x,y)))) # label(non_clause).  [assumption].
+14 (all x all y ((-EQ(x,y) | P(y,x) & P(x,y)) & (-(P(y,x) & P(x,y)) | EQ(x,y)))) # label(non_clause).  [assumption].
+15 (all x all y ((-O(x,y) | (exists z (P(z,x) & P(z,y)))) & (-(exists z (P(z,x) & P(z,y))) | O(x,y)))) # label(non_clause).  [assumption].
+16 (all x all y ((-D(x,y) | -O(x,y)) & (O(x,y) | D(x,y)))) # label(non_clause).  [assumption].
+17 (all x all y (-B(x,y) | PP(x,y))) # label(non_clause).  [assumption].
+18 (all x all y all z (-(B(x,y) & B(y,z)) | B(x,z))) # label(non_clause).  [assumption].
+19 (all x all y all z (-(P(x,y) & B(y,z)) | B(x,z))) # label(non_clause).  [assumption].
+20 (all x all y all z (-(B(x,y) & P(y,z)) | P(x,z))) # label(non_clause).  [assumption].
+21 (all x all y ((-IMB(x,y) | O(x,y) & -P(x,y) & -P(y,x)) & (-(O(x,y) & -P(x,y) & -P(y,x)) | IMB(x,y)))) # label(non_clause).  [assumption].
+22 (all x all y ((-I(x,y) | P(x,y) & (all z (-B(z,y) | D(z,x)))) & (-(P(x,y) & (all z (-B(z,y) | D(z,x)))) | I(x,y)))) # label(non_clause).  [assumption].
+23 (all x all y ((-II(x,y) | I(y,x)) & (-I(y,x) | II(x,y)))) # label(non_clause).  [assumption].
+24 (all x all y ((-IP(x,y) | -(exists t B(t,y)) & I(x,y) & -I(y,x)) & (-(-(exists t B(t,y)) & I(x,y) & -I(y,x)) | IP(x,y)))) # label(non_clause).  [assumption].
+25 (all x all y ((-IPI(x,y) | IP(y,x)) & (-IP(y,x) | IPI(x,y)))) # label(non_clause).  [assumption].
+26 (all x all y ((-TPP(x,y) | PP(x,y) & (exists z (P(z,x) & B(z,y)))) & (-(PP(x,y) & (exists z (P(z,x) & B(z,y)))) | TPP(x,y)))) # label(non_clause).  [assumption].
+27 (all x all y ((-TPPI(x,y) | TPP(y,x)) & (-TPP(y,x) | TPPI(x,y)))) # label(non_clause).  [assumption].
+28 (all x all y ((-OV(x,y) | IMB(x,y) & (exists p (I(p,x) & I(p,y)))) & (-(IMB(x,y) & (exists p (I(p,x) & I(p,y)))) | OV(x,y)))) # label(non_clause).  [assumption].
+29 (all x all y ((-EC(x,y) | IMB(x,y) & (all z (-(P(z,x) & P(z,y)) | B(z,x) & B(z,y)))) & (-(IMB(x,y) & (all z (-(P(z,x) & P(z,y)) | B(z,x) & B(z,y)))) | EC(x,y)))) # label(non_clause).  [assumption].
+30 (all x all y ((-IC(x,y) | IMB(x,y) & -EC(x,y) & -(exists p (I(p,x) & I(p,y)))) & (-(IMB(x,y) & -EC(x,y) & -(exists p (I(p,x) & I(p,y)))) | IC(x,y)))) # label(non_clause).  [assumption].
+31 (all x (x = null | (exists y I(y,x)))) # label(non_clause).  [assumption].
+32 (all x ((exists z B(z,x)) | -(exists y EC(y,x)))) # label(non_clause).  [assumption].
+33 (all x (-(exists z B(z,x)) | (all y (-B(y,x) | -I(y,x))))) # label(non_clause).  [assumption].
+34 (all x (-(exists z B(z,x)) | (all y (-I(y,x) | -B(y,x))))) # label(non_clause).  [assumption].
+35 (all x all y (-((exists z B(z,x)) & EQ(x,y)) | (exists t B(t,y)))) # label(non_clause).  [assumption].
+36 (all x all y (-(-(exists z B(z,x)) & EQ(x,y)) | -(exists t B(t,y)))) # label(non_clause).  [assumption].
+37 (all x all y (-(-(exists z B(z,x)) & (exists t B(t,y))) | -EQ(x,y))) # label(non_clause).  [assumption].
+38 (all x all y (-(PP(x,y) & -(exists z B(z,y))) | IP(x,y))) # label(non_clause).  [assumption].
+39 (all x all y all w ((-O(w,sum(x,y)) | O(w,x) | O(w,y)) & (-(O(w,x) | O(w,y)) | O(w,sum(x,y))))) # label(non_clause).  [assumption].
+40 (all x all y all w ((-P(w,prod(x,y)) | P(w,x) & P(w,y)) & (-(P(w,x) & P(w,y)) | P(w,prod(x,y))))) # label(non_clause).  [assumption].
+41 (all x all w ((-P(w,compl(x)) | D(w,x) & P(w,compl(x))) & (-(D(w,x) & P(w,compl(x))) | P(w,compl(x))))) # label(non_clause).  [assumption].
+42 (all x all y all w ((-P(w,diff(x,y)) | P(w,x) & D(w,y)) & (-(P(w,x) & D(w,y)) | P(w,diff(x,y))))) # label(non_clause).  [assumption].
+43 (all x all z all t (-(compl(x) = z & compl(x) = t) | z = t)) # label(non_clause).  [assumption].
+44 (all x all y all z all t (-(diff(x,y) = z & diff(x,y) = t) | z = t)) # label(non_clause).  [assumption].
+45 (all x all y all z all t (-(prod(x,y) = z & prod(x,y) = t) | z = t)) # label(non_clause).  [assumption].
+46 (all x all y all z all t (-(sum(x,y) = z & sum(x,y) = t) | z = t)) # label(non_clause).  [assumption].
+47 (all x all y (-(x != null & y != null) | (exists z (z != null & z = sum(x,y))))) # label(non_clause).  [assumption].
+48 (all x all y sum(x,y) = sum(y,x)) # label(non_clause).  [assumption].
+49 (all x ((compl(x) != null | x = cuniversal) & (x != cuniversal | compl(x) = null))) # label(non_clause).  [assumption].
+50 (all x ((compl(x) != cuniversal | x = null) & (x != null | compl(x) = cuniversal))) # label(non_clause).  [assumption].
+51 (all x all y prod(x,y) = prod(y,x)) # label(non_clause).  [assumption].
+52 (all x all y (diff(x,y) != null | x = null | P(x,y))) # label(non_clause).  [assumption].
+53 (all x all y (-D(x,y) | diff(x,y) = x)) # label(non_clause).  [assumption].
+54 (all x (-P(x,cuniversal) | diff(x,null) = x)) # label(non_clause).  [assumption].
+55 (all x (-P(x,cuniversal) | sum(null,x) = x)) # label(non_clause).  [assumption].
+56 (all x (x = null | (exists z (I(z,x) & (all u (-I(u,x) | I(u,z))) & -(exists y B(y,z)))))) # label(non_clause).  [assumption].
+57 (all x (bdy(x) = null | B(bdy(x),x) & (all z (-B(z,x) | P(z,bdy(x)))))) # label(non_clause).  [assumption].
+58 (all x ((x != null | -P(x,x)) & (P(x,x) | x = null))) # label(non_clause).  [assumption].
+59 (all x ((-P(x,x) | x != null) & (x = null | P(x,x)))) # label(non_clause).  [assumption].
+
+============================== end of process non-clausal formulas ===
+
+============================== PROCESS INITIAL CLAUSES ===============
+
+% Clauses before input processing:
+
+formulas(usable).
+end_of_list.
+
+formulas(sos).
+null != c1.  [clausify(1)].
+null != c2.  [clausify(1)].
+B(c3,c1).  [clausify(1)].
+B(c4,c2).  [clausify(1)].
+TPPI(c1,c2).  [clausify(1)].
+OV(c1,c2).  [clausify(1)].
+null = x | P(x,x).  [clausify(2)].
+-P(x,y) | -P(y,x) | y = x.  [clausify(3)].
+-P(x,y) | -P(y,z) | P(x,z).  [clausify(4)].
+null != x | -P(y,x).  [clausify(5)].
+null != x | -P(x,y).  [clausify(5)].
+P(f1(x),x) | P(x,f1(x)) | null = x.  [clausify(5)].
+-PI(x,y) | P(y,x).  [clausify(6)].
+-P(x,y) | PI(y,x).  [clausify(6)].
+-PP(x,y) | P(f2(x,y),y).  [clausify(7)].
+-PP(x,y) | D(f2(x,y),x).  [clausify(7)].
+null = x | P(x,c5).  [clausify(8)].
+cuniversal != x | null = y | P(y,x).  [clausify(9)].
+null != f3(x) | cuniversal = x.  [clausify(9)].
+-P(f3(x),x) | cuniversal = x.  [clausify(9)].
+-B(x,cuniversal).  [clausify(10)].
+-Point(x) | null != x.  [clausify(11)].
+-Point(x) | -P(y,x) | EQ(x,y).  [clausify(11)].
+null = x | P(f4(x),x) | Point(x).  [clausify(11)].
+null = x | -EQ(x,f4(x)) | Point(x).  [clausify(11)].
+-PP(x,y) | P(x,y).  [clausify(12)].
+-PP(x,y) | -P(y,x).  [clausify(12)].
+-P(x,y) | P(y,x) | PP(x,y).  [clausify(12)].
+-PPI(x,y) | PP(y,x).  [clausify(13)].
+-PP(x,y) | PPI(y,x).  [clausify(13)].
+-EQ(x,y) | P(y,x).  [clausify(14)].
+-EQ(x,y) | P(x,y).  [clausify(14)].
+-P(x,y) | -P(y,x) | EQ(y,x).  [clausify(14)].
+-O(x,y) | P(f5(x,y),x).  [clausify(15)].
+-O(x,y) | P(f5(x,y),y).  [clausify(15)].
+-P(x,y) | -P(x,z) | O(y,z).  [clausify(15)].
+-D(x,y) | -O(x,y).  [clausify(16)].
+O(x,y) | D(x,y).  [clausify(16)].
+-B(x,y) | PP(x,y).  [clausify(17)].
+-B(x,y) | -B(y,z) | B(x,z).  [clausify(18)].
+-P(x,y) | -B(y,z) | B(x,z).  [clausify(19)].
+-B(x,y) | -P(y,z) | P(x,z).  [clausify(20)].
+-IMB(x,y) | O(x,y).  [clausify(21)].
+-IMB(x,y) | -P(x,y).  [clausify(21)].
+-IMB(x,y) | -P(y,x).  [clausify(21)].
+-O(x,y) | P(x,y) | P(y,x) | IMB(x,y).  [clausify(21)].
+-I(x,y) | P(x,y).  [clausify(22)].
+-I(x,y) | -B(z,y) | D(z,x).  [clausify(22)].
+-P(x,y) | B(f6(x,y),y) | I(x,y).  [clausify(22)].
+-P(x,y) | -D(f6(x,y),x) | I(x,y).  [clausify(22)].
+-II(x,y) | I(y,x).  [clausify(23)].
+-I(x,y) | II(y,x).  [clausify(23)].
+-IP(x,y) | -B(z,y).  [clausify(24)].
+-IP(x,y) | I(x,y).  [clausify(24)].
+-IP(x,y) | -I(y,x).  [clausify(24)].
+B(f7(x,y),y) | -I(x,y) | I(y,x) | IP(x,y).  [clausify(24)].
+-IPI(x,y) | IP(y,x).  [clausify(25)].
+-IP(x,y) | IPI(y,x).  [clausify(25)].
+-TPP(x,y) | PP(x,y).  [clausify(26)].
+-TPP(x,y) | P(f8(x,y),x).  [clausify(26)].
+-TPP(x,y) | B(f8(x,y),y).  [clausify(26)].
+-PP(x,y) | -P(z,x) | -B(z,y) | TPP(x,y).  [clausify(26)].
+-TPPI(x,y) | TPP(y,x).  [clausify(27)].
+-TPP(x,y) | TPPI(y,x).  [clausify(27)].
+-OV(x,y) | IMB(x,y).  [clausify(28)].
+-OV(x,y) | I(f9(x,y),x).  [clausify(28)].
+-OV(x,y) | I(f9(x,y),y).  [clausify(28)].
+-IMB(x,y) | -I(z,x) | -I(z,y) | OV(x,y).  [clausify(28)].
+-EC(x,y) | IMB(x,y).  [clausify(29)].
+-EC(x,y) | -P(z,x) | -P(z,y) | B(z,x).  [clausify(29)].
+-EC(x,y) | -P(z,x) | -P(z,y) | B(z,y).  [clausify(29)].
+-IMB(x,y) | P(f10(x,y),x) | EC(x,y).  [clausify(29)].
+-IMB(x,y) | P(f10(x,y),y) | EC(x,y).  [clausify(29)].
+-IMB(x,y) | -B(f10(x,y),x) | -B(f10(x,y),y) | EC(x,y).  [clausify(29)].
+-IC(x,y) | IMB(x,y).  [clausify(30)].
+-IC(x,y) | -EC(x,y).  [clausify(30)].
+-IC(x,y) | -I(z,x) | -I(z,y).  [clausify(30)].
+-IMB(x,y) | EC(x,y) | I(f11(x,y),x) | IC(x,y).  [clausify(30)].
+-IMB(x,y) | EC(x,y) | I(f11(x,y),y) | IC(x,y).  [clausify(30)].
+null = x | I(f12(x),x).  [clausify(31)].
+B(f13(x),x) | -EC(y,x).  [clausify(32)].
+-B(x,y) | -B(z,y) | -I(z,y).  [clausify(33)].
+-B(x,y) | -I(z,y) | -B(z,y).  [clausify(34)].
+-B(x,y) | -EQ(y,z) | B(f14(y,z),z).  [clausify(35)].
+B(f15(x,y),x) | -EQ(x,y) | -B(z,y).  [clausify(36)].
+B(f16(x,y),x) | -B(z,y) | -EQ(x,y).  [clausify(37)].
+-PP(x,y) | B(f17(x,y),y) | IP(x,y).  [clausify(38)].
+-O(x,sum(y,z)) | O(x,y) | O(x,z).  [clausify(39)].
+-O(x,y) | O(x,sum(y,z)).  [clausify(39)].
+-O(x,y) | O(x,sum(z,y)).  [clausify(39)].
+-P(x,prod(y,z)) | P(x,y).  [clausify(40)].
+-P(x,prod(y,z)) | P(x,z).  [clausify(40)].
+-P(x,y) | -P(x,z) | P(x,prod(y,z)).  [clausify(40)].
+-P(x,compl(y)) | D(x,y).  [clausify(41)].
+-P(x,diff(y,z)) | P(x,y).  [clausify(42)].
+-P(x,diff(y,z)) | D(x,z).  [clausify(42)].
+-P(x,y) | -D(x,z) | P(x,diff(y,z)).  [clausify(42)].
+compl(x) != y | compl(x) != z | z = y.  [clausify(43)].
+diff(x,y) != z | diff(x,y) != u | u = z.  [clausify(44)].
+prod(x,y) != z | prod(x,y) != u | u = z.  [clausify(45)].
+sum(x,y) != z | sum(x,y) != u | u = z.  [clausify(46)].
+null = x | null = y | f18(x,y) != null.  [clausify(47)].
+null = x | null = y | sum(x,y) = f18(x,y).  [clausify(47)].
+sum(x,y) = sum(y,x).  [clausify(48)].
+compl(x) != null | cuniversal = x.  [clausify(49)].
+cuniversal != x | compl(x) = null.  [clausify(49)].
+compl(x) != cuniversal | null = x.  [clausify(50)].
+null != x | compl(x) = cuniversal.  [clausify(50)].
+prod(x,y) = prod(y,x).  [clausify(51)].
+diff(x,y) != null | null = x | P(x,y).  [clausify(52)].
+-D(x,y) | diff(x,y) = x.  [clausify(53)].
+-P(x,cuniversal) | diff(x,null) = x.  [clausify(54)].
+-P(x,cuniversal) | sum(null,x) = x.  [clausify(55)].
+null = x | I(f19(x),x).  [clausify(56)].
+null = x | -I(y,x) | I(y,f19(x)).  [clausify(56)].
+null = x | -B(y,f19(x)).  [clausify(56)].
+bdy(x) = null | B(bdy(x),x).  [clausify(57)].
+bdy(x) = null | -B(y,x) | P(y,bdy(x)).  [clausify(57)].
+null != x | -P(x,x).  [clausify(58)].
+P(x,x) | null = x.  [clausify(58)].
+-P(x,x) | null != x.  [clausify(59)].
+null = x | P(x,x).  [clausify(59)].
+end_of_list.
+
+formulas(demodulators).
+end_of_list.
+
+============================== PREDICATE ELIMINATION =================
+
+Eliminating TPPI/2
+60 -TPPI(x,y) | TPP(y,x).  [clausify(27)].
+61 TPPI(c1,c2).  [clausify(1)].
+Derived: TPP(c2,c1).  [resolve(60,a,61,a)].
+62 -TPP(x,y) | TPPI(y,x).  [clausify(27)].
+
+Eliminating OV/2
+63 -OV(x,y) | IMB(x,y).  [clausify(28)].
+64 OV(c1,c2).  [clausify(1)].
+Derived: IMB(c1,c2).  [resolve(63,a,64,a)].
+65 -OV(x,y) | I(f9(x,y),x).  [clausify(28)].
+Derived: I(f9(c1,c2),c1).  [resolve(65,a,64,a)].
+66 -OV(x,y) | I(f9(x,y),y).  [clausify(28)].
+Derived: I(f9(c1,c2),c2).  [resolve(66,a,64,a)].
+67 -IMB(x,y) | -I(z,x) | -I(z,y) | OV(x,y).  [clausify(28)].
+Derived: -IMB(x,y) | -I(z,x) | -I(z,y) | I(f9(x,y),x).  [resolve(67,d,65,a)].
+Derived: -IMB(x,y) | -I(z,x) | -I(z,y) | I(f9(x,y),y).  [resolve(67,d,66,a)].
+
+Eliminating PI/2
+68 -P(x,y) | PI(y,x).  [clausify(6)].
+69 -PI(x,y) | P(y,x).  [clausify(6)].
+
+Eliminating PP/2
+70 -P(x,y) | P(y,x) | PP(x,y).  [clausify(12)].
+71 -PP(x,y) | P(f2(x,y),y).  [clausify(7)].
+72 -PP(x,y) | D(f2(x,y),x).  [clausify(7)].
+73 -PP(x,y) | P(x,y).  [clausify(12)].
+74 -PP(x,y) | -P(y,x).  [clausify(12)].
+Derived: -P(x,y) | P(y,x) | P(f2(x,y),y).  [resolve(70,c,71,a)].
+Derived: -P(x,y) | P(y,x) | D(f2(x,y),x).  [resolve(70,c,72,a)].
+75 -PPI(x,y) | PP(y,x).  [clausify(13)].
+Derived: -PPI(x,y) | P(f2(y,x),x).  [resolve(75,b,71,a)].
+Derived: -PPI(x,y) | D(f2(y,x),y).  [resolve(75,b,72,a)].
+Derived: -PPI(x,y) | P(y,x).  [resolve(75,b,73,a)].
+Derived: -PPI(x,y) | -P(x,y).  [resolve(75,b,74,a)].
+76 -PP(x,y) | PPI(y,x).  [clausify(13)].
+Derived: PPI(x,y) | -P(y,x) | P(x,y).  [resolve(76,a,70,c)].
+77 -B(x,y) | PP(x,y).  [clausify(17)].
+Derived: -B(x,y) | P(f2(x,y),y).  [resolve(77,b,71,a)].
+Derived: -B(x,y) | D(f2(x,y),x).  [resolve(77,b,72,a)].
+Derived: -B(x,y) | P(x,y).  [resolve(77,b,73,a)].
+Derived: -B(x,y) | -P(y,x).  [resolve(77,b,74,a)].
+Derived: -B(x,y) | PPI(y,x).  [resolve(77,b,76,a)].
+78 -TPP(x,y) | PP(x,y).  [clausify(26)].
+Derived: -TPP(x,y) | P(f2(x,y),y).  [resolve(78,b,71,a)].
+Derived: -TPP(x,y) | D(f2(x,y),x).  [resolve(78,b,72,a)].
+Derived: -TPP(x,y) | P(x,y).  [resolve(78,b,73,a)].
+Derived: -TPP(x,y) | -P(y,x).  [resolve(78,b,74,a)].
+Derived: -TPP(x,y) | PPI(y,x).  [resolve(78,b,76,a)].
+79 -PP(x,y) | -P(z,x) | -B(z,y) | TPP(x,y).  [clausify(26)].
+Derived: -P(x,y) | -B(x,z) | TPP(y,z) | -P(y,z) | P(z,y).  [resolve(79,a,70,c)].
+Derived: -P(x,y) | -B(x,z) | TPP(y,z) | -PPI(z,y).  [resolve(79,a,75,b)].
+Derived: -P(x,y) | -B(x,z) | TPP(y,z) | -B(y,z).  [resolve(79,a,77,b)].
+80 -PP(x,y) | B(f17(x,y),y) | IP(x,y).  [clausify(38)].
+Derived: B(f17(x,y),y) | IP(x,y) | -P(x,y) | P(y,x).  [resolve(80,a,70,c)].
+Derived: B(f17(x,y),y) | IP(x,y) | -PPI(y,x).  [resolve(80,a,75,b)].
+Derived: B(f17(x,y),y) | IP(x,y) | -B(x,y).  [resolve(80,a,77,b)].
+Derived: B(f17(x,y),y) | IP(x,y) | -TPP(x,y).  [resolve(80,a,78,b)].
+
+Eliminating Point/1
+81 null = x | P(f4(x),x) | Point(x).  [clausify(11)].
+82 -Point(x) | null != x.  [clausify(11)].
+83 -Point(x) | -P(y,x) | EQ(x,y).  [clausify(11)].
+Derived: null = x | P(f4(x),x) | -P(y,x) | EQ(x,y).  [resolve(81,c,83,a)].
+84 null = x | -EQ(x,f4(x)) | Point(x).  [clausify(11)].
+Derived: null = x | -EQ(x,f4(x)) | -P(y,x) | EQ(x,y).  [resolve(84,c,83,a)].
+
+Eliminating IMB/2
+85 -O(x,y) | P(x,y) | P(y,x) | IMB(x,y).  [clausify(21)].
+86 -IMB(x,y) | O(x,y).  [clausify(21)].
+87 -IMB(x,y) | -P(x,y).  [clausify(21)].
+88 -IMB(x,y) | -P(y,x).  [clausify(21)].
+89 -EC(x,y) | IMB(x,y).  [clausify(29)].
+Derived: -EC(x,y) | O(x,y).  [resolve(89,b,86,a)].
+Derived: -EC(x,y) | -P(x,y).  [resolve(89,b,87,a)].
+Derived: -EC(x,y) | -P(y,x).  [resolve(89,b,88,a)].
+90 -IMB(x,y) | P(f10(x,y),x) | EC(x,y).  [clausify(29)].
+Derived: P(f10(x,y),x) | EC(x,y) | -O(x,y) | P(x,y) | P(y,x).  [resolve(90,a,85,d)].
+91 -IMB(x,y) | P(f10(x,y),y) | EC(x,y).  [clausify(29)].
+Derived: P(f10(x,y),y) | EC(x,y) | -O(x,y) | P(x,y) | P(y,x).  [resolve(91,a,85,d)].
+92 -IMB(x,y) | -B(f10(x,y),x) | -B(f10(x,y),y) | EC(x,y).  [clausify(29)].
+Derived: -B(f10(x,y),x) | -B(f10(x,y),y) | EC(x,y) | -O(x,y) | P(x,y) | P(y,x).  [resolve(92,a,85,d)].
+93 -IC(x,y) | IMB(x,y).  [clausify(30)].
+Derived: -IC(x,y) | O(x,y).  [resolve(93,b,86,a)].
+Derived: -IC(x,y) | -P(x,y).  [resolve(93,b,87,a)].
+Derived: -IC(x,y) | -P(y,x).  [resolve(93,b,88,a)].
+Derived: -IC(x,y) | P(f10(x,y),x) | EC(x,y).  [resolve(93,b,90,a)].
+Derived: -IC(x,y) | P(f10(x,y),y) | EC(x,y).  [resolve(93,b,91,a)].
+Derived: -IC(x,y) | -B(f10(x,y),x) | -B(f10(x,y),y) | EC(x,y).  [resolve(93,b,92,a)].
+94 -IMB(x,y) | EC(x,y) | I(f11(x,y),x) | IC(x,y).  [clausify(30)].
+Derived: EC(x,y) | I(f11(x,y),x) | IC(x,y) | -O(x,y) | P(x,y) | P(y,x).  [resolve(94,a,85,d)].
+95 -IMB(x,y) | EC(x,y) | I(f11(x,y),y) | IC(x,y).  [clausify(30)].
+Derived: EC(x,y) | I(f11(x,y),y) | IC(x,y) | -O(x,y) | P(x,y) | P(y,x).  [resolve(95,a,85,d)].
+96 IMB(c1,c2).  [resolve(63,a,64,a)].
+Derived: O(c1,c2).  [resolve(96,a,86,a)].
+Derived: -P(c1,c2).  [resolve(96,a,87,a)].
+Derived: -P(c2,c1).  [resolve(96,a,88,a)].
+Derived: P(f10(c1,c2),c1) | EC(c1,c2).  [resolve(96,a,90,a)].
+Derived: P(f10(c1,c2),c2) | EC(c1,c2).  [resolve(96,a,91,a)].
+Derived: -B(f10(c1,c2),c1) | -B(f10(c1,c2),c2) | EC(c1,c2).  [resolve(96,a,92,a)].
+Derived: EC(c1,c2) | I(f11(c1,c2),c1) | IC(c1,c2).  [resolve(96,a,94,a)].
+Derived: EC(c1,c2) | I(f11(c1,c2),c2) | IC(c1,c2).  [resolve(96,a,95,a)].
+97 -IMB(x,y) | -I(z,x) | -I(z,y) | I(f9(x,y),x).  [resolve(67,d,65,a)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),y) | -O(y,z) | P(y,z) | P(z,y).  [resolve(97,a,85,d)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),y) | -EC(y,z).  [resolve(97,a,89,b)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),y) | -IC(y,z).  [resolve(97,a,93,b)].
+Derived: -I(x,c1) | -I(x,c2) | I(f9(c1,c2),c1).  [resolve(97,a,96,a)].
+98 -IMB(x,y) | -I(z,x) | -I(z,y) | I(f9(x,y),y).  [resolve(67,d,66,a)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),z) | -O(y,z) | P(y,z) | P(z,y).  [resolve(98,a,85,d)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),z) | -EC(y,z).  [resolve(98,a,89,b)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),z) | -IC(y,z).  [resolve(98,a,93,b)].
+Derived: -I(x,c1) | -I(x,c2) | I(f9(c1,c2),c2).  [resolve(98,a,96,a)].
+
+Eliminating II/2
+99 -I(x,y) | II(y,x).  [clausify(23)].
+100 -II(x,y) | I(y,x).  [clausify(23)].
+
+Eliminating IP/2
+101 B(f7(x,y),y) | -I(x,y) | I(y,x) | IP(x,y).  [clausify(24)].
+102 -IP(x,y) | -B(z,y).  [clausify(24)].
+103 -IP(x,y) | I(x,y).  [clausify(24)].
+104 -IP(x,y) | -I(y,x).  [clausify(24)].
+Derived: B(f7(x,y),y) | -I(x,y) | I(y,x) | -B(z,y).  [resolve(101,d,102,a)].
+105 -IPI(x,y) | IP(y,x).  [clausify(25)].
+Derived: -IPI(x,y) | -B(z,x).  [resolve(105,b,102,a)].
+Derived: -IPI(x,y) | I(y,x).  [resolve(105,b,103,a)].
+Derived: -IPI(x,y) | -I(x,y).  [resolve(105,b,104,a)].
+106 -IP(x,y) | IPI(y,x).  [clausify(25)].
+Derived: IPI(x,y) | B(f7(y,x),x) | -I(y,x) | I(x,y).  [resolve(106,a,101,d)].
+107 B(f17(x,y),y) | IP(x,y) | -P(x,y) | P(y,x).  [resolve(80,a,70,c)].
+Derived: B(f17(x,y),y) | -P(x,y) | P(y,x) | -B(z,y).  [resolve(107,b,102,a)].
+Derived: B(f17(x,y),y) | -P(x,y) | P(y,x) | I(x,y).  [resolve(107,b,103,a)].
+Derived: B(f17(x,y),y) | -P(x,y) | P(y,x) | -I(y,x).  [resolve(107,b,104,a)].
+Derived: B(f17(x,y),y) | -P(x,y) | P(y,x) | IPI(y,x).  [resolve(107,b,106,a)].
+108 B(f17(x,y),y) | IP(x,y) | -PPI(y,x).  [resolve(80,a,75,b)].
+Derived: B(f17(x,y),y) | -PPI(y,x) | -B(z,y).  [resolve(108,b,102,a)].
+Derived: B(f17(x,y),y) | -PPI(y,x) | I(x,y).  [resolve(108,b,103,a)].
+Derived: B(f17(x,y),y) | -PPI(y,x) | -I(y,x).  [resolve(108,b,104,a)].
+Derived: B(f17(x,y),y) | -PPI(y,x) | IPI(y,x).  [resolve(108,b,106,a)].
+109 B(f17(x,y),y) | IP(x,y) | -B(x,y).  [resolve(80,a,77,b)].
+Derived: B(f17(x,y),y) | -B(x,y) | -B(z,y).  [resolve(109,b,102,a)].
+110 B(f17(x,y),y) | IP(x,y) | -TPP(x,y).  [resolve(80,a,78,b)].
+Derived: B(f17(x,y),y) | -TPP(x,y) | -B(z,y).  [resolve(110,b,102,a)].
+Derived: B(f17(x,y),y) | -TPP(x,y) | I(x,y).  [resolve(110,b,103,a)].
+Derived: B(f17(x,y),y) | -TPP(x,y) | -I(y,x).  [resolve(110,b,104,a)].
+Derived: B(f17(x,y),y) | -TPP(x,y) | IPI(y,x).  [resolve(110,b,106,a)].
+
+Eliminating TPP/2
+111 TPP(c2,c1).  [resolve(60,a,61,a)].
+112 -TPP(x,y) | P(f8(x,y),x).  [clausify(26)].
+113 -TPP(x,y) | B(f8(x,y),y).  [clausify(26)].
+Derived: P(f8(c2,c1),c2).  [resolve(111,a,112,a)].
+Derived: B(f8(c2,c1),c1).  [resolve(111,a,113,a)].
+114 -TPP(x,y) | P(f2(x,y),y).  [resolve(78,b,71,a)].
+Derived: P(f2(c2,c1),c1).  [resolve(114,a,111,a)].
+115 -TPP(x,y) | D(f2(x,y),x).  [resolve(78,b,72,a)].
+Derived: D(f2(c2,c1),c2).  [resolve(115,a,111,a)].
+116 -TPP(x,y) | P(x,y).  [resolve(78,b,73,a)].
+Derived: P(c2,c1).  [resolve(116,a,111,a)].
+117 -TPP(x,y) | -P(y,x).  [resolve(78,b,74,a)].
+118 -TPP(x,y) | PPI(y,x).  [resolve(78,b,76,a)].
+Derived: PPI(c1,c2).  [resolve(118,a,111,a)].
+119 -P(x,y) | -B(x,z) | TPP(y,z) | -P(y,z) | P(z,y).  [resolve(79,a,70,c)].
+Derived: -P(x,y) | -B(x,z) | -P(y,z) | P(z,y) | P(f8(y,z),y).  [resolve(119,c,112,a)].
+Derived: -P(x,y) | -B(x,z) | -P(y,z) | P(z,y) | B(f8(y,z),z).  [resolve(119,c,113,a)].
+Derived: -P(x,y) | -B(x,z) | -P(y,z) | P(z,y) | P(f2(y,z),z).  [resolve(119,c,114,a)].
+Derived: -P(x,y) | -B(x,z) | -P(y,z) | P(z,y) | D(f2(y,z),y).  [resolve(119,c,115,a)].
+Derived: -P(x,y) | -B(x,z) | -P(y,z) | P(z,y) | PPI(z,y).  [resolve(119,c,118,a)].
+120 -P(x,y) | -B(x,z) | TPP(y,z) | -PPI(z,y).  [resolve(79,a,75,b)].
+Derived: -P(x,y) | -B(x,z) | -PPI(z,y) | P(f8(y,z),y).  [resolve(120,c,112,a)].
+Derived: -P(x,y) | -B(x,z) | -PPI(z,y) | B(f8(y,z),z).  [resolve(120,c,113,a)].
+Derived: -P(x,y) | -B(x,z) | -PPI(z,y) | P(f2(y,z),z).  [resolve(120,c,114,a)].
+Derived: -P(x,y) | -B(x,z) | -PPI(z,y) | D(f2(y,z),y).  [resolve(120,c,115,a)].
+Derived: -P(x,y) | -B(x,z) | -PPI(z,y) | P(y,z).  [resolve(120,c,116,a)].
+Derived: -P(x,y) | -B(x,z) | -PPI(z,y) | -P(z,y).  [resolve(120,c,117,a)].
+121 -P(x,y) | -B(x,z) | TPP(y,z) | -B(y,z).  [resolve(79,a,77,b)].
+Derived: -P(x,y) | -B(x,z) | -B(y,z) | P(f8(y,z),y).  [resolve(121,c,112,a)].
+Derived: -P(x,y) | -B(x,z) | -B(y,z) | B(f8(y,z),z).  [resolve(121,c,113,a)].
+Derived: -P(x,y) | -B(x,z) | -B(y,z) | P(f2(y,z),z).  [resolve(121,c,114,a)].
+Derived: -P(x,y) | -B(x,z) | -B(y,z) | D(f2(y,z),y).  [resolve(121,c,115,a)].
+Derived: -P(x,y) | -B(x,z) | -B(y,z) | P(y,z).  [resolve(121,c,116,a)].
+Derived: -P(x,y) | -B(x,z) | -B(y,z) | -P(z,y).  [resolve(121,c,117,a)].
+Derived: -P(x,y) | -B(x,z) | -B(y,z) | PPI(z,y).  [resolve(121,c,118,a)].
+122 B(f17(x,y),y) | -TPP(x,y) | -B(z,y).  [resolve(110,b,102,a)].
+Derived: B(f17(c2,c1),c1) | -B(x,c1).  [resolve(122,b,111,a)].
+Derived: B(f17(x,y),y) | -B(z,y) | -P(u,x) | -B(u,y) | -P(x,y) | P(y,x).  [resolve(122,b,119,c)].
+Derived: B(f17(x,y),y) | -B(z,y) | -P(u,x) | -B(u,y) | -PPI(y,x).  [resolve(122,b,120,c)].
+Derived: B(f17(x,y),y) | -B(z,y) | -P(u,x) | -B(u,y) | -B(x,y).  [resolve(122,b,121,c)].
+123 B(f17(x,y),y) | -TPP(x,y) | I(x,y).  [resolve(110,b,103,a)].
+Derived: B(f17(c2,c1),c1) | I(c2,c1).  [resolve(123,b,111,a)].
+124 B(f17(x,y),y) | -TPP(x,y) | -I(y,x).  [resolve(110,b,104,a)].
+Derived: B(f17(c2,c1),c1) | -I(c1,c2).  [resolve(124,b,111,a)].
+125 B(f17(x,y),y) | -TPP(x,y) | IPI(y,x).  [resolve(110,b,106,a)].
+Derived: B(f17(c2,c1),c1) | IPI(c1,c2).  [resolve(125,b,111,a)].
+
+Eliminating EC/2
+126 P(f10(x,y),x) | EC(x,y) | -O(x,y) | P(x,y) | P(y,x).  [resolve(90,a,85,d)].
+127 -EC(x,y) | -P(z,x) | -P(z,y) | B(z,x).  [clausify(29)].
+128 -EC(x,y) | -P(z,x) | -P(z,y) | B(z,y).  [clausify(29)].
+129 -IC(x,y) | -EC(x,y).  [clausify(30)].
+130 B(f13(x),x) | -EC(y,x).  [clausify(32)].
+131 -EC(x,y) | O(x,y).  [resolve(89,b,86,a)].
+132 -EC(x,y) | -P(x,y).  [resolve(89,b,87,a)].
+133 -EC(x,y) | -P(y,x).  [resolve(89,b,88,a)].
+Derived: P(f10(x,y),x) | -O(x,y) | P(x,y) | P(y,x) | -P(z,x) | -P(z,y) | B(z,x).  [resolve(126,b,127,a)].
+Derived: P(f10(x,y),x) | -O(x,y) | P(x,y) | P(y,x) | -P(z,x) | -P(z,y) | B(z,y).  [resolve(126,b,128,a)].
+Derived: P(f10(x,y),x) | -O(x,y) | P(x,y) | P(y,x) | -IC(x,y).  [resolve(126,b,129,b)].
+Derived: P(f10(x,y),x) | -O(x,y) | P(x,y) | P(y,x) | B(f13(y),y).  [resolve(126,b,130,b)].
+134 P(f10(x,y),y) | EC(x,y) | -O(x,y) | P(x,y) | P(y,x).  [resolve(91,a,85,d)].
+Derived: P(f10(x,y),y) | -O(x,y) | P(x,y) | P(y,x) | -P(z,x) | -P(z,y) | B(z,x).  [resolve(134,b,127,a)].
+Derived: P(f10(x,y),y) | -O(x,y) | P(x,y) | P(y,x) | -P(z,x) | -P(z,y) | B(z,y).  [resolve(134,b,128,a)].
+Derived: P(f10(x,y),y) | -O(x,y) | P(x,y) | P(y,x) | -IC(x,y).  [resolve(134,b,129,b)].
+Derived: P(f10(x,y),y) | -O(x,y) | P(x,y) | P(y,x) | B(f13(y),y).  [resolve(134,b,130,b)].
+135 -B(f10(x,y),x) | -B(f10(x,y),y) | EC(x,y) | -O(x,y) | P(x,y) | P(y,x).  [resolve(92,a,85,d)].
+Derived: -B(f10(x,y),x) | -B(f10(x,y),y) | -O(x,y) | P(x,y) | P(y,x) | -P(z,x) | -P(z,y) | B(z,x).  [resolve(135,c,127,a)].
+Derived: -B(f10(x,y),x) | -B(f10(x,y),y) | -O(x,y) | P(x,y) | P(y,x) | -P(z,x) | -P(z,y) | B(z,y).  [resolve(135,c,128,a)].
+Derived: -B(f10(x,y),x) | -B(f10(x,y),y) | -O(x,y) | P(x,y) | P(y,x) | -IC(x,y).  [resolve(135,c,129,b)].
+Derived: -B(f10(x,y),x) | -B(f10(x,y),y) | -O(x,y) | P(x,y) | P(y,x) | B(f13(y),y).  [resolve(135,c,130,b)].
+136 -IC(x,y) | P(f10(x,y),x) | EC(x,y).  [resolve(93,b,90,a)].
+Derived: -IC(x,y) | P(f10(x,y),x) | -P(z,x) | -P(z,y) | B(z,x).  [resolve(136,c,127,a)].
+Derived: -IC(x,y) | P(f10(x,y),x) | -P(z,x) | -P(z,y) | B(z,y).  [resolve(136,c,128,a)].
+Derived: -IC(x,y) | P(f10(x,y),x) | -IC(x,y).  [resolve(136,c,129,b)].
+137 -IC(x,y) | P(f10(x,y),y) | EC(x,y).  [resolve(93,b,91,a)].
+Derived: -IC(x,y) | P(f10(x,y),y) | -P(z,x) | -P(z,y) | B(z,x).  [resolve(137,c,127,a)].
+Derived: -IC(x,y) | P(f10(x,y),y) | -P(z,x) | -P(z,y) | B(z,y).  [resolve(137,c,128,a)].
+Derived: -IC(x,y) | P(f10(x,y),y) | -IC(x,y).  [resolve(137,c,129,b)].
+138 -IC(x,y) | -B(f10(x,y),x) | -B(f10(x,y),y) | EC(x,y).  [resolve(93,b,92,a)].
+Derived: -IC(x,y) | -B(f10(x,y),x) | -B(f10(x,y),y) | -P(z,x) | -P(z,y) | B(z,x).  [resolve(138,d,127,a)].
+Derived: -IC(x,y) | -B(f10(x,y),x) | -B(f10(x,y),y) | -P(z,x) | -P(z,y) | B(z,y).  [resolve(138,d,128,a)].
+Derived: -IC(x,y) | -B(f10(x,y),x) | -B(f10(x,y),y) | -IC(x,y).  [resolve(138,d,129,b)].
+139 EC(x,y) | I(f11(x,y),x) | IC(x,y) | -O(x,y) | P(x,y) | P(y,x).  [resolve(94,a,85,d)].
+Derived: I(f11(x,y),x) | IC(x,y) | -O(x,y) | P(x,y) | P(y,x) | -P(z,x) | -P(z,y) | B(z,x).  [resolve(139,a,127,a)].
+Derived: I(f11(x,y),x) | IC(x,y) | -O(x,y) | P(x,y) | P(y,x) | -P(z,x) | -P(z,y) | B(z,y).  [resolve(139,a,128,a)].
+Derived: I(f11(x,y),x) | IC(x,y) | -O(x,y) | P(x,y) | P(y,x) | B(f13(y),y).  [resolve(139,a,130,b)].
+140 EC(x,y) | I(f11(x,y),y) | IC(x,y) | -O(x,y) | P(x,y) | P(y,x).  [resolve(95,a,85,d)].
+Derived: I(f11(x,y),y) | IC(x,y) | -O(x,y) | P(x,y) | P(y,x) | -P(z,x) | -P(z,y) | B(z,x).  [resolve(140,a,127,a)].
+Derived: I(f11(x,y),y) | IC(x,y) | -O(x,y) | P(x,y) | P(y,x) | -P(z,x) | -P(z,y) | B(z,y).  [resolve(140,a,128,a)].
+Derived: I(f11(x,y),y) | IC(x,y) | -O(x,y) | P(x,y) | P(y,x) | B(f13(y),y).  [resolve(140,a,130,b)].
+141 P(f10(c1,c2),c1) | EC(c1,c2).  [resolve(96,a,90,a)].
+Derived: P(f10(c1,c2),c1) | -P(x,c1) | -P(x,c2) | B(x,c1).  [resolve(141,b,127,a)].
+Derived: P(f10(c1,c2),c1) | -P(x,c1) | -P(x,c2) | B(x,c2).  [resolve(141,b,128,a)].
+Derived: P(f10(c1,c2),c1) | B(f13(c2),c2).  [resolve(141,b,130,b)].
+Derived: P(f10(c1,c2),c1) | O(c1,c2).  [resolve(141,b,131,a)].
+Derived: P(f10(c1,c2),c1) | -P(c1,c2).  [resolve(141,b,132,a)].
+Derived: P(f10(c1,c2),c1) | -P(c2,c1).  [resolve(141,b,133,a)].
+142 P(f10(c1,c2),c2) | EC(c1,c2).  [resolve(96,a,91,a)].
+Derived: P(f10(c1,c2),c2) | -P(x,c1) | -P(x,c2) | B(x,c1).  [resolve(142,b,127,a)].
+Derived: P(f10(c1,c2),c2) | -P(x,c1) | -P(x,c2) | B(x,c2).  [resolve(142,b,128,a)].
+Derived: P(f10(c1,c2),c2) | B(f13(c2),c2).  [resolve(142,b,130,b)].
+Derived: P(f10(c1,c2),c2) | O(c1,c2).  [resolve(142,b,131,a)].
+Derived: P(f10(c1,c2),c2) | -P(c1,c2).  [resolve(142,b,132,a)].
+Derived: P(f10(c1,c2),c2) | -P(c2,c1).  [resolve(142,b,133,a)].
+143 -B(f10(c1,c2),c1) | -B(f10(c1,c2),c2) | EC(c1,c2).  [resolve(96,a,92,a)].
+Derived: -B(f10(c1,c2),c1) | -B(f10(c1,c2),c2) | -P(x,c1) | -P(x,c2) | B(x,c1).  [resolve(143,c,127,a)].
+Derived: -B(f10(c1,c2),c1) | -B(f10(c1,c2),c2) | -P(x,c1) | -P(x,c2) | B(x,c2).  [resolve(143,c,128,a)].
+Derived: -B(f10(c1,c2),c1) | -B(f10(c1,c2),c2) | B(f13(c2),c2).  [resolve(143,c,130,b)].
+Derived: -B(f10(c1,c2),c1) | -B(f10(c1,c2),c2) | O(c1,c2).  [resolve(143,c,131,a)].
+Derived: -B(f10(c1,c2),c1) | -B(f10(c1,c2),c2) | -P(c1,c2).  [resolve(143,c,132,a)].
+Derived: -B(f10(c1,c2),c1) | -B(f10(c1,c2),c2) | -P(c2,c1).  [resolve(143,c,133,a)].
+144 EC(c1,c2) | I(f11(c1,c2),c1) | IC(c1,c2).  [resolve(96,a,94,a)].
+Derived: I(f11(c1,c2),c1) | IC(c1,c2) | -P(x,c1) | -P(x,c2) | B(x,c1).  [resolve(144,a,127,a)].
+Derived: I(f11(c1,c2),c1) | IC(c1,c2) | -P(x,c1) | -P(x,c2) | B(x,c2).  [resolve(144,a,128,a)].
+Derived: I(f11(c1,c2),c1) | IC(c1,c2) | B(f13(c2),c2).  [resolve(144,a,130,b)].
+Derived: I(f11(c1,c2),c1) | IC(c1,c2) | O(c1,c2).  [resolve(144,a,131,a)].
+Derived: I(f11(c1,c2),c1) | IC(c1,c2) | -P(c1,c2).  [resolve(144,a,132,a)].
+Derived: I(f11(c1,c2),c1) | IC(c1,c2) | -P(c2,c1).  [resolve(144,a,133,a)].
+145 EC(c1,c2) | I(f11(c1,c2),c2) | IC(c1,c2).  [resolve(96,a,95,a)].
+Derived: I(f11(c1,c2),c2) | IC(c1,c2) | -P(x,c1) | -P(x,c2) | B(x,c1).  [resolve(145,a,127,a)].
+Derived: I(f11(c1,c2),c2) | IC(c1,c2) | -P(x,c1) | -P(x,c2) | B(x,c2).  [resolve(145,a,128,a)].
+Derived: I(f11(c1,c2),c2) | IC(c1,c2) | B(f13(c2),c2).  [resolve(145,a,130,b)].
+Derived: I(f11(c1,c2),c2) | IC(c1,c2) | O(c1,c2).  [resolve(145,a,131,a)].
+Derived: I(f11(c1,c2),c2) | IC(c1,c2) | -P(c1,c2).  [resolve(145,a,132,a)].
+Derived: I(f11(c1,c2),c2) | IC(c1,c2) | -P(c2,c1).  [resolve(145,a,133,a)].
+146 -I(x,y) | -I(x,z) | I(f9(y,z),y) | -EC(y,z).  [resolve(97,a,89,b)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),y) | P(f10(y,z),y) | -O(y,z) | P(y,z) | P(z,y).  [resolve(146,d,126,b)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),y) | P(f10(y,z),z) | -O(y,z) | P(y,z) | P(z,y).  [resolve(146,d,134,b)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),y) | -B(f10(y,z),y) | -B(f10(y,z),z) | -O(y,z) | P(y,z) | P(z,y).  [resolve(146,d,135,c)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),y) | I(f11(y,z),y) | IC(y,z) | -O(y,z) | P(y,z) | P(z,y).  [resolve(146,d,139,a)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),y) | I(f11(y,z),z) | IC(y,z) | -O(y,z) | P(y,z) | P(z,y).  [resolve(146,d,140,a)].
+147 -I(x,y) | -I(x,z) | I(f9(y,z),z) | -EC(y,z).  [resolve(98,a,89,b)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),z) | P(f10(y,z),y) | -O(y,z) | P(y,z) | P(z,y).  [resolve(147,d,126,b)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),z) | P(f10(y,z),z) | -O(y,z) | P(y,z) | P(z,y).  [resolve(147,d,134,b)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),z) | -B(f10(y,z),y) | -B(f10(y,z),z) | -O(y,z) | P(y,z) | P(z,y).  [resolve(147,d,135,c)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),z) | I(f11(y,z),y) | IC(y,z) | -O(y,z) | P(y,z) | P(z,y).  [resolve(147,d,139,a)].
+Derived: -I(x,y) | -I(x,z) | I(f9(y,z),z) | I(f11(y,z),z) | IC(y,z) | -O(y,z) | P(y,z) | P(z,y).  [resolve(147,d,140,a)].
+
+Eliminating PPI/2
+148 PPI(x,y) | -P(y,x) | P(x,y).  [resolve(76,a,70,c)].
+149 -PPI(x,y) | P(f2(y,x),x).  [resolve(75,b,71,a)].
+150 -PPI(x,y) | D(f2(y,x),y).  [resolve(75,b,72,a)].
+151 -PPI(x,y) | P(y,x).  [resolve(75,b,73,a)].
+152 -PPI(x,y) | -P(x,y).  [resolve(75,b,74,a)].
+Derived: -P(x,y) | P(y,x) | P(f2(x,y),y).  [resolve(148,a,149,a)].
+Derived: -P(x,y) | P(y,x) | D(f2(x,y),x).  [resolve(148,a,150,a)].
+153 -B(x,y) | PPI(y,x).  [resolve(77,b,76,a)].
+Derived: -B(x,y) | P(f2(x,y),y).  [resolve(153,b,149,a)].
+Derived: -B(x,y) | D(f2(x,y),x).  [resolve(153,b,150,a)].
+Derived: -B(x,y) | P(x,y).  [resolve(153,b,151,a)].
+Derived: -B(x,y) | -P(y,x).  [resolve(153,b,152,a)].
+154 B(f17(x,y),y) | -PPI(y,x) | -B(z,y).  [resolve(108,b,102,a)].
+Derived: B(f17(x,y),y) | -B(z,y) | -P(x,y) | P(y,x).  [resolve(154,b,148,a)].
+155 B(f17(x,y),y) | -PPI(y,x) | I(x,y).  [resolve(108,b,103,a)].
+Derived: B(f17(x,y),y) | I(x,y) | -P(x,y) | P(y,x).  [resolve(155,b,148,a)].
+156 B(f17(x,y),y) | -PPI(y,x) | -I(y,x).  [resolve(108,b,104,a)].
+Derived: B(f17(x,y),y) | -I(y,x) | -P(x,y) | P(y,x).  [resolve(156,b,148,a)].
+157 B(f17(x,y),y) | -PPI(y,x) | IPI(y,x).  [resolve(108,b,106,a)].
+Derived: B(f17(x,y),y) | IPI(y,x) | -P(x,y) | P(y,x).  [resolve(157,b,148,a)].
+158 PPI(c1,c2).  [resolve(118,a,111,a)].
+Derived: P(f2(c2,c1),c1).  [resolve(158,a,149,a)].
+Derived: D(f2(c2,c1),c2).  [resolve(158,a,150,a)].
+Derived: P(c2,c1).  [resolve(158,a,151,a)].
+Derived: -P(c1,c2).  [resolve(158,a,152,a)].
+159 -P(x,y) | -B(x,z) | -P(y,z) | P(z,y) | PPI(z,y).  [resolve(119,c,118,a)].
+160 -P(x,y) | -B(x,z) | -PPI(z,y) | P(f8(y,z),y).  [resolve(120,c,112,a)].
+Derived: -P(x,y) | -B(x,z) | P(f8(y,z),y) | -P(y,z) | P(z,y).  [resolve(160,c,148,a)].
+Derived: -P(x,c2) | -B(x,c1) | P(f8(c2,c1),c2).  [resolve(160,c,158,a)].
+161 -P(x,y) | -B(x,z) | -PPI(z,y) | B(f8(y,z),z).  [resolve(120,c,113,a)].
+Derived: -P(x,y) | -B(x,z) | B(f8(y,z),z) | -P(y,z) | P(z,y).  [resolve(161,c,148,a)].
+Derived: -P(x,c2) | -B(x,c1) | B(f8(c2,c1),c1).  [resolve(161,c,158,a)].
+162 -P(x,y) | -B(x,z) | -PPI(z,y) | P(f2(y,z),z).  [resolve(120,c,114,a)].
+163 -P(x,y) | -B(x,z) | -PPI(z,y) | D(f2(y,z),y).  [resolve(120,c,115,a)].
+164 -P(x,y) | -B(x,z) | -PPI(z,y) | P(y,z).  [resolve(120,c,116,a)].
+165 -P(x,y) | -B(x,z) | -PPI(z,y) | -P(z,y).  [resolve(120,c,117,a)].
+166 -P(x,y) | -B(x,z) | -B(y,z) | PPI(z,y).  [resolve(121,c,118,a)].
+Derived: -P(x,y) | -B(x,z) | -B(y,z) | -P(u,y) | -B(u,z) | P(f8(y,z),y).  [resolve(166,d,160,c)].
+Derived: -P(x,y) | -B(x,z) | -B(y,z) | -P(u,y) | -B(u,z) | B(f8(y,z),z).  [resolve(166,d,161,c)].
+167 B(f17(x,y),y) | -B(z,y) | -P(u,x) | -B(u,y) | -PPI(y,x).  [resolve(122,b,120,c)].
+Derived: B(f17(c2,c1),c1) | -B(x,c1) | -P(y,c2) | -B(y,c1).  [resolve(167,e,158,a)].
+
+Eliminating IPI/2
+168 IPI(x,y) | B(f7(y,x),x) | -I(y,x) | I(x,y).  [resolve(106,a,101,d)].
+169 -IPI(x,y) | -B(z,x).  [resolve(105,b,102,a)].
+170 -IPI(x,y) | I(y,x).  [resolve(105,b,103,a)].
+171 -IPI(x,y) | -I(x,y).  [resolve(105,b,104,a)].
+Derived: B(f7(x,y),y) | -I(x,y) | I(y,x) | -B(z,y).  [resolve(168,a,169,a)].
+172 B(f17(x,y),y) | -P(x,y) | P(y,x) | IPI(y,x).  [resolve(107,b,106,a)].
+173 B(f17(c2,c1),c1) | IPI(c1,c2).  [resolve(125,b,111,a)].
+Derived: B(f17(c2,c1),c1) | -B(x,c1).  [resolve(173,b,169,a)].
+Derived: B(f17(c2,c1),c1) | I(c2,c1).  [resolve(173,b,170,a)].
+Derived: B(f17(c2,c1),c1) | -I(c1,c2).  [resolve(173,b,171,a)].
+174 B(f17(x,y),y) | IPI(y,x) | -P(x,y) | P(y,x).  [resolve(157,b,148,a)].
+Derived: B(f17(x,y),y) | -P(x,y) | P(y,x) | -B(z,y).  [resolve(174,b,169,a)].
+Derived: B(f17(x,y),y) | -P(x,y) | P(y,x) | I(x,y).  [resolve(174,b,170,a)].
+Derived: B(f17(x,y),y) | -P(x,y) | P(y,x) | -I(y,x).  [resolve(174,b,171,a)].
+
+============================== end predicate elimination =============
+
+Auto_denials:  (non-Horn, no changes).
+
+Term ordering decisions:
+Predicate symbol precedence:  predicate_order([ =, P, B, I, O, IC, D, EQ ]).
+Function symbol precedence:  function_order([ null, cuniversal, c1, c2, c3, c4, c5, sum, diff, prod, f2, f5, f6, f7, f8, f9, f10, f11, f14, f15, f16, f17, f18, compl, bdy, f1, f3, f4, f12, f13, f19 ]).
+After inverse_order:  (no changes).
+Unfolding symbols: (none).
+
+Auto_inference settings:
+  % set(paramodulation).  % (positive equality literals)
+  % set(binary_resolution).  % (non-Horn)
+
+Auto_process settings:
+  % set(factor).  % (non-Horn)
+  % set(unit_deletion).  % (non-Horn)
+
+           175 null != c1.  [clausify(1)].
+kept:      176 c1 != null.  [copy(175),flip(a)].
+           177 null != c2.  [clausify(1)].
+kept:      178 c2 != null.  [copy(177),flip(a)].
+kept:      179 B(c3,c1).  [clausify(1)].
+kept:      180 B(c4,c2).  [clausify(1)].
+kept:      181 null = x | P(x,x).  [clausify(2)].
+kept:      182 -P(x,y) | -P(y,x) | y = x.  [clausify(3)].
+kept:      183 -P(x,y) | -P(y,z) | P(x,z).  [clausify(4)].
+kept:      184 null != x | -P(y,x).  [clausify(5)].
+kept:      185 null != x | -P(x,y).  [clausify(5)].
+kept:      186 P(f1(x),x) | P(x,f1(x)) | null = x.  [clausify(5)].
+kept:      187 null = x | P(x,c5).  [clausify(8)].
+kept:      188 cuniversal != x | null = y | P(y,x).  [clausify(9)].
+           189 null != f3(x) | cuniversal = x.  [clausify(9)].
+kept:      190 f3(x) != null | cuniversal = x.  [copy(189),flip(a)].
+kept:      191 -P(f3(x),x) | cuniversal = x.  [clausify(9)].
+kept:      192 -B(x,cuniversal).  [clausify(10)].
+kept:      193 -EQ(x,y) | P(y,x).  [clausify(14)].
+kept:      194 -EQ(x,y) | P(x,y).  [clausify(14)].
+kept:      195 -P(x,y) | -P(y,x) | EQ(y,x).  [clausify(14)].
+kept:      196 -O(x,y) | P(f5(x,y),x).  [clausify(15)].
+kept:      197 -O(x,y) | P(f5(x,y),y).  [clausify(15)].
+kept:      198 -P(x,y) | -P(x,z) | O(y,z).  [clausify(15)].
+kept:      199 -D(x,y) | -O(x,y).  [clausify(16)].
+kept:      200 O(x,y) | D(x,y).  [clausify(16)].
+kept:      201 -B(x,y) | -B(y,z) | B(x,z).  [clausify(18)].
+kept:      202 -P(x,y) | -B(y,z) | B(x,z).  [clausify(19)].
+kept:      203 -B(x,y) | -P(y,z) | P(x,z).  [clausify(20)].
+kept:      204 -I(x,y) | P(x,y).  [clausify(22)].
+kept:      205 -I(x,y) | -B(z,y) | D(z,x).  [clausify(22)].
+kept:      206 -P(x,y) | B(f6(x,y),y) | I(x,y).  [clausify(22)].
+kept:      207 -P(x,y) | -D(f6(x,y),x) | I(x,y).  [clausify(22)].
+kept:      208 -IC(x,y) | -I(z,x) | -I(z,y).  [clausify(30)].
+kept:      209 null = x | I(f12(x),x).  [clausify(31)].
+kept:      210 -B(x,y) | -B(z,y) | -I(z,y).  [clausify(33)].
+kept:      211 -B(x,y) | -EQ(y,z) | B(f14(y,z),z).  [clausify(35)].
+kept:      212 B(f15(x,y),x) | -EQ(x,y) | -B(z,y).  [clausify(36)].
+kept:      213 B(f16(x,y),x) | -B(z,y) | -EQ(x,y).  [clausify(37)].
+kept:      214 -O(x,sum(y,z)) | O(x,y) | O(x,z).  [clausify(39)].
+kept:      215 -O(x,y) | O(x,sum(y,z)).  [clausify(39)].
+kept:      216 -O(x,y) | O(x,sum(z,y)).  [clausify(39)].
+kept:      217 -P(x,prod(y,z)) | P(x,y).  [clausify(40)].
+kept:      218 -P(x,prod(y,z)) | P(x,z).  [clausify(40)].
+kept:      219 -P(x,y) | -P(x,z) | P(x,prod(y,z)).  [clausify(40)].
+kept:      220 -P(x,compl(y)) | D(x,y).  [clausify(41)].
+kept:      221 -P(x,diff(y,z)) | P(x,y).  [clausify(42)].
+kept:      222 -P(x,diff(y,z)) | D(x,z).  [clausify(42)].
+kept:      223 -P(x,y) | -D(x,z) | P(x,diff(y,z)).  [clausify(42)].
+kept:      224 compl(x) != y | compl(x) != z | z = y.  [clausify(43)].
+kept:      225 diff(x,y) != z | diff(x,y) != u | u = z.  [clausify(44)].
+kept:      226 prod(x,y) != z | prod(x,y) != u | u = z.  [clausify(45)].
+kept:      227 sum(x,y) != z | sum(x,y) != u | u = z.  [clausify(46)].
+kept:      228 null = x | null = y | f18(x,y) != null.  [clausify(47)].
+           229 null = x | null = y | sum(x,y) = f18(x,y).  [clausify(47)].
+kept:      230 null = x | null = y | f18(x,y) = sum(x,y).  [copy(229),flip(c)].
+
+% Operation sum is commutative; C redundancy checks enabled.
+kept:      231 sum(x,y) = sum(y,x).  [clausify(48)].
+kept:      232 compl(x) != null | cuniversal = x.  [clausify(49)].
+kept:      233 cuniversal != x | compl(x) = null.  [clausify(49)].
+kept:      234 compl(x) != cuniversal | null = x.  [clausify(50)].
+kept:      235 null != x | compl(x) = cuniversal.  [clausify(50)].
+
+% Operation prod is commutative; C redundancy checks enabled.
+kept:      236 prod(x,y) = prod(y,x).  [clausify(51)].
+kept:      237 diff(x,y) != null | null = x | P(x,y).  [clausify(52)].
+kept:      238 -D(x,y) | diff(x,y) = x.  [clausify(53)].
+kept:      239 -P(x,cuniversal) | diff(x,null) = x.  [clausify(54)].
+kept:      240 -P(x,cuniversal) | sum(null,x) = x.  [clausify(55)].
+kept:      241 null = x | I(f19(x),x).  [clausify(56)].
+kept:      242 null = x | -I(y,x) | I(y,f19(x)).  [clausify(56)].
+kept:      243 null = x | -B(y,f19(x)).  [clausify(56)].
+kept:      244 bdy(x) = null | B(bdy(x),x).  [clausify(57)].
+kept:      245 bdy(x) = null | -B(y,x) | P(y,bdy(x)).  [clausify(57)].
+kept:      246 I(f9(c1,c2),c1).  [resolve(65,a,64,a)].
+kept:      247 I(f9(c1,c2),c2).  [resolve(66,a,64,a)].
+kept:      248 -P(x,y) | P(y,x) | P(f2(x,y),y).  [resolve(70,c,71,a)].
+kept:      249 -P(x,y) | P(y,x) | D(f2(x,y),x).  [resolve(70,c,72,a)].
+kept:      250 -B(x,y) | P(f2(x,y),y).  [resolve(77,b,71,a)].
+kept:      251 -B(x,y) | D(f2(x,y),x).  [resolve(77,b,72,a)].
+kept:      252 -B(x,y) | P(x,y).  [resolve(77,b,73,a)].
+kept:      253 -B(x,y) | -P(y,x).  [resolve(77,b,74,a)].
+kept:      254 null = x | P(f4(x),x) | -P(y,x) | EQ(x,y).  [resolve(81,c,83,a)].
+kept:      255 null = x | -EQ(x,f4(x)) | -P(y,x) | EQ(x,y).  [resolve(84,c,83,a)].
+kept:      256 -IC(x,y) | O(x,y).  [resolve(93,b,86,a)].
+kept:      257 -IC(x,y) | -P(x,y).  [resolve(93,b,87,a)].
+kept:      258 -IC(x,y) | -P(y,x).  [resolve(93,b,88,a)].
+kept:      259 O(c1,c2).  [resolve(96,a,86,a)].
+kept:      260 -P(c1,c2).  [resolve(96,a,87,a)].
+kept:      261 -P(c2,c1).  [resolve(96,a,88,a)].
+kept:      262 -I(x,y) | -I(x,z) | I(f9(y,z),y) | -O(y,z) | P(y,z) | P(z,y).  [resolve(97,a,85,d)].
+kept:      263 -I(x,y) | -I(x,z) | I(f9(y,z),z) | -O(y,z) | P(y,z) | P(z,y).  [resolve(98,a,85,d)].
+kept:      264 B(f7(x,y),y) | -I(x,y) | I(y,x) | -B(z,y).  [resolve(101,d,102,a)].
+kept:      265 B(f17(x,y),y) | -P(x,y) | P(y,x) | -B(z,y).  [resolve(107,b,102,a)].
+kept:      266 B(f17(x,y),y) | -P(x,y) | P(y,x) | I(x,y).  [resolve(107,b,103,a)].
+kept:      267 B(f17(x,y),y) | -B(x,y) | -B(z,y).  [resolve(109,b,102,a)].
+kept:      268 P(f8(c2,c1),c2).  [resolve(111,a,112,a)].
+kept:      269 B(f8(c2,c1),c1).  [resolve(111,a,113,a)].
+kept:      270 P(f2(c2,c1),c1).  [resolve(114,a,111,a)].
+kept:      271 D(f2(c2,c1),c2).  [resolve(115,a,111,a)].
+           272 P(c2,c1).  [resolve(116,a,111,a)].
+-------- Proof 1 -------- 
+
+============================== PROOF =================================
+
+% Proof 1 at 0.04 (+ 0.01) seconds.
+% Length of proof is 19.
+% Level of proof is 4.
+% Maximum clause weight is 3.000.
+% Given clauses 0.
+
+1 -(all x all y (-(x != null & y != null & (exists z B(z,x)) & (exists t B(t,y)) & TPPI(x,y)) | -OV(x,y))) # label(non_clause).  [assumption].
+12 (all x all y ((-PP(x,y) | P(x,y) & -P(y,x)) & (-(P(x,y) & -P(y,x)) | PP(x,y)))) # label(non_clause).  [assumption].
+21 (all x all y ((-IMB(x,y) | O(x,y) & -P(x,y) & -P(y,x)) & (-(O(x,y) & -P(x,y) & -P(y,x)) | IMB(x,y)))) # label(non_clause).  [assumption].
+26 (all x all y ((-TPP(x,y) | PP(x,y) & (exists z (P(z,x) & B(z,y)))) & (-(PP(x,y) & (exists z (P(z,x) & B(z,y)))) | TPP(x,y)))) # label(non_clause).  [assumption].
+27 (all x all y ((-TPPI(x,y) | TPP(y,x)) & (-TPP(y,x) | TPPI(x,y)))) # label(non_clause).  [assumption].
+28 (all x all y ((-OV(x,y) | IMB(x,y) & (exists p (I(p,x) & I(p,y)))) & (-(IMB(x,y) & (exists p (I(p,x) & I(p,y)))) | OV(x,y)))) # label(non_clause).  [assumption].
+60 -TPPI(x,y) | TPP(y,x).  [clausify(27)].
+61 TPPI(c1,c2).  [clausify(1)].
+63 -OV(x,y) | IMB(x,y).  [clausify(28)].
+64 OV(c1,c2).  [clausify(1)].
+73 -PP(x,y) | P(x,y).  [clausify(12)].
+78 -TPP(x,y) | PP(x,y).  [clausify(26)].
+88 -IMB(x,y) | -P(y,x).  [clausify(21)].
+96 IMB(c1,c2).  [resolve(63,a,64,a)].
+111 TPP(c2,c1).  [resolve(60,a,61,a)].
+116 -TPP(x,y) | P(x,y).  [resolve(78,b,73,a)].
+261 -P(c2,c1).  [resolve(96,a,88,a)].
+272 P(c2,c1).  [resolve(116,a,111,a)].
+273 $F.  [copy(272),unit_del(a,261)].
+
+============================== end of proof ==========================
+
+============================== STATISTICS ============================
+
+Given=0. Generated=104. Kept=93. proofs=1.
+Usable=0. Sos=0. Demods=2. Limbo=93, Disabled=219. Hints=0.
+Kept_by_rule=0, Deleted_by_rule=0.
+Forward_subsumed=10. Back_subsumed=0.
+Sos_limit_deleted=0. Sos_displaced=0. Sos_removed=0.
+New_demodulators=2 (2 lex), Back_demodulated=0. Back_unit_deleted=0.
+Demod_attempts=441. Demod_rewrites=0.
+Res_instance_prunes=0. Para_instance_prunes=0. Basic_paramod_prunes=0.
+Nonunit_fsub_feature_tests=30. Nonunit_bsub_feature_tests=0.
+Megabytes=0.70.
+User_CPU=0.04, System_CPU=0.01, Wall_clock=0.
+
+============================== end of statistics =====================
+
+============================== end of search =========================
+
+THEOREM PROVED
+
+THEOREM PROVED
+
+Exiting with 1 proof.
+
+------ process 7941 exit (max_proofs) ------
+
+Process 7941 exit (max_proofs) Mon Feb  3 11:59:51 2020
+
+========================== MACLEOD SUMMARY ===========================
+reasoner: /home/aidin12/macleod/Reasoning/prover9_bin/prover9
+status: PROOF
+execution finished: Mon Feb 03 11:59:53 2020
+total CPU time used: 0
+The command was "/home/aidin12/macleod/Reasoning/prover9_bin/prover9 -t100 -f /home/aidin12/macleod/ontologies/after/JEPD/PD/conversions/PD103.all.p9"
+============================ end of footer ===========================
